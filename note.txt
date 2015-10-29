@@ -1,0 +1,19 @@
+------------------------
+NeedbizNow Pages To Test
+------------------------
+Front End : 
+1. Home http://localhost/needbiznow/
+2. Search Biz Listing http://localhost/needbiznow/biz_listing/search?cklsearch=&submit=
+3. Login http://localhost/needbiznow/login
+4. Package http://localhost/needbiznow/package/?ct=8&rl=1
+5. Registration http://localhost/needbiznow/user?package_id=1&ct=8&rl=1
+6. Sell a business first step http://localhost/needbiznow/biz_listing
+7. Sell a business second step http://localhost/needbiznow/biz_listing/secondstep
+8. Sell a business third step http://localhost/needbiznow/biz_listing/thirdstep
+9. Biz Details http://localhost/needbiznow/biz_listing/details?dtls=1
+10. Download page http://localhost/needbiznow/biz_listing/download?file=bizlisting/business4sale.png
+11. Find Broker http://localhost/needbiznow/broker
+12. Search Broker http://localhost/needbiznow/broker/searchbroker?city=&search=Search
+13. Broker Details http://localhost/needbiznow/broker/brokerdetails?broker=1
+14. Broker Profile Info http://localhost/needbiznow/broker/profileinfo
+15. Broker Listing http://localhost/needbiznow/biz_listing/brokerlisting?uid=45
