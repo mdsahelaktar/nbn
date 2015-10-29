@@ -1,0 +1,12 @@
+# BEGIN CI
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /nbn/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond $1 !^(index\.php|images|robots\.txt)
+RewriteRule . /nbn/index.php [L]
+</IfModule>
+
+# END CI
