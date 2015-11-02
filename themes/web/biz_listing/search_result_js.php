@@ -72,11 +72,11 @@ $( document ).ready(function()
  {
 	var param = '';
 	<?php   if($_REQUEST["biz_domain_id"]){ ?>
-			param += "biz_domain_id=<?php echo $_POST["biz_domain_id"]?>&";
+			param += "biz_domain_id=<?php echo $_REQUEST["biz_domain_id"]?>&";
 	<?php } if($_REQUEST["biz_type_id"] ){ ?>		  
 			param += "biz_type_id=<?php echo $_REQUEST["biz_type_id"]?>&";				 
 	<?php } if( $_REQUEST["province_id"] ){ ?>		  
-			param += "province_id=<?php echo $_POST["province_id"]?>&";			
+			param += "province_id=<?php echo $_REQUEST["province_id"]?>&";			
 	<?php } if($_REQUEST["cklsearch"] ){ ?>
 	 			param += "cklsearch=<?php echo $_REQUEST["cklsearch"]?>&";
 				$(".slidediv").slideToggle();

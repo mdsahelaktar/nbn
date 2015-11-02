@@ -1,0 +1,18 @@
+Home Page:
+1. Dropdown default country set when loading the site first time has bug(fixed)
+2. Tooltip removed from frontend and admin as well. Infuture add that to admin only.
+3. Browse Business for Sale Listings by Industry. (tested)
+4. Browse More Popular Businesses for Sale. (tested)
+5. Insert popular item for city, there is one bug found during insertion. For two contry having same city name showing theexact bug.
+6. Browse Popular Restaurants for Sale. (tested)
+7. Top 10 Business For Sale. (tested)
+8. Search business by city, keyword or listing ID. (tested)
+9. Search business for sale in the banner. (tested)
+10. Links of Top searches. (tested) 
+11. Links of  Browse Business for Sale Listings by Industry. (tested)
+12. Links of Browse Business for Sale Listings by State. (tested)
+13. Links of Browse Business for Sale Listings by Top Cities. (tested) But in the search page there is no search input for city.
+14. Links of Browse More Popular Businesses for Sale. (tested)
+15. Links of Browse Popular Restaurants for Sale. (tested)
+16. Links of Top 10 Business For Sale. (tested)
+17. In search broker tab the province and county dependency bug. (fixed)

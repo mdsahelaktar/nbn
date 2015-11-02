@@ -2,14 +2,16 @@
 function getBizTypeByBizDomain(Elm)
 {
 	var bizdomainId = $(Elm).val();
+        var biztype_selector = $(Elm).data('biztype-sel');
 	if( !bizdomainId )
 	{
-		$(":input#biz_type_id").append(new Option("Choose biz type", "" ,"selected"));
-		$('#biz_type_id').prop('disabled', true);
+		$(biztype_selector).append(new Option("Choose biz type", "" ,"selected"));
+		$(biztype_selector).prop('disabled', true);
 		return;
 	}
 	var method = new Array("POST", "<?php echo site_url("admin/biz_type/json") ?>", "method=gettype&domain_id=" + bizdomainId, "json", false);
-	ajaxAction(method, addToBizType);	
+        var data = ajaxAction(method, false, true);
+        addBizTypeToSelectBox(biztype_selector, data);	
 }
 
 function addToBizType(data)

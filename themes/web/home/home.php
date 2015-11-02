@@ -48,7 +48,7 @@ $var = $this->config->item('var');
                         <li> 500MWp investment</li>
                     </ul>
                 </div>
-                <div class="box2"> <img alt="<?php echo _e('Have a n urgent problem')?>" src="<?php echo $this->template->get_frontend_image() ?>urgent-problame.jpg" /> <strong><?php echo _e('Have an urgent problem?')?></strong>
+                <div class="box2"> <img alt="<?php echo _e('Have an urgent problem')?>" src="<?php echo $this->template->get_frontend_image() ?>urgent-problame.jpg" /> <strong><?php echo _e('Have an urgent problem?')?></strong>
                     <div class="find-lawyer"> <a href="#"><?php echo _e('Find a Lawyer')?></a></div>
                 </div>
             </div>

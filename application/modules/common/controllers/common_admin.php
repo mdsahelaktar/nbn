@@ -82,7 +82,13 @@ class Common_admin extends MX_Controller {
      */
     function setSomeCommonVar() {
         $client_country_ids = getClientCountryIds();
-
+		// When loading first on the browser
+		if( empty($client_country_ids[0]) && empty($client_country_ids[1]) ){
+			$get_ip = getRealIpAddr();
+        	$take_dtls = ipDetails($get_ip);
+			$default_country_id = Modules::run('country/country_admin/getCountryIdByAbbr', $take_dtls->country);
+			$client_country_ids = array( $default_country_id, $default_country_id );
+		}
         $biz_domain = Modules::run('biz_type/biz_type_admin/getBizDomain');
         $biz_domain_dd = array('' => _e('Choose biz domain')) + $biz_domain;
         

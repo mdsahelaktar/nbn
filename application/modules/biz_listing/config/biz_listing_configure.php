@@ -23,7 +23,8 @@ $config['biz_listing_configure']['dependent_on'] = array(
             'is_deleted',
             'is_main',
             'context_id'
-        )
+        ),
+		'where' => array( '(CASE WHEN image.context_id IS NULL THEN 1 ELSE image.context_id = 3 END)' )// Place image context id now biz = 3 as image context id
     ),
     'country' => array(
         'on' => 'biz_listing.country_id = country.ai_country_id',

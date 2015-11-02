@@ -2,15 +2,17 @@
 function getCountyByProvince(Elm)
 {
 	var provinceId = $(Elm).val();
+	var county_selector = $(Elm).data('county-sel');
 	if( !provinceId )
 	{
-		$(":input#county_id, :input#is_county_cnfdntl").attr("disabled", true);
+		$(":input#is_county_cnfdntl").attr("disabled", true);
+		$(county_selector).append(new Option("<?php echo _e('Choose County');?>", "" ,"selected"));
+		$(county_selector).prop('disabled', true);
 		return;
 	}
 	var method = new Array("POST", "<?php echo site_url("admin/county/json") ?>", "method=getcounties&province=" + provinceId, "json", false);		
-        var data = ajaxAction(method, false, true);
-        var county_selector = $(Elm).data('county-sel');
-        addCountiesToSelectBox(county_selector, data);
+    var data = ajaxAction(method, false, true);
+    addCountiesToSelectBox(county_selector, data);
 }
 
 function addCountiesToSelectBox(county_selector, data)

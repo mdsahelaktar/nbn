@@ -20,8 +20,8 @@ $config['broker_configure']['dependent_on']		= array(
 															'type' 	=> 'left',
 															'fetch' => array(
 																		'country_id',
-																		'province',
-																		'county',
+																		'province_id',
+																		'county_id',
 																		'city',
 																		'zipcode',
 																		'latitude',

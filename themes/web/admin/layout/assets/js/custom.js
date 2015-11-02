@@ -18,8 +18,8 @@ $(document).ready(function(){
 			return false;					
 	});
 	<!--Jquery ui Tooltip-->
-	if (typeof jQuery.ui != 'undefined') 
- 		$( document ).tooltip();
+	//if (typeof jQuery.ui != 'undefined') 
+ 		//$( document ).tooltip();
 
 });
 

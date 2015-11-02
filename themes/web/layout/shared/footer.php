@@ -35,7 +35,7 @@
         <li> |</li>
         <li> Privacy Policy</li>
       </ul>
-      <p> Copyright © 2013 Need Biz Now.</p>
+      <p> Copyright © <?php echo date('Y')?> Need Biz Now.</p>
       <ul class="social">
         <li> <a href="#"><img alt="Facebook" src="<?php echo $this->template->get_frontend_image("facebook-icon.png")?>" /></a></li>
         <li> <a href="#"><img alt="Twitter" src="<?php echo $this->template->get_frontend_image("twitter-icon.png")?>" /></a></li>

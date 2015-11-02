@@ -179,7 +179,7 @@ class Popular extends MX_Controller
 		}
 		if($main_type == 1 && $child_type == 'biz_type_id')
 		{
-			$data['link_format'] = '<a href="biz_listing/search?ai_biz_type_id=%s&domain_id=%s" class="global1">%s</a>';	
+			$data['link_format'] = '<a href="biz_listing/search?biz_type_id=%s&biz_domain_id=%s" class="global1">%s</a>';	
 			$data['condition'] = 1;
 			$data['mod'] = 30;
 	    }
