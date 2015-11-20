@@ -34,6 +34,7 @@ function sortBizChange(elm){
 function sortBizToggle(elm)
 {
 	unsetDropDownSorting();
+	unsetAnchorSorting(elm);
 	var sortId = $(elm).data('sort-val');		
 	if( sortId != ""){
 		$('[sort-active="true"]').attr('sort-active', false);
@@ -45,10 +46,12 @@ function sortBizToggle(elm)
 	return false;
 }
 
-function unsetAnchorSorting(){
+function unsetAnchorSorting(current_elm){
 	$("#ident a").each(function(){
-		var default_sort = $(this).data('sort-default');
-		$(this).data('sort-val', default_sort);
+		if(current_elm && current_elm.id == this.id)
+			return;
+			var default_sort = $(this).data('sort-default');
+			$(this).data('sort-val', default_sort);
 	});	
 }
 

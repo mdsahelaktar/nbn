@@ -1,18 +1,23 @@
 <script type="application/javascript">
 function getProvinceByCountry(Elm)
 {
-	$("label[for='province_id'], label[for='county_id'], label[for='is_county_cnfdntl']").show();
-	$(":input#province_id, :input#county_id, :input#is_county_cnfdntl").show().attr("disabled", false);		
+	var child_input_parent_selector = $(Elm).data('child-input-parent');
+	var child_input_selector = $(Elm).data('child-input');
+	child_input_parent_selector = child_input_parent_selector ? child_input_parent_selector : "label[for='province_id'], label[for='county_id'], label[for='is_county_cnfdntl']";	
+	child_input_selector = child_input_selector ? child_input_selector : ":input#province_id, :input#county_id, :input#is_county_cnfdntl";
+	
+	$(child_input_parent_selector).show();
+	$(child_input_selector).show().attr("disabled", false);		
 	var countryId = $(Elm).val();
 	if( !countryId )
 	{
-		$(":input#province_id, :input#county_id, :input#is_county_cnfdntl").attr("disabled", true);
+		$(child_input_selector).attr("disabled", true);
 		return;
 	}
 	if( countryId != 1 )
 	{
-		$("label[for='province_id'], label[for='county_id'], label[for='is_county_cnfdntl']").hide();
-		$(":input#province_id, :input#county_id, :input#is_county_cnfdntl").hide().attr("disabled", true);
+		$(child_input_parent_selector).hide();
+		$(child_input_selector).hide().attr("disabled", true);
 		return;
 	}
 	var method = new Array("POST", "<?php echo site_url("admin/province/json") ?>", "method=getprovinces&country=" + countryId, "json", false);

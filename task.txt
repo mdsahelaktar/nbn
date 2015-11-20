@@ -16,3 +16,24 @@ Home Page:
 15. Links of Browse Popular Restaurants for Sale. (tested)
 16. Links of Top 10 Business For Sale. (tested)
 17. In search broker tab the province and county dependency bug. (fixed)
+
+Search Biz Listing:
+1. Search for all criteria. (tested)
+
+Biz Details:
+1. All info are coming correctly
+
+Login:
+1. Login tested
+
+Registration:
+1. Registration tested
+
+Sell a business first step:
+1. tested
+
+Sell a business second step:
+1. Tested
+
+Sell a business third step:
+1. Tested. It doesn't redirect after save the third and final step.

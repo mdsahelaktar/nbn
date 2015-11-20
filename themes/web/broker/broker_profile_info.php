@@ -33,7 +33,7 @@ if(!$response["event"]["error"]):?>
     
     	<?php $select = $_COOKIE["country_ip"]; ?>
         <?php echo form_label( '<p>'._e( 'Country' ).'</p>', 'country_id_broker_profile' )?>
-        <?php echo form_dropdown('country_id', $var['country_dd'], '', 'id="country_id_broker_profile" onchange="getProvinceByCountry(this)" data-province-sel="#province_id" style="max-width:40%;" data-display="'._e( 'Country' ).'" data-rules="required"'); ?>
+        <?php echo form_dropdown('country_id', $var['country_dd'], '', 'id="country_id_broker_profile" onchange="getProvinceByCountry(this)" data-province-sel="#province_id_broker_profile" data-child-input-parent="label[for=\'province_id_broker_profile\'], label[for=\'county_id_broker_profile\'], label[for=\'city_id_broker_profile\'], label[for=\'zipcode_broker_profile\']" data-child-input=":input#province_id_broker_profile, :input#county_id_broker_profile, :input#city_id_broker_profile, :input#zipcode_broker_profile" style="max-width:40%;" data-display="'._e( 'Country' ).'" data-rules="required"'); ?>
      <div class="clear"></div>
     
     

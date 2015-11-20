@@ -11,7 +11,7 @@
             <?php echo form_input(array('name' => 'saveandcontlet', 'type' => 'hidden', 'id' => 'saveandcontlet', 'value' => false)); ?>
             
                <li> <?php echo form_label('<strong><dfn>' . _e('Headline: ') . '</dfn></strong>', 'headline') ?> 
-                <?php echo form_input(array('name' => 'headline', 'id' => 'headline', 'placeholder' => 'add headline here', 'autofocus' => 'autofocus', 'class' => 'validate', 'data-display' => _e('Headline'), 'data-rules' => 'required', 'value' => $results[0]->headline)); ?></li>
+                <?php echo form_input(array('name' => 'headline', 'id' => 'headline', 'placeholder' => 'add headline here', 'class' => 'validate', 'data-display' => _e('Headline'), 'data-rules' => 'required', 'value' => $results[0]->headline)); ?></li>
                 
 <li>                <?php echo form_label('<strong><dfn>' . _e('Tagline') . '</dfn></strong>', 'tagline') ?>
                 <?php echo form_input(array('name' => 'tagline', 'id' => 'tagline', 'placeholder' => 'add tagline here', 'class' => 'validate', 'data-display' => _e('Tagline'), 'data-rules' => 'required', 'value' => $results[0]->tagline)); ?></li>

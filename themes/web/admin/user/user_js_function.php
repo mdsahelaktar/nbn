@@ -29,7 +29,7 @@
 
     function userAfterAction(data)
     {             
-    showMsg('<?php echo isAdminArea() ? 'div[msg="user_list"]' : 'div[msg="user"]' ?>', data.event, data.msg, '', true);
+    showMsg('<?php echo isAdminArea() ? 'div[msg="user_list"]' : 'div[msg="user"]' ?>', data.event, data.msg, '', <?php echo isAdminArea() ? true : 120 ?>);
     if(data.event != 'error' && data.cat == 10)
         setTimeout(function(){window.location = "<?php echo site_url("broker/profileinfo") ?>"}, 2000);
     }

@@ -128,8 +128,9 @@ function showMsg(parentElm, msgclass, msg, fade, focusthere)
 {
 	var vice_versa = {'success':'error', 'error':'success'};
 	$(parentElm).find('.'+vice_versa[msgclass]).hide();
+	focusthere = isNaN( focusthere ) ? $(parentElm).offset().top : ( $(parentElm).offset().top - focusthere );
 	if(focusthere)
-		$('html, body').animate({ scrollTop: $(parentElm).offset().top }, 'slow');
+		$('html, body').animate({ scrollTop: ( focusthere ) }, 'slow');
 	if($(parentElm).find('.'+msgclass).length > 0)
 		$(parentElm).find('.'+msgclass).show().html(msg);
 	else

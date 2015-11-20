@@ -81,6 +81,7 @@ class Biz_listing extends MX_Controller {
         $data["top"] = $this->template->frontend_view("all_step_top", $data_top, true, "biz_listing");
         $data["footer"] = $this->template->frontend_view("all_step_footer", $data, true, "biz_listing");
         $data["login_html"] = Modules::run("login/login_admin/login_snippet");
+		$data["register_link"] = "user?ct=2&rl=1";
         $data["content"] = $this->template->frontend_view("biz_listing", $data, true, "biz_listing");
         $this->template->build_frontend_output($data);
     }
@@ -249,6 +250,8 @@ class Biz_listing extends MX_Controller {
                 $POST = $this->input->post();
 				if( ! $POST["province_id"] )
 					unset($POST["province_id"]);
+				if( ! $POST["biz_type_id"] )
+					unset($POST["biz_type_id"]);
                 $where = createWhereArray($POST, $CFG);
 
                 $asking_price_min = $POST['asking_price_min'];
@@ -303,7 +306,7 @@ class Biz_listing extends MX_Controller {
 
                 $records = $this->bizlig->getRecordsNPagination($where, $order_by, $search_by, $limit, $groupby, $group_select);
 
-                ## this section use for insert popular lite ##
+                ## this section use for insert popular list ##
                 if ($this->input->post('biz_type_id') || $this->input->post('province_id') || !empty($cklsearch) || $this->input->post('county_id')) {
                     if (!empty($records['records'])) {
                         $this->load->module('popular/popular');
@@ -514,8 +517,8 @@ class Biz_listing extends MX_Controller {
 		}
 		
 		$this->load->module('biz_listing/biz_listing_admin');		
-		$data['var']['askingprice_dd_min'] = array("0" => _e("Choose min asking price"), $this->biz_listing_admin->getAskingPrice() );
-		$data['var']['askingprice_dd_max'] = array("0" => _e("Choose max asking price"), $this->biz_listing_admin->getAskingPriceMax() );				
+		$data['var']['askingprice_dd_min'] = array("0" => _e("Choose min asking price")) + $this->biz_listing_admin->getAskingPrice() ;
+		$data['var']['askingprice_dd_max'] = array("0" => _e("Choose max asking price")) + $this->biz_listing_admin->getAskingPriceMax() ;				
         $data["title"] = _e("Search Result");
 		
 		//$data['cklsearch'] = $this->input->post('cklsearch') ? $this->input->post('cklsearch') : $this->input->get('city');        

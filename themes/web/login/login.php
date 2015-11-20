@@ -4,7 +4,7 @@
         <div class="width60 float-left">
              <div class="float-left margin-left355 margin-top20">
               <?php echo $login_html ?>
-              Don't have an account? <span class="registerbtn"><?php echo anchor( 'user?ct=8&rl=1', _e( 'Register' ), array( 'title' => _e( 'Register' ) ) )?></span>
+              Don't have an account? <span class="registerbtn"><?php echo anchor( $register_link, _e( 'Register' ), array( 'title' => _e( 'Register' ) ) )?></span>
              </div>
            </div>
           <div class="width320 float-right">

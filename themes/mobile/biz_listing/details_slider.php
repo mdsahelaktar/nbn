@@ -2,7 +2,7 @@
 if(empty($data))
 {
 ?>
-	<h4> <?php echo 'similar business not found' ?> </h4>
+	<h4> <?php echo 'Similar Business Not Found' ?> </h4>
     <br />
     <br />
 <?php

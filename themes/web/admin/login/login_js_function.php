@@ -7,7 +7,7 @@ function logIn($form, callback)
 
 function afterLogIn(data)
 {
-	showMsg('div[msg="login"]', data.event, data.msg, '', true);
+	showMsg('div[msg="login"]', data.event, data.msg, '', 120);
 	if(typeof data.redirect != "undefined")
 		setTimeout(function(){window.location = data.redirect}, 1500);
 }

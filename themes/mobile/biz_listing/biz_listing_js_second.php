@@ -12,7 +12,7 @@ function afterValidCheck($this, errors, event)
 
 function bizlistingAfterAddfirst(data)
 {
-	showMsg('div[msg="biz_listing"]', data.event, data.msg, '', true);
+	showMsg('div[msg="biz_listing"]', data.event, data.msg, '', 120);
 	if(data.event != 'error' && data.chk == '' || data.chk == 'false')
 		setTimeout(function(){window.location = "<?php echo site_url("biz_listing/thirdstep")?>"}, 2000);		
 }	

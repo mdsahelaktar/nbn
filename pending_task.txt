@@ -1,0 +1,25 @@
+Search Biz Listing:
+1. Search page form desgin is not up to the mark. (desgin)
+2. Add functionalities for Save this search, Create an email alert. (design and backend)
+3. Refine your search here or go to advanced search for more options. (design)
+4. Listing's design change. (design)
+
+Biz Details:
+1. Print Icon not working. (backend)
+2. Conatct Business Seller check on server. (backend)
+3. Attached Files Attachment Disclaimer.
+4. Sell your business
+5. Other Technology Businesses for Sale
+
+Login:
+1. Forgot your password
+2. Check register link
+
+Register:
+1. Create user name dynamically during register
+
+Sell a business second step:
+1. When country is other than india then design get some issues.
+
+Sell a business third step:
+1. After saving it should redirect to the listing of his page.

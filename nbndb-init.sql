@@ -158,11 +158,9 @@ CREATE TABLE `context` (
   `creation_time` datetime DEFAULT NULL,
   `update_time` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`ai_context_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `context` */
-
-insert  into `context`(`ai_context_id`,`context`,`description`,`is_trashed`,`is_deleted`,`creation_time`,`update_time`) values (1,'Biz','Context related with Biz',0,0,'2015-11-20 14:32:37',NULL);
 
 /*Table structure for table `country` */
 
@@ -305,7 +303,7 @@ CREATE TABLE `package` (
 
 /*Data for the table `package` */
 
-insert  into `package`(`ai_package_id`,`context_id`,`package`,`description`,`amount`,`vim`,`order`,`is_trashed`,`is_deleted`,`creation_time`,`update_time`) values (1,1,'Silver','<div class=\"head\">Featured Ad<br /> <p>Essential features for business sellers.</p></div>\r\n                        <div class=\"featured\"><img src=\"http://localhost/nbn/themes/web/layout/assets/images/plan-flag.png\" /></div>\r\n                        <div class=\"price\"><sup>$</sup> <span>89.95</span> <sub>/mo.</sub></div>\r\n                         <ul class=\"features\">\r\n                            <li><b>Top display in search results</b></li>\r\n                            <li><a href=\"#\">Guide to Selling</a> included</li>\r\n                            <li>Add multiple photos and a video to your listing</li>\r\n                            <li>Get a list of local prospective buyers</li>\r\n                            <li>Customizable sales tagline in search results</li>\r\n                            <li>Dedicated Email Brochure sent to potential buyers</li>\r\n                            <li>Real-time Lead Delivery &amp; Stats</li>\r\n                        </ul>',200,23,0,0,0,'2015-09-09 09:35:05','2015-11-20 20:03:17'),(2,1,'Gold','<div class=\"head\">Economy As<br /> <p>Greater visibility and more responses.</p></div>\r\n                        <div class=\"price\"><sup>$</sup> <span>55.95</span> <sub>/mo.</sub></div>\r\n                         <ul class=\"features\">\r\n                            <li><b>Top display in search results</b></li>\r\n                            <li><a href=\"#\">Guide to Selling</a> included</li>\r\n                            <li>Add multiple photos and a video to your listing</li>\r\n                            <li>Get a list of local prospective buyers</li>\r\n                            <li>Customizable sales tagline in search results</li>\r\n                            <li>Dedicated Email Brochure sent to potential buyers</li>\r\n                            <li>Real-time Lead Delivery &amp; Stats</li>\r\n                        </ul>',220,25,0,0,0,'2015-09-09 10:09:06','2015-11-20 20:03:11');
+insert  into `package`(`ai_package_id`,`context_id`,`package`,`description`,`amount`,`vim`,`order`,`is_trashed`,`is_deleted`,`creation_time`,`update_time`) values (1,2,'silver','<div class=\"head\">Featured Ad<br /> <p>Essential features for business sellers.</p></div>\r\n                        <div class=\"featured\"><img src=\"http://localhost/nbn/themes/web/layout/assets/images/plan-flag.png\" /></div>\r\n                        <div class=\"price\"><sup>$</sup> <span>89.95</span> <sub>/mo.</sub></div>\r\n                         <ul class=\"features\">\r\n                            <li><b>Top display in search results</b></li>\r\n                            <li><a href=\"#\">Guide to Selling</a> included</li>\r\n                            <li>Add multiple photos and a video to your listing</li>\r\n                            <li>Get a list of local prospective buyers</li>\r\n                            <li>Customizable sales tagline in search results</li>\r\n                            <li>Dedicated Email Brochure sent to potential buyers</li>\r\n                            <li>Real-time Lead Delivery &amp; Stats</li>\r\n                        </ul>',200,23,0,0,0,'2015-09-09 09:35:05','2015-09-09 17:03:31'),(2,2,'Gold','<div class=\"head\">Economy As<br /> <p>Greater visibility and more responses.</p></div>\r\n                        <div class=\"price\"><sup>$</sup> <span>55.95</span> <sub>/mo.</sub></div>\r\n                         <ul class=\"features\">\r\n                            <li><b>Top display in search results</b></li>\r\n                            <li><a href=\"#\">Guide to Selling</a> included</li>\r\n                            <li>Add multiple photos and a video to your listing</li>\r\n                            <li>Get a list of local prospective buyers</li>\r\n                            <li>Customizable sales tagline in search results</li>\r\n                            <li>Dedicated Email Brochure sent to potential buyers</li>\r\n                            <li>Real-time Lead Delivery &amp; Stats</li>\r\n                        </ul>',220,25,0,0,0,'2015-09-09 10:09:06','2015-09-09 16:21:16');
 
 /*Table structure for table `permission` */
 
@@ -471,11 +469,11 @@ CREATE TABLE `user_category` (
   `creation_time` datetime DEFAULT NULL,
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ai_user_category_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 /*Data for the table `user_category` */
 
-insert  into `user_category`(`ai_user_category_id`,`user_category`,`creator_id`,`is_trashed`,`is_deleted`,`creation_time`,`update_time`) values (1,'Site Admin',1,0,0,'2015-11-20 16:35:25','2015-11-20 16:35:28'),(2,'Biz Seller',1,0,0,'2015-11-20 11:25:37','2015-11-20 16:55:37'),(3,'Biz Buyer',1,0,0,'2015-11-20 11:25:47','2015-11-20 16:55:47');
+insert  into `user_category`(`ai_user_category_id`,`user_category`,`creator_id`,`is_trashed`,`is_deleted`,`creation_time`,`update_time`) values (1,'Site Admin',1,0,0,'2015-11-20 16:35:25','2015-11-20 16:35:28');
 
 /*Table structure for table `user_map` */
 
@@ -510,11 +508,11 @@ CREATE TABLE `user_role` (
   `creation_time` datetime DEFAULT NULL,
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ai_user_role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 /*Data for the table `user_role` */
 
-insert  into `user_role`(`ai_user_role_id`,`user_category_id`,`user_role`,`is_trashed`,`is_deleted`,`creation_time`,`update_time`) values (1,1,'Super Admin',0,0,'2015-11-20 16:37:34','2015-11-20 16:37:38'),(2,2,'Admin',0,0,'2015-11-20 13:28:36','2015-11-20 18:58:36');
+insert  into `user_role`(`ai_user_role_id`,`user_category_id`,`user_role`,`is_trashed`,`is_deleted`,`creation_time`,`update_time`) values (1,1,'Super Admin',0,0,'2015-11-20 16:37:34','2015-11-20 16:37:38');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
