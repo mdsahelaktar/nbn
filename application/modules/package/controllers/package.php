@@ -35,7 +35,8 @@ class Package extends MX_Controller {
             'form'
         )
     );
-
+	
+	private $user_category_context = array( 2 => 1 );
     /**
      * Constructor
      */
@@ -57,8 +58,10 @@ class Package extends MX_Controller {
         $data = array();
         $data["title"] = _e("Pcakages");
 		## Load config and store ##
-        $CFG = $this->config->item('package_configure');		
-		$records = $this->pmodel->getRecords();
+        $CFG = $this->config->item('package_configure');	
+		## Load package against context_id and this context id genearted from user category id ##
+		$wheres = createWhereArray( array( 'context_id' => $this->user_category_context[$_GET['ct']] ), $CFG );
+		$records = $this->pmodel->getRecords( $wheres );
 		$data["content"] = $this->template->frontend_view("package", array( "packages" => $records ), true, "package");
 		$this->template->build_frontend_output($data);
 		//var_dump($records);

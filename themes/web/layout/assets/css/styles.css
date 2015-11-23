@@ -899,6 +899,29 @@ a.email-alert{background: url(../images/email-alert.png) no-repeat; color: #fff;
 .sample-busine p a {color: #00305e;}
 /*pricing page end----------------------------*/
 
+/*my account page----------------------------*/
+h3.profilehead {color: #fff; background: #00305e; font-size: 15px; padding: 9px 10px; margin: 0; width: 91%; float: left;}
+ul.profile-item {width: 100%; float: left; margin-bottom: 20px;}
+ul.profile-item li {background-color: #eeeeee; color: #666; border-bottom: 1px #c5c5c5 solid; font-size: 13px;  padding: 0; float: left; width: 100%;}
+ul.profile-item li a {background-color: #eeeeee; color: #666; font-size: 13px;  padding: 7px 10px; float: left; width: 91%;}
+ul.profile-item li a:hover {background: #d3d3d3; color: #333;}
+ul.profile-item li:last-child {border-bottom: 2px #00305e solid;}
+
+.profile-steps {width: 710px; float: left; margin: 0 0 0 30px; position: relative;}
+.profile-steps ul {width: 100%; float: left; margin: 80px 0 0 0;}
+.profile-steps ul li {width: 180px; padding: 60px 20px 20px 20px; text-align: center; min-height: 150px; float: left; margin-right: 20px;}
+.profile-steps ul li.normal {border: 1px #d3d3d3 solid;} 
+.profile-steps ul li.active {border: 1px #003366 solid;}
+.profile-steps ul li div.fist-arrow{background: url(../images/profile-arrow-normal.jpg) no-repeat; position: absolute; width: 17px; height: 42px; right: 472px; top: 255px;}
+.profile-steps ul li div.last-arrow{background: url(../images/profile-arrow-normal.jpg) no-repeat; position: absolute; width: 17px; height: 42px; right: 209px; top: 255px;}
+.profile-steps ul li div.activearrow-back {background: url(../images/profile-arrow-active.jpg) no-repeat;  position: absolute; width: 17px; height: 42px; right: 451px; top: 255px;}
+.profile-steps ul li div.activearrow-front {background: url(../images/profile-arrow-active.jpg) no-repeat;  position: absolute; width: 17px; height: 42px; right: 230px; top: 255px;}
+.profile-steps ul li div.search{background: url(../images/bg-profile-search.png) no-repeat; position: absolute; width: 90px; height: 90px; right: 550px; top: 135px;}
+.profile-steps ul li div.savesearch{background: url(../images/bg-profile-save-search.png) no-repeat; position: absolute; width: 90px; height: 90px; right: 310px; top: 135px;}
+.profile-steps ul li div.returntoaccount{background: url(../images/bg-profile-return-to-account.png) no-repeat; position: absolute; width: 90px; height: 90px; right: 70px; top: 135px;}
+.profile-steps ul li:last-child {margin-right: 0;}
+/*my account page end------------------------*/
+
 /*some more style
 -----------------------------------------------------------------------------------------*/	
 .defaultcountry {margin: -73px 0 0 121px; float: left; transition: all 0.3s ease-in 0s; display: block;}

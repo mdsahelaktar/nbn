@@ -81,7 +81,7 @@ class Biz_listing extends MX_Controller {
         $data["top"] = $this->template->frontend_view("all_step_top", $data_top, true, "biz_listing");
         $data["footer"] = $this->template->frontend_view("all_step_footer", $data, true, "biz_listing");
         $data["login_html"] = Modules::run("login/login_admin/login_snippet");
-		$data["register_link"] = "user?ct=2&rl=1";
+		$data["register_link"] = "package?ct=2&rl=1";
         $data["content"] = $this->template->frontend_view("biz_listing", $data, true, "biz_listing");
         $this->template->build_frontend_output($data);
     }

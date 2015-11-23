@@ -17,6 +17,7 @@ Login:
 
 Register:
 1. Create user name dynamically during register
+2. If no package picked during register then html design messed up
 
 Sell a business second step:
 1. When country is other than india then design get some issues.

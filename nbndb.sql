@@ -78,9 +78,11 @@ CREATE TABLE `biz_listing` (
   `creation_time` datetime DEFAULT NULL,
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ai_biz_listing_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 /*Data for the table `biz_listing` */
+
+insert  into `biz_listing`(`ai_biz_listing_id`,`headline`,`tagline`,`description`,`biz_type_id`,`other_biz_type_id`,`country_id`,`province_id`,`county_id`,`is_county_cnfdntl`,`city`,`asking_price`,`is_fincng_avlble`,`year_established`,`employees`,`biz_website`,`gross_revenue`,`gross_revenue_comments`,`cash_flow`,`cash_flow_comments`,`inv_value`,`is_inv_included`,`ffe_value`,`is_ffe_included`,`rs_value`,`is_rs_included`,`is_biz_relctble`,`is_biz_franchis`,`is_biz_hb`,`seller_fincng_info`,`training_support`,`selling_reason`,`facilities`,`mkt_outlook_cmp`,`keywords`,`creator_id`,`user_id`,`status`,`is_trashed`,`is_deleted`,`creation_time`,`update_time`) values (1,'','','',0,0,0,0,0,0,'',0,0,0000,'','',0,'',0,'',0,0,0,0,0,0,0,0,0,'','','','','','',2,2,1,0,0,'2015-11-23 13:45:03','2015-11-23 19:15:03'),(2,'','','',0,0,0,0,0,0,'',0,0,0000,'','',0,'',0,'',0,0,0,0,0,0,0,0,0,'','','','','','',2,2,1,0,0,'2015-11-23 13:53:56','2015-11-23 19:23:56');
 
 /*Table structure for table `biz_type` */
 
@@ -452,11 +454,11 @@ CREATE TABLE `user` (
   `creation_time` datetime DEFAULT NULL,
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ai_user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `user` */
 
-insert  into `user`(`ai_user_id`,`user_name`,`email`,`password`,`salutation`,`first_name`,`middle_name`,`last_name`,`work_phone_no`,`mobile_phone_no`,`fax_num`,`parent_id`,`activation_key`,`disable`,`is_deleted`,`creation_time`,`update_time`) values (1,'sahel','sahel@webzstore.com','5cd36101ab57672e1ff752bd327b6aab','Mr.','Md','Sahel','Aktar',NULL,NULL,NULL,NULL,NULL,0,0,'2015-11-20 16:33:24','2015-11-20 16:33:28');
+insert  into `user`(`ai_user_id`,`user_name`,`email`,`password`,`salutation`,`first_name`,`middle_name`,`last_name`,`work_phone_no`,`mobile_phone_no`,`fax_num`,`parent_id`,`activation_key`,`disable`,`is_deleted`,`creation_time`,`update_time`) values (1,'sahel','sahel@webzstore.com','5cd36101ab57672e1ff752bd327b6aab','Mr.','Md','Sahel','Aktar',NULL,NULL,NULL,NULL,NULL,0,0,'2015-11-20 16:33:24','2015-11-20 16:33:28'),(2,'','charlessmith@writeme.com','5cd36101ab57672e1ff752bd327b6aab','Mr.','Charles','Smith','st.','','','',0,'',0,0,'2015-11-23 13:32:09','2015-11-23 19:14:43'),(3,'','charlesmith@writeme.com','5cd36101ab57672e1ff752bd327b6aab','Mr.','Charles','Smith','Dear','','','',0,'c9574005c33033dbe9d65543d09ae88a',1,0,'2015-11-23 13:40:37','2015-11-23 19:10:37');
 
 /*Table structure for table `user_category` */
 
@@ -471,11 +473,11 @@ CREATE TABLE `user_category` (
   `creation_time` datetime DEFAULT NULL,
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ai_user_category_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 /*Data for the table `user_category` */
 
-insert  into `user_category`(`ai_user_category_id`,`user_category`,`creator_id`,`is_trashed`,`is_deleted`,`creation_time`,`update_time`) values (1,'Site Admin',1,0,0,'2015-11-20 16:35:25','2015-11-20 16:35:28'),(2,'Biz Seller',1,0,0,'2015-11-20 11:25:37','2015-11-20 16:55:37'),(3,'Biz Buyer',1,0,0,'2015-11-20 11:25:47','2015-11-20 16:55:47');
+insert  into `user_category`(`ai_user_category_id`,`user_category`,`creator_id`,`is_trashed`,`is_deleted`,`creation_time`,`update_time`) values (1,'Site Admin',1,0,0,'2015-11-20 16:35:25','2015-11-20 16:35:28'),(2,'Biz Seller',1,0,0,'2015-11-20 11:25:37','2015-11-20 16:55:37'),(3,'Biz Buyer',1,0,0,'2015-11-20 11:25:47','2015-11-20 16:55:47'),(4,'Biz Broker',0,0,0,'2015-11-23 13:45:57','2015-11-23 19:15:57');
 
 /*Table structure for table `user_map` */
 
@@ -491,11 +493,11 @@ CREATE TABLE `user_map` (
   `creation_time` datetime DEFAULT NULL,
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ai_user_map_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `user_map` */
 
-insert  into `user_map`(`ai_user_map_id`,`user_id`,`user_category_id`,`user_role_id`,`disable`,`is_deleted`,`creation_time`,`update_time`) values (1,1,1,1,0,0,'2015-11-20 16:38:23','2015-11-20 16:38:25');
+insert  into `user_map`(`ai_user_map_id`,`user_id`,`user_category_id`,`user_role_id`,`disable`,`is_deleted`,`creation_time`,`update_time`) values (1,1,1,1,0,0,'2015-11-20 16:38:23','2015-11-20 16:38:25'),(2,2,2,1,0,0,'2015-11-23 13:32:10','2015-11-23 19:02:10'),(3,3,2,1,0,0,'2015-11-23 13:40:37','2015-11-23 19:10:37');
 
 /*Table structure for table `user_role` */
 
@@ -510,11 +512,11 @@ CREATE TABLE `user_role` (
   `creation_time` datetime DEFAULT NULL,
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ai_user_role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `user_role` */
 
-insert  into `user_role`(`ai_user_role_id`,`user_category_id`,`user_role`,`is_trashed`,`is_deleted`,`creation_time`,`update_time`) values (1,1,'Super Admin',0,0,'2015-11-20 16:37:34','2015-11-20 16:37:38'),(2,2,'Admin',0,0,'2015-11-20 13:28:36','2015-11-20 18:58:36');
+insert  into `user_role`(`ai_user_role_id`,`user_category_id`,`user_role`,`is_trashed`,`is_deleted`,`creation_time`,`update_time`) values (1,1,'Super Admin',0,0,'2015-11-20 16:37:34','2015-11-20 16:37:38'),(2,2,'Admin',0,0,'2015-11-20 13:28:36','2015-11-20 18:58:36'),(3,4,'Admin',0,0,'2015-11-23 13:46:22','2015-11-23 19:16:22');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
