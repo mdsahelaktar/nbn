@@ -160,6 +160,17 @@ $config['user_configure']['activation_key'] = 'activation_key';
 
 /*
   |--------------------------------------------------------------------------
+  | Reset Key
+  |--------------------------------------------------------------------------
+  |
+  | The name of password reset key column.
+  |
+ */
+$config['user_configure']['reset_key'] = 'reset_key';
+
+
+/*
+  |--------------------------------------------------------------------------
   | Soft Delete
   |--------------------------------------------------------------------------
   |
@@ -257,6 +268,7 @@ $config['user_configure']['possible_where'] = array(
     'edit_id' => 'ai_user_id',
     'parent_id' => 'parent_id',
 	'activation_key' => 'activation_key', 
+	'reset_key' => 'reset_key',
     'is_trashed' => 'disable'
 );
 
@@ -280,6 +292,7 @@ $config['user_configure']['possible_update'] = array(
     'mobile_phone_no',
     'fax_num',
 	'activation_key',
+	'reset_key',
 	'disable'
 );
 

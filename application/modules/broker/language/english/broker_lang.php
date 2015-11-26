@@ -9,10 +9,7 @@ $lang['search_post_code'] = 'Search Business Brokers By Postal Code';
 $lang['become_bro_mem'] = 'Become a Broker Member';
 $lang['post_code'] = 'Enter Your Postal Code';
 $lang['na'] = 'n/a';
-
-
 $lang['seller_financing_available'] = 'Seller Financing Available!';
-$lang['na'] = 'n/a';
 $lang['asking_price'] = 'Asking Price';
 $lang['gross_rev'] = 'Gross Revenue';
 $lang['cash_flow'] = 'Cash Flow';
@@ -72,4 +69,6 @@ $lang['uuuuuuuu'] = 'uuuuuuuu';
 $lang['oooooooo'] = 'oooooooo';
 $lang['abhijikt'] = 'abhijikt';
 $lang['ami_add_korechi_eng_lang'] = 'ami add korechi eng lang';
+$lang['ghgh'] = '';
+
 ?>

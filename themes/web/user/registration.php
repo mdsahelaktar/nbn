@@ -9,15 +9,15 @@
 					<?php else:?>
 					<div msg="user"></div>
                    <ul>
-<?php echo form_open('', array('name' => 'user_add_form', 'id' => 'user_add_form', 'class' => 'width100 float-left margin-bottom30 margin-top10')) ?> <!--<li><?php echo form_label('<p><strong>' . _e('User Name') . '</strong></p>', 'user_name') ?> <?php echo form_input(array('name' => 'user_name', 'id' => 'user_name', 'placeholder' => 'add user name here', 'autofocus' => 'autofocus', 'class' => 'validate', 'data-display' => _e('User Name'), 'data-rules' => 'required|min_length[6]')); ?></li>-->
-                   <li> <?php echo form_label('<p><strong>' . _e('Email') . '</strong></p>', 'email') ?> <?php echo form_input(array('name' => 'email', 'id' => 'email', 'placeholder' => 'add email here', 'class' => 'validate', 'data-display' => _e('Email'), 'data-rules' => 'required|valid_email')); ?></li>
-                   <li> <?php echo form_label('<p><strong>' . _e('Password') . '</strong></p>', 'password') ?> <?php echo form_password(array('name' => 'password', 'id' => 'password', 'class' => 'validate', 'data-display' => _e('Password'), 'data-rules' => 'required|strict_password|matches[passconf]')); ?></li>
+<?php echo form_open('', array('name' => 'user_add_form', 'id' => 'user_add_form', 'class' => 'width100 float-left margin-bottom30 margin-top10')) ?> <!--<li><?php echo form_label('<p><strong>' . _e('user_name') . '</strong></p>', 'user_name') ?> <?php echo form_input(array('name' => 'user_name', 'id' => 'user_name', 'placeholder' => 'add user name here', 'autofocus' => 'autofocus', 'class' => 'validate', 'data-display' => _e('user_name'), 'data-rules' => 'required|min_length[6]')); ?></li>-->
+                   <li> <?php echo form_label('<p><strong>' . _e('email') . '</strong></p>', 'email') ?> <?php echo form_input(array('name' => 'email', 'id' => 'email', 'placeholder' => 'add email here', 'class' => 'validate', 'data-display' => _e('email'), 'data-rules' => 'required|valid_email')); ?></li>
+                   <li> <?php echo form_label('<p><strong>' . _e('password') . '</strong></p>', 'password') ?> <?php echo form_password(array('name' => 'password', 'id' => 'password', 'class' => 'validate', 'data-display' => _e('password'), 'data-rules' => 'required|strict_password|matches[passconf]')); ?></li>
                     
-                   <li> <?php echo form_label('<p><strong>' . _e('Confirm Password') . '</strong></p>', 'passconf') ?> <?php echo form_password(array('name' => 'passconf', 'id' => 'passconf', 'class' => 'validate', 'data-display' => _e('Confirm Password'), 'data-rules' => 'required')); ?></li>
-                    <li><?php echo form_label('<p>' . _e('Salutation') . '</p>', 'salutation') ?> 
+                   <li> <?php echo form_label('<p><strong>' . _e('confirm_password') . '</strong></p>', 'passconf') ?> <?php echo form_password(array('name' => 'passconf', 'id' => 'passconf', 'class' => 'validate', 'data-display' => _e('confirm_password'), 'data-rules' => 'required')); ?></li>
+                    <li><?php echo form_label('<p>' . _e('salutation') . '</p>', 'salutation') ?> 
                     <?php // echo form_input( array( 'name' => 'salutation', 'id' => 'salutation', 'placeholder' => 'add salutation here') );?>
                     <select name="salutation" id = "salutation">
-                        <option> - Select Your Salutation - </option>
+                        <option value=""> - Select Your Salutation - </option>
                         <option value="Mr.">Mr.</option>
                         <option value="Mrs.">Mrs.</option>
                         <option value="Miss">Miss</option>
@@ -28,21 +28,14 @@
                         <option value="Other">Other</option>
                     </select></li>
 
-                   <li> <?php echo form_label('<p><strong>' . _e('First Name') . '</strong></p>', 'first_name') ?> <?php echo form_input(array('name' => 'first_name', 'id' => 'first_name', 'placeholder' => 'add first name here', 'class' => 'validate', 'data-display'=> 'First Name','data-rules' => 'required')); ?></li>
+                   <li> <?php echo form_label('<p><strong>' . _e('first_name') . '</strong></p>', 'first_name') ?> <?php echo form_input(array('name' => 'first_name', 'id' => 'first_name', 'placeholder' => 'add first name here', 'class' => 'validate', 'data-display'=> 'First Name','data-rules' => 'required')); ?></li>
 
-                   <li> <?php echo form_label('<p>' . _e('Middle Name') . '</p>', 'middle_name') ?> <?php echo form_input(array('name' => 'middle_name', 'id' => 'middle_name', 'placeholder' => 'add middle name here')); ?></li>
+                   <li> <?php echo form_label('<p>' . _e('middle_name') . '</p>', 'middle_name') ?> <?php echo form_input(array('name' => 'middle_name', 'id' => 'middle_name', 'placeholder' => 'add middle name here')); ?></li>
 
-                  <li>  <?php echo form_label('<p><strong>' . _e('Last Name') . '</strong></p>', 'last_name') ?> <?php echo form_input(array('name' => 'last_name', 'id' => 'last_name', 'placeholder' => 'add last name here', 'class' => 'validate', 'data-display'=> 'Last Name', 'data-rules' => 'required')); ?></li>
-
-
-                    <!-- <div class="clear"></div>
-                    <?php //echo form_label( '<p>'._e( 'Work Phone No' ).'</p>', 'work_phone_no' ) ?> <?php //echo form_input( array( 'name' => 'work_phone_no', 'id' => 'work_phone_no', 'placeholder' => 'add phone no[w] here') ); ?>
-                     <div class="clear"></div>
-                    <?php //echo form_label( '<p>'._e( 'Mobile Phone No' ).'</p>', 'mobile_phone_no' ) ?> <?php //echo form_input( array( 'name' => 'mobile_phone_no', 'id' => 'mobile_phone_no', 'placeholder' => 'add mobile no here') ); ?>
-                     <div class="clear"></div>
-                    <?php //echo form_label( '<p>'._e( 'Fax Number' ).'</p>', 'fax_num' ) ?> <?php //echo form_input( array( 'name' => 'fax_num', 'id' => 'fax_num', 'placeholder' => 'add fax no here') ); ?>-->
+                  <li>  <?php echo form_label('<p><strong>' . _e('last_name') . '</strong></p>', 'last_name') ?> <?php echo form_input(array('name' => 'last_name', 'id' => 'last_name', 'placeholder' => 'add last name here', 'class' => 'validate', 'data-display'=> 'Last Name', 'data-rules' => 'required')); ?></li>
+                    
                     <div class="clear"></div>
-                    <?php echo form_hidden('user_category_id', $user_category_id); ?> <?php echo form_hidden('user_role_id', $user_role_id); ?> <?php echo form_submit(array('name' => 'user_add', 'id' => 'user_add', 'class' => 'margin-top10'), _e('Register')); ?> 
+                    <?php echo form_hidden('user_category_id', $user_category_id); ?> <?php echo form_hidden('user_role_id', $user_role_id); ?> <?php echo form_submit(array('name' => 'user_add', 'id' => 'user_add', 'class' => 'margin-top10'), _e('register')); ?> 
 </ul><?php echo form_close() ?></div>
                
 					<?php endif;?>

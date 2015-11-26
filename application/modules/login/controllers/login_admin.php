@@ -97,6 +97,7 @@ class Login_admin extends MX_Controller
 					## set the user details begin ##
 					$details = array();									
 					$details["user_id"]				= $first_user_map->user_id;
+					$details["email"]				= $user_details[0]->email;
 					$details["category_id"]			= $first_user_map->user_category_id;
 					$details["role_id"]				= $first_user_map->user_role_id;
 					$details["parent"] 				= $user_details[0]->parent_id;

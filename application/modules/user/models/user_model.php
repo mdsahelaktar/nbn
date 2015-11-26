@@ -56,6 +56,7 @@ class User_model extends MY_Model {
             $query = $this->db->get_where($this->_configure['table_name'], array($column => $data, $this->_configure['permanent_delete'] => 0));
         } else
             $query = $this->db->get_where($this->_configure['table_name'], array($column => $data, $this->_configure['permanent_delete'] => 0));
+		//echo $this->db->last_query();	
         $total_rows = $query->num_rows();
         if ($total_rows)
             return true;

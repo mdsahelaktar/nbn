@@ -274,7 +274,7 @@ class Language_admin extends MX_Controller
 				 $content =  $this->input->post('content');
 				 $langdata = include(APPPATH.'/modules/'.$domain.'/language/english/'.$domain.'_lang.php');
 				 $filename = APPPATH.'modules/'.$domain.'/language/english/'.$domain.'_lang.php';
-				 $content_remov = str_replace(' ', '_', $content);
+				 $content_remov = strtolower(str_replace(' ', '_', $content));
         		 $lang[$content_remov] = $content;	
 				 foreach($lang as $key => $value)
 					{

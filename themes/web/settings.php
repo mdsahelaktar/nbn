@@ -62,6 +62,10 @@ switch ($action) {
     case "biz_listing_biz_listing_search" :
     case "biz_listing_biz_listing_brokerlisting" :
     case "user_user_index" :
+	case "user_user_edit_profile" :
+	case "user_user_change_password" :
+	case "user_user_forgot_password" :
+	case "user_user_reset_password" :
     case "login_login_index" :
     case "biz_listing_biz_listing_details" :
     case "broker_broker_profileinfo" :

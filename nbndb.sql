@@ -1,6 +1,6 @@
 /*
 SQLyog Community v10.2 
-MySQL - 5.5.8-log : Database - nbn
+MySQL - 5.6.17 : Database - nbn
 *********************************************************************
 */
 
@@ -12,6 +12,10 @@ MySQL - 5.5.8-log : Database - nbn
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`nbn` /*!40100 DEFAULT CHARACTER SET utf8 */;
+
+USE `nbn`;
+
 /*Table structure for table `biz_domain` */
 
 DROP TABLE IF EXISTS `biz_domain`;
@@ -449,6 +453,7 @@ CREATE TABLE `user` (
   `fax_num` varchar(100) DEFAULT NULL,
   `parent_id` int(11) DEFAULT NULL COMMENT 'creator id',
   `activation_key` varchar(200) DEFAULT NULL COMMENT 'send user an email activation key through email',
+  `reset_key` varchar(200) DEFAULT NULL COMMENT 'send user an email password key through email',
   `disable` int(1) DEFAULT '0' COMMENT 'check if active',
   `is_deleted` int(1) DEFAULT '0' COMMENT 'for virtual delete',
   `creation_time` datetime DEFAULT NULL,
@@ -458,7 +463,7 @@ CREATE TABLE `user` (
 
 /*Data for the table `user` */
 
-insert  into `user`(`ai_user_id`,`user_name`,`email`,`password`,`salutation`,`first_name`,`middle_name`,`last_name`,`work_phone_no`,`mobile_phone_no`,`fax_num`,`parent_id`,`activation_key`,`disable`,`is_deleted`,`creation_time`,`update_time`) values (1,'sahel','sahel@webzstore.com','5cd36101ab57672e1ff752bd327b6aab','Mr.','Md','Sahel','Aktar',NULL,NULL,NULL,NULL,NULL,0,0,'2015-11-20 16:33:24','2015-11-20 16:33:28'),(2,'','charlessmith@writeme.com','5cd36101ab57672e1ff752bd327b6aab','Mr.','Charles','Smith','st.','','','',0,'',0,0,'2015-11-23 13:32:09','2015-11-23 19:14:43'),(3,'','charlesmith@writeme.com','5cd36101ab57672e1ff752bd327b6aab','Mr.','Charles','Smith','Dear','','','',0,'c9574005c33033dbe9d65543d09ae88a',1,0,'2015-11-23 13:40:37','2015-11-23 19:10:37');
+insert  into `user`(`ai_user_id`,`user_name`,`email`,`password`,`salutation`,`first_name`,`middle_name`,`last_name`,`work_phone_no`,`mobile_phone_no`,`fax_num`,`parent_id`,`activation_key`,`reset_key`,`disable`,`is_deleted`,`creation_time`,`update_time`) values (1,'sahel','sahel@webzstore.com','5cd36101ab57672e1ff752bd327b6aab','Mr.','Md','Sahel','Aktar',NULL,NULL,NULL,NULL,NULL,NULL,0,0,'2015-11-20 16:33:24','2015-11-20 16:33:28'),(2,'charlessmith','charlessmith@writeme.com','5cd36101ab57672e1ff752bd327b6aab','Dr.','Charles','St.','Smith','1234567895','123456789','no fax',0,'','',0,0,'2015-11-23 13:32:09','2015-11-25 19:39:18'),(3,'charlesmith','charlesmith@writeme.com','5cd36101ab57672e1ff752bd327b6aab','Mr.','Charles','Smith','Dear','','','',0,'c9574005c33033dbe9d65543d09ae88a',NULL,1,0,'2015-11-23 13:40:37','2015-11-24 20:23:30');
 
 /*Table structure for table `user_category` */
 

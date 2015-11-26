@@ -21,7 +21,7 @@ class User_admin extends MX_Controller {
      */
     public $autoload = array(
         'language' => array(
-            'user'
+            'user', 'common/common'
         ),
         'config' => array(
             'user_configure',
@@ -37,13 +37,14 @@ class User_admin extends MX_Controller {
             'form'
         )
     );
-
+	
+	public $salutations = array("Mr." => "Mr.", "Mrs." => "Mrs.", "Miss" => "Miss", "Ms." => "Ms.", "Dr." => "Dr.", "Prof." => "Prof.", "Rev." => "Rev.", "Other" => "Other");
     /**
      * 	Constructor
      */
     public function __construct() {
         parent::__construct();
-        $this->load->model('user_model', 'userm');
+		$this->load->model('user_model', 'userm');		
     }
 
     /**
@@ -67,7 +68,7 @@ class User_admin extends MX_Controller {
      * @return	web html
      */
     function add() {
-        $data["title"] = _e("User");
+        $data["title"] = _e("user");
         $CFG = $this->config->item('user_configure');
 
         //check if have add permission		
@@ -82,8 +83,8 @@ class User_admin extends MX_Controller {
         switch ($this->login['category_id']){
             case 30 : $user_categories = array( 30 => $user_categories[30] );  // if users are biz seller           
         }        
-        $data['var']['categories_dd'] = ( array('' => _e('Choose user category')) + $user_categories );
-        $data['var']['roles_dd'] = ( array('' => _e('Choose user role')) );
+        $data['var']['categories_dd'] = ( array('' => _e('choose_user_category')) + $user_categories );
+        $data['var']['roles_dd'] = ( array('' => _e('choose_user_role')) );
         $data["top"] = $this->template->admin_view("top", $data, true, "user");
         $data["content"] = $this->template->admin_view("user_add", $data, true, "user");
         $this->template->build_admin_output($data);
@@ -144,7 +145,7 @@ class User_admin extends MX_Controller {
 
         ## Fetch records ##		
         $results = $this->userm->getRecordsNPagination($wheres, $order_by, $search_by, $limit);
-        $data["title"] = _e("User Category");
+        $data["title"] = _e("user_category");
         $data["results"] = $results;
 
         ## Other auxilary variable ##
@@ -181,7 +182,7 @@ class User_admin extends MX_Controller {
                 $POSTDATA = $this->input->post();
                 $response = $this->addUser( $POSTDATA ); 
                 if( $response === 0 )
-                    echo json_encode(array("event" => "error", "msg" => _e('user add fail')));
+                    echo json_encode(array("event" => "error", "msg" => _e('user_add_fail')));
                 elseif( $response === -1 )
                     echo json_encode(array("event" => "error", "msg" => validation_errors()));
                 else
@@ -198,6 +199,100 @@ class User_admin extends MX_Controller {
                     echo json_encode(doAction('userm', 'update', $row_id, false, $this->input->post(), $CFG));
                 }
                 break;
+			case "edit_profile" :
+                $this->form_validation->set_rules($this->config->item('frontend_update', 'user_validation'));
+                if ($this->form_validation->run($this, 'frontend_update') == FALSE)
+                    echo json_encode(array("event" => "error", "msg" => validation_errors()));
+                else {
+					$msg = array();
+					$msg["success"] = _e('profile_updated');
+					$msg["error"] = _e('profile_not_updated');
+					$current_user = isLoggedIn();
+                    $row_id = $current_user["user_id"];
+					$VAR = $this->input->post();
+					$VAR["row_id"] = $row_id;
+                    ## Load config and store
+                    $CFG = $this->config->item('user_configure');
+                    $response = doAction('userm', 'update', $row_id, false, $VAR, $CFG);
+					$response["msg"] = $msg[$response["event"]];
+					echo json_encode( $response );
+                }
+                break;
+			case "change_password" :
+                $this->form_validation->set_rules($this->config->item('change_password', 'user_validation'));
+                if ($this->form_validation->run($this, 'change_password') == FALSE)
+                    echo json_encode(array("event" => "error", "msg" => validation_errors()));
+                else {
+					$msg = array();
+					$msg["success"] = _e('password_change_success');
+					$msg["error"] = _e('password_change_error');
+					$current_user = isLoggedIn();
+                    $row_id = $current_user["user_id"];
+					$VAR = $this->input->post();
+					$VAR["row_id"] = $row_id;
+                    ## Load config and store
+                    $CFG = $this->config->item('user_configure');
+                    $response = doAction('userm', 'update', $row_id, false, $VAR, $CFG);
+					$response["msg"] = $msg[$response["event"]];
+					echo json_encode( $response );
+                }
+                break;
+			case "forgot_password" :
+                $this->form_validation->set_rules($this->config->item('forgot_password', 'user_validation'));
+                if ($this->form_validation->run($this, 'forgot_password') == FALSE)
+                    echo json_encode(array("event" => "error", "msg" => validation_errors()));
+                else {
+					## Load config and store
+					$CFG = $this->config->item('user_configure');
+					$VAR = $this->input->post();
+					
+					$wheres = array( "user_name = '". $VAR["user_name_email"] . "' or email = '". $VAR["user_name_email"] . "'" ) ;
+					$results = $this->userm->getRecords( $wheres );
+					
+					$VAR["reset_key"] = md5( time() );
+					$VAR["row_id"] = $results[0]->ai_user_id;
+					$response = array();
+					if( !$results[0]->disable ){
+						$msg = array();
+						$msg["success"] = _e('forgot_password_success');
+						$msg["error"] = _e('forgot_password_error');
+						$response = doAction('userm', 'update', $results[0]->ai_user_id, false, $VAR, $CFG);
+						$response["msg"] = $msg[$response["event"]];
+						
+						$this->email->initialize(array("mailtype" => "html"));
+						$this->email->from('noreply@needbiznow.com', 'Needbiznow');
+						$this->email->to($results[0]->email); 					
+						$this->email->subject('Reset your password');
+						$activation_msg = 'Hello, Welcome to needbiznow, Please click the <a href="'.base_url().'user/reset_password?key='.$VAR['reset_key'].'">link</a> to reset your password';
+						$this->email->message($activation_msg);	
+						$this->email->send();
+					}
+					else{
+						$response["event"] = "error";
+						$response["msg"] = _e("account_disabled");
+					}					
+					echo json_encode( $response );
+                }
+                break;	
+			case "reset_password" :
+                $this->form_validation->set_rules($this->config->item('reset_password', 'user_validation'));
+                if ($this->form_validation->run($this, 'reset_password') == FALSE)
+                    echo json_encode(array("event" => "error", "msg" => validation_errors()));
+                else {
+                    $row_id = $this->input->post('row_id');
+                    ## Load config and store
+                    $CFG = $this->config->item('user_configure');
+					$VAR = $this->input->post();
+					$VAR["reset_key"] = "";
+					$msg = array();
+					$msg["success"] = _e('reset_password_success');
+					$msg["error"] = _e('reset_password_error');
+					
+                    $response = doAction('userm', 'update', $row_id, false, $VAR, $CFG);
+					$response["msg"] = $msg[$response["event"]];
+					echo json_encode( $response );
+                }
+                break;			
         }
     }
 
@@ -261,16 +356,37 @@ class User_admin extends MX_Controller {
         switch ($action) {
             case 'add' :
                 if ($this->userm->ifExists($input, $column)) {
-                    $this->form_validation->set_message('check_unique', _e($column . ' already exist'));
+                    $this->form_validation->set_message('check_unique', _e('already_exist'));
                     return false;
                 }
                 break;
             case 'edit' :
                 if ($this->userm->ifExists($input, $column, $this->input->post('row_id'))) {
-                    $this->form_validation->set_message('check_unique', _e($column . ' already exist'));
+                    $this->form_validation->set_message('check_unique', _e('already_exist'));
                     return false;
                 }
                 break;
+			case 'edit_profile' :
+				$current_user = isLoggedIn();
+                $row_id = $current_user["user_id"];
+                if ($this->userm->ifExists($input, $column, $row_id)) {
+                    $this->form_validation->set_message('check_unique', _e('already_exist'));
+                    return false;
+                }
+                break;	
+			case 'change_password' :
+				$current_user = isLoggedIn();
+                if ( !$this->userm->getUserDetailsByLogin( array( "user_name" => $current_user["email"], "password" => $input) ) ) {
+                    $this->form_validation->set_message('check_unique', _e('please_enter_correct'));
+                    return false;
+                }
+                break;
+			case 'forgot_password' :
+				$column = explode("*", $column);
+				if( !$this->userm->ifExists($input, $column[0]) and !$this->userm->ifExists($input, $column[1]) ){
+					 $this->form_validation->set_message('check_unique', _e('not_found'));
+					 return false;
+				}						
         }
     }
 
@@ -311,7 +427,7 @@ class User_admin extends MX_Controller {
         ## Load config and store
         $CFG = $this->config->item('user_configure');
         if (!addPermission($CFG["sector"]["add"])) {
-            $this->form_validation->set_message('check_permission', _e('access denied'));
+            $this->form_validation->set_message('check_permission', _e('access_denied'));
             return false;
         }
     }

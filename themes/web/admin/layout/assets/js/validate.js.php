@@ -85,6 +85,7 @@ $(document).ready(function(){
      */
 
     var FormValidator = function(formNameOrNode, fields, callback) {
+		console.log(formNameOrNode);
         this.callback = callback || defaults.callback;
         this.errors = [];
         this.fields = {};

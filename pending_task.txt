@@ -24,3 +24,9 @@ Sell a business second step:
 
 Sell a business third step:
 1. After saving it should redirect to the listing of his page.
+
+My Account:
+1. Edit profile (design)
+2. Change password (design)
+3. Forgot password (design and backend to check email is sending on server)
+4. Reset password (design)

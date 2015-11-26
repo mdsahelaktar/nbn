@@ -18,8 +18,12 @@ class Common_admin extends MX_Controller {
     /**
      * Autoload variable
      */
-    public $autoload = array('helpers' => array(
-            'cookie'
+    public $autoload = array(
+		'language' => array(
+            'common'
+        ),
+		'helpers' => array(
+           	'cookie'
         )
     );
 

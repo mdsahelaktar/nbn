@@ -50,8 +50,9 @@ class Login extends MX_Controller
 	 */
 	function index()
 	{
-		$data["title"] = _e('Login');		
-		$data["login_html"] = Modules::run("login/login_admin/login_snippet");
+		$data["title"] = _e('Login');
+		$data["register_link"] = "package?ct=2&rl=1";
+		$data["next"] = $_GET["next"];				
 		$data["content"] = $this->template->frontend_view("login", $data, true, "login");
 		$this->template->build_frontend_output($data);	
 	}	

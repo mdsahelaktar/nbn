@@ -21,7 +21,7 @@ if($eng_langdata == 1)
    $i = 0;
 	   foreach($english_lang as $eng_key => $eng_text) { ?>
   <tr>
-    <td align="justify" valign="top"><?php echo $eng_text?></td>
+    <td align="justify" valign="top"><?php echo $eng_key?></td>
     <td align="justify" valign="top" id="tr<?php echo $i; ?>"><?php echo $chos_lang[$eng_key]?></td>
     <td align="center" valign="top"><a onclick="languageEdit(this,'<?php echo $path;?>','<?php echo $eng_key;?>','<?php echo $language;?>','<?php echo $domain;?>')"  href="#" class="ion-settings modify-permission" id="create-user" languagekey="<?php echo $chos_lang[$eng_key] ?>"></a>     | &nbsp;<a onclick="languageDelete(this,'<?php echo $path;?>','<?php echo $eng_key;?>','<?php echo $language;?>','<?php echo $domain;?>')" href="#" id = "del<?php echo $i; ?>" class="editrevert0 margin-left5"></a>
 </td>
