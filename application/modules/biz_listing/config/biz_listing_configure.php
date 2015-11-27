@@ -598,6 +598,7 @@ $config['biz_listing_configure']['possible_where'] = array(
     'country' => 'country',
     'is_fincng_avlble' => 'is_fincng_avlble',
     'city' => 'city',
+	'active' => 'active',
     'ai_biz_listing_id' => 'ai_biz_listing_id'
 );
 
@@ -645,6 +646,7 @@ $config['biz_listing_configure']['possible_update'] = array(
     'mkt_outlook_cmp',
     'keywords',
     'status',
+	'active',
     'user_id'
 );
 

@@ -1,6 +1,6 @@
 /*
 SQLyog Community v10.2 
-MySQL - 5.6.17 : Database - nbn
+MySQL - 5.5.8-log : Database - nbn
 *********************************************************************
 */
 
@@ -12,10 +12,6 @@ MySQL - 5.6.17 : Database - nbn
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`nbn` /*!40100 DEFAULT CHARACTER SET utf8 */;
-
-USE `nbn`;
-
 /*Table structure for table `biz_domain` */
 
 DROP TABLE IF EXISTS `biz_domain`;
@@ -77,6 +73,7 @@ CREATE TABLE `biz_listing` (
   `creator_id` int(11) DEFAULT NULL,
   `user_id` int(11) NOT NULL,
   `status` int(1) NOT NULL COMMENT '1. not done 2. done',
+  `active` int(1) DEFAULT '0' COMMENT 'This needs admin approval',
   `is_trashed` int(1) DEFAULT '0',
   `is_deleted` int(1) DEFAULT '0',
   `creation_time` datetime DEFAULT NULL,
@@ -86,7 +83,7 @@ CREATE TABLE `biz_listing` (
 
 /*Data for the table `biz_listing` */
 
-insert  into `biz_listing`(`ai_biz_listing_id`,`headline`,`tagline`,`description`,`biz_type_id`,`other_biz_type_id`,`country_id`,`province_id`,`county_id`,`is_county_cnfdntl`,`city`,`asking_price`,`is_fincng_avlble`,`year_established`,`employees`,`biz_website`,`gross_revenue`,`gross_revenue_comments`,`cash_flow`,`cash_flow_comments`,`inv_value`,`is_inv_included`,`ffe_value`,`is_ffe_included`,`rs_value`,`is_rs_included`,`is_biz_relctble`,`is_biz_franchis`,`is_biz_hb`,`seller_fincng_info`,`training_support`,`selling_reason`,`facilities`,`mkt_outlook_cmp`,`keywords`,`creator_id`,`user_id`,`status`,`is_trashed`,`is_deleted`,`creation_time`,`update_time`) values (1,'','','',0,0,0,0,0,0,'',0,0,0000,'','',0,'',0,'',0,0,0,0,0,0,0,0,0,'','','','','','',2,2,1,0,0,'2015-11-23 13:45:03','2015-11-23 19:15:03'),(2,'','','',0,0,0,0,0,0,'',0,0,0000,'','',0,'',0,'',0,0,0,0,0,0,0,0,0,'','','','','','',2,2,1,0,0,'2015-11-23 13:53:56','2015-11-23 19:23:56');
+insert  into `biz_listing`(`ai_biz_listing_id`,`headline`,`tagline`,`description`,`biz_type_id`,`other_biz_type_id`,`country_id`,`province_id`,`county_id`,`is_county_cnfdntl`,`city`,`asking_price`,`is_fincng_avlble`,`year_established`,`employees`,`biz_website`,`gross_revenue`,`gross_revenue_comments`,`cash_flow`,`cash_flow_comments`,`inv_value`,`is_inv_included`,`ffe_value`,`is_ffe_included`,`rs_value`,`is_rs_included`,`is_biz_relctble`,`is_biz_franchis`,`is_biz_hb`,`seller_fincng_info`,`training_support`,`selling_reason`,`facilities`,`mkt_outlook_cmp`,`keywords`,`creator_id`,`user_id`,`status`,`active`,`is_trashed`,`is_deleted`,`creation_time`,`update_time`) values (1,'Biz test','biz test tagline','sas',9,1,16,0,0,0,'howrah',5,1,0000,'45454','5454',545,'45',454,'54',54,0,54,0,45,0,0,0,0,'45','4','54','54','5','45',0,2,2,0,0,0,'2015-11-27 14:30:19','2015-11-27 20:41:09'),(2,'','','',0,0,0,0,0,0,'',0,0,0000,'','',0,'',0,'',0,0,0,0,0,0,0,0,0,'','','','','','',0,2,1,0,0,0,'2015-11-27 14:31:08','2015-11-27 20:01:08');
 
 /*Table structure for table `biz_type` */
 
@@ -377,9 +374,11 @@ CREATE TABLE `popular` (
   `count` int(11) NOT NULL,
   `is_deleted` int(11) NOT NULL,
   PRIMARY KEY (`ai_popular_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `popular` */
+
+insert  into `popular`(`ai_popular_id`,`main_cat_type`,`child_cat_type`,`object`,`count`,`is_deleted`) values (1,1,1,'1',0,0);
 
 /*Table structure for table `popular_log` */
 
@@ -392,9 +391,11 @@ CREATE TABLE `popular_log` (
   `is_deleted` int(11) NOT NULL,
   `creation_time` datetime NOT NULL,
   PRIMARY KEY (`ai_log_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `popular_log` */
+
+insert  into `popular_log`(`ai_log_id`,`popular_id`,`ip_address`,`is_deleted`,`creation_time`) values (1,1,'127.0.0.1',0,'2015-11-27 15:09:14');
 
 /*Table structure for table `province` */
 

@@ -30,3 +30,7 @@ My Account:
 2. Change password (design)
 3. Forgot password (design and backend to check email is sending on server)
 4. Reset password (design)
+
+BizListing Add:
+1. After adding biz listing admin will get a mail for new listing to approve them.
+2. Allow only approved listing to show in front end.

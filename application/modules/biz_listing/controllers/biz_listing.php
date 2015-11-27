@@ -66,13 +66,15 @@ class Biz_listing extends MX_Controller {
             $user = isLoggedIn();
             $user_id = $user['user_id'];
             $last_insert_id = lastInsertedIdByCurrentUserId($CFG, $user_id);
-            if (empty($last_insert_id))
-                $last_insert_id = 1;
-            $where[] = array($CFG['table_name'] . '.' . $CFG['possible_where']['edit_id'], $last_insert_id);
-            $records = $this->bizlig->getRecords($where, '', '', '', '', '');
-            if ($records[0]->status == '2') {
+            if( empty( $last_insert_id ) )
                 $this->bizlig->insertInto(array('status' => 1, 'user_id' => $user_id));
-            }
+			else{	
+				$where[] = array($CFG['table_name'] . '.' . $CFG['possible_where']['edit_id'], $last_insert_id);
+				$records = $this->bizlig->getRecords($where, '', '', '', '', '');
+				if ($records[0]->status == '2') {
+					$this->bizlig->insertInto(array('status' => 1, 'user_id' => $user_id));
+				}
+			}
             redirect(base_url() . 'biz_listing/secondstep');
         }
         $data['var'] = array('biz_domain_dd' => getBizDomainHelper(), 'biz_types_dd' => getBizTypeHelper(), 'country_dd' => getCountryHelper());
@@ -104,14 +106,14 @@ class Biz_listing extends MX_Controller {
             $user = isLoggedIn();
             $user_id = $user['user_id'];
             $last_insert_id = lastInsertedIdByCurrentUserId($CFG, $user_id);
-            if (empty($last_insert_id))
-                $last_insert_id = 1;
-
-            $where[] = array($CFG['table_name'] . '.' . $CFG['possible_where']['edit_id'], $last_insert_id);
-            $records = $this->bizlig->getRecords($where, '', '', '', '', '');
-
-            if ($records[0]->status == '2' || $last_insert_id == 1)
+            if( empty( $last_insert_id ) )
                 $this->bizlig->insertInto(array('status' => 1, 'user_id' => $user_id));
+			else{
+            	$where[] = array($CFG['table_name'] . '.' . $CFG['possible_where']['edit_id'], $last_insert_id);
+            	$records = $this->bizlig->getRecords($where, '', '', '', '', '');
+				if ( $records[0]->status == '2' )
+                	$this->bizlig->insertInto(array('status' => 1, 'user_id' => $user_id));	
+			}			
         }
 
         $data['var'] = array();
@@ -147,6 +149,16 @@ class Biz_listing extends MX_Controller {
         $where[] = array($CFG['table_name'] . '.' . $CFG['possible_where']['edit_id'], $last_insert_id);
 
         $results = $this->bizlig->getRecords($where, 'desc', '', 1);
+		
+		if( !$results[0]->country_id or $results[0]->country_id > 1 ){
+			$data["location_dd_status"] = "disabled='disabled'";
+		}
+			
+		if( $results[0]->country_id > 1 ){
+			$data["location_dd_view_a"] = array( "style" => "display:none" );
+			$data["location_dd_view"] = 'style="display:none"';
+		}
+			
         $data["results"] = $results;
         $data["row_id"] = $last_insert_id;
         $data_top = $this->stepRelated('2 of 3', 'class2', 'biz_listing_add_second', 'pri1', '', 'active');
@@ -175,8 +187,25 @@ class Biz_listing extends MX_Controller {
         $CFG = $this->config->item('biz_listing_configure');
         $user = isLoggedIn();
         $last_insert_id = lastInsertedIdByCurrentUserId($CFG, $user['user_id']);
+		if( empty( $last_insert_id ) )
+			redirect(base_url() . 'biz_listing/secondstep');
+		else{
+			$where[] = array($CFG['table_name'] . '.' . $CFG['possible_where']['edit_id'], $last_insert_id);
+			$data["results"] = $records = $this->bizlig->getRecords($where, '', '', '', '', '');
+			if ( $records[0]->status == '2' ){ // if last biz is completed				
+				redirect( base_url() . 'biz_listing/secondstep' );
+			}elseif( $records[0]->headline == '' or $records[0]->tagline == '' or $records[0]->description == '' or !$records[0]->biz_type_id ){ // if some of second step field is blank
+				redirect( base_url() . 'biz_listing/secondstep' );
+			}else{ // not check for country
+				if( !$records[0]->country_id ){ // if not country id
+					redirect( base_url() . 'biz_listing/secondstep' );
+				}elseif( $records[0]->country_id == 1 && ( !$records[0]->province_id && !$records[0]->county_id ) ) // if country id and it is usa 
+					redirect( base_url() . 'biz_listing/secondstep' );
+			}
+		}		
+				
         $data["user_id"] = $user['user_id'];
-        $data["results"] = $last_insert_id;
+        $data["row_id"] = $last_insert_id;
         $data_top = $this->stepRelated('3 of 3', 'class3', 'biz_listing_add2', 'pri1', '', 'active');
         $data['var'] = array('biz_domain_dd' => getBizDomainHelper(), 'biz_types_dd' => getBizTypeHelper(), 'country_dd' => getCountryHelper());
         $data["top"] = $this->template->frontend_view("all_step_top", $data_top, true, "biz_listing");
@@ -303,6 +332,8 @@ class Biz_listing extends MX_Controller {
                 $group_select[] = $CFG['groupby_select'];
                 ## limit create ##	
                 $where[] = array($CFG['table_name'] . '.' . $CFG['possible_where']['status'], 2);
+				## Show only active listing ##
+				$where[] = array($CFG['table_name'] . '.' . $CFG['possible_where']['active'], 1);
 
                 $records = $this->bizlig->getRecordsNPagination($where, $order_by, $search_by, $limit, $groupby, $group_select);
 
@@ -390,19 +421,7 @@ class Biz_listing extends MX_Controller {
             case "updatepopup" :
                 $CFG = $this->config->item('biz_listing_configure');
                 $row_id = $this->input->post('row_id');
-                $post_val = $this->input->post();
-                if (!$this->input->post('is_inv_included')) {
-                    $is_inv_included = array('is_inv_included' => '');
-                    $post_val = array_merge($is_inv_included, $post_val);
-                }
-                if (!$this->input->post('is_ffe_included')) {
-                    $is_ffe_included = array('is_ffe_included' => '');
-                    $post_val = array_merge($is_ffe_included, $post_val);
-                }
-                if (!$this->input->post('is_rs_included')) {
-                    $is_rs_included = array('is_rs_included' => '');
-                    $post_val = array_merge($is_rs_included, $post_val);
-                }
+                $post_val = $this->input->post();                
                 unset($post_val['status']);
                 $updaterows = doAction('bizlig', 'update', $row_id, false, $post_val);
                 if ($updaterows == true)
@@ -547,6 +566,10 @@ class Biz_listing extends MX_Controller {
         $group_select[] = $CFG['groupby_select'];
         $where[] = array($CFG['table_name'] . '.' . $CFG['possible_where']['edit_id'], $dtls);
         $results = $this->bizlig->getRecords($where, '', '', '', $groupby, $group_select);
+		if( empty($results) ){
+			// if empty then add condition
+		}
+		
         $this->load->module('user_map/user_map_admin');
         $cat = $this->user_map_admin->chkUserBrokerOrNot($results[0]->user_id);
         if ($cat == 32) {
