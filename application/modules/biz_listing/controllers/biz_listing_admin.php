@@ -86,8 +86,17 @@ class Biz_listing_admin extends MX_Controller {
      * @param	empty
      * @return	web html
      */
-    function edit() {
-        ## Store Get ##
+    function edit() {       
+
+        ## Load view ##
+		$data = $this->list_records();
+        $data["top"] = $this->template->admin_view("top", $data, true, "biz_listing");
+        $data["content"] = $this->template->admin_view("biz_listing_list", $data, true, "biz_listing");
+        $this->template->build_admin_output($data);
+    }
+	
+	function list_records(){
+		## Store Get ##
         $GET = $this->input->get() ? $this->input->get() : array();
         ## Load config and store
         $CFG = $this->config->item('biz_listing_configure');
@@ -148,12 +157,8 @@ class Biz_listing_admin extends MX_Controller {
 
         $data['var']['biz_types_dd'] = ( array('' => _e('Choose biz type')) + $biz_types );
         $data["response"] = viewPermissionMsg($CFG["sector"]["view_all"], $CFG["sector"]["view_child"]);
-
-        ## Load view ##
-        $data["top"] = $this->template->admin_view("top", $data, true, "biz_listing");
-        $data["content"] = $this->template->admin_view("biz_listing_list", $data, true, "biz_listing");
-        $this->template->build_admin_output($data);
-    }
+		return $data;
+	}
 
     /**
      * ajax
@@ -179,7 +184,7 @@ class Biz_listing_admin extends MX_Controller {
                     if( $image_value )
                     {
                         $relation_id_for_image = lastInsertedId($CFG);
-                        $create_post = array( "context_id" => "1", "relation_id" => $relation_id_for_image );
+                        $create_post = array( "context_id" => "1", "relation_id" => $relation_id_for_image, "is_main" => array( 1 ) );
                         $this->load->module('image/image_admin');
                         $this->image_admin->multipleDataInsert($create_post, $image_value);
                     }                    
@@ -193,12 +198,22 @@ class Biz_listing_admin extends MX_Controller {
             case "edit" :
                 $this->form_validation->set_rules($this->config->item('update', 'biz_listing_validation'));
                 if ($this->form_validation->run($this, 'update') == FALSE)
-                    echo json_encode(array("event" => "error", "msg" => validation_errors()));
+                    echo json_encode(array("event" => "error", "msg" => validation_errors()), JSON_HEX_QUOT | JSON_HEX_TAG);
                 else {
                     $row_id = $this->input->post('row_id');
                     ## Load config and store
                     $CFG = $this->config->item('biz_listing_configure');
-                    echo json_encode(doAction('blist', 'update', $row_id, false, $this->input->post(), $CFG));
+					$image_value = $this->upload->get_multi_upload_data();
+					$VAR = $this->input->post();
+					if( $image_value )
+                    {
+						$relation_id_for_image = $row_id;
+                        $create_post = array( "context_id" => "1", "relation_id" => $relation_id_for_image, "is_main" => array( 1 ) );
+                        $this->load->module('image/image_admin');
+                        $this->image_admin->multipleDataInsert($create_post, $image_value);
+						$VAR["affected_from_outside"] = true;
+                    }					
+                    echo json_encode(doAction('blist', 'update', $row_id, false, $VAR, $CFG));
                 }
                 break;
         }
@@ -225,7 +240,7 @@ class Biz_listing_admin extends MX_Controller {
             switch ($action) {
                 case 'add' :
                     if (!$this->upload->do_multi_upload('images')) {
-                        $this->form_validation->set_message('upload_validation', $this->upload->display_errors());
+                        $this->form_validation->set_message('upload_validation', $this->upload->display_errors('', ''));
                         return false;
                     }
                     break;

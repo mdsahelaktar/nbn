@@ -74,6 +74,11 @@ $config['biz_listing_validation']["update"] = array(
         'field' => 'country_id',
         'label' => _e('Country'),
         'rules' => 'required'
+    ),
+    array(
+        'field' => 'images',
+        'label' => _e('Images'),
+        'rules' => 'callback_upload_validation[add]'
     )
 );
 

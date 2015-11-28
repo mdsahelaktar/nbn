@@ -58,6 +58,7 @@ switch ($action) {
     case "biz_listing_biz_listing_thirdstep" :
     case "biz_listing_biz_listing_secondstep" :
     case "biz_listing_biz_listing_index" :
+	case "biz_listing_biz_listing_manage" :
     case "home_home_index" :
     case "biz_listing_biz_listing_search" :
     case "biz_listing_biz_listing_brokerlisting" :

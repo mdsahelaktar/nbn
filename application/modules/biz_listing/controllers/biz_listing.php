@@ -45,7 +45,8 @@ class Biz_listing extends MX_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('biz_listing_model', 'bizlig');
-        $this->load->module('common/common_admin');
+        $this->load->module('biz_listing/biz_listing_admin');
+		$this->load->module('common/common_admin');
     }
 
     /**
@@ -567,41 +568,47 @@ class Biz_listing extends MX_Controller {
         $where[] = array($CFG['table_name'] . '.' . $CFG['possible_where']['edit_id'], $dtls);
         $results = $this->bizlig->getRecords($where, '', '', '', $groupby, $group_select);
 		if( empty($results) ){
-			// if empty then add condition
+			$data["response"]['event'] = "error";
+			$data["response"]['msg'] = _e("no_biz_listing_found");
 		}
-		
-        $this->load->module('user_map/user_map_admin');
-        $cat = $this->user_map_admin->chkUserBrokerOrNot($results[0]->user_id);
-        if ($cat == 32) {
-            $this->load->module('user/user_admin');
-            $broker_name = $this->user_admin->getUsernameByid($results[0]->user_id);
-            $broker_fullname = $broker_name[0]->first_name . ' ' . $broker_name[0]->middle_name . ' ' . $broker_name[0]->last_name;
-            $info['broker_fullname'] = $broker_fullname;
-            $this->load->module('broker/broker');
-            $broker_images = $this->broker->getBrokerDetailsByid($results[0]->user_id);
-            $info['broker_cimage'] = $broker_images;
-        }
-
-        ## this section use for insert popular item ##
-        if (!empty($results)) {
-            $this->load->module('popular/popular');
-            $this->popular->insertPopularItem(1, 'ai_bizlisting_id', $dtls);
-        }
-        $where_qry[] = array($CFG['table_name'] . '.' . $CFG['possible_where']['biz_type_id'], $results[0]->biz_type_id);
-        $where_qry[] = array($CFG['table_name'] . '.' . $CFG['possible_where']['edit_id'] . " !=", $dtls);
-        $type_related = $this->bizlig->getRecords($where_qry, '', '', '', $groupby, $group_select);
-        $info['data'] = $type_related;
-        $data['details_slider'] = $this->template->frontend_view("details_slider", $info, true, "biz_listing");
-
-        ## this section for insert popular item ##
-        $data['var'] = array('biz_domain_dd' => getBizDomainHelper(), 'biz_types_dd' => getBizTypeHelper(), 'country_dd' => getCountryHelper());
-        $data["results"] = $results;
-        $this->load->module('popular/popular');
-        $data['get_popular_search_sidebar'] = $this->popular->getPopularSearchSidebar('1', 'ai_bizlisting_id', 'Most Popular Searches on Need Biz Now');
-        $data['get_popular_county_search_sidebar'] = $this->popular->getPopularSearchSidebar('1', 'county_id', 'Most Popular Searches on Need Biz Now by County');
-        $data['biz_hit_count'] = $this->popular->bizHitCount($dtls);
-        $data["head"] = $this->template->frontend_view("details", '', true, "biz_listing");
-        $data["foot"] = $this->template->frontend_view("full_details", $data, true, "biz_listing");
+		elseif( !$results[0]->active ){
+			$data["response"]['event'] = "error";
+			$data["response"]['msg'] = _e("inactive_biz_listing");
+		}
+		else{			
+			$this->load->module('user_map/user_map_admin');
+			$cat = $this->user_map_admin->chkUserBrokerOrNot($results[0]->user_id);
+			if ($cat == 32) {
+				$this->load->module('user/user_admin');
+				$broker_name = $this->user_admin->getUsernameByid($results[0]->user_id);
+				$broker_fullname = $broker_name[0]->first_name . ' ' . $broker_name[0]->middle_name . ' ' . $broker_name[0]->last_name;
+				$info['broker_fullname'] = $broker_fullname;
+				$this->load->module('broker/broker');
+				$broker_images = $this->broker->getBrokerDetailsByid($results[0]->user_id);
+				$info['broker_cimage'] = $broker_images;
+			}
+	
+			## this section use for insert popular item ##
+			if (!empty($results)) {
+				$this->load->module('popular/popular');
+				$this->popular->insertPopularItem(1, 'ai_bizlisting_id', $dtls);
+			}
+			$where_qry[] = array($CFG['table_name'] . '.' . $CFG['possible_where']['biz_type_id'], $results[0]->biz_type_id);
+			$where_qry[] = array($CFG['table_name'] . '.' . $CFG['possible_where']['edit_id'] . " !=", $dtls);
+			$type_related = $this->bizlig->getRecords($where_qry, '', '', '', $groupby, $group_select);
+			$info['data'] = $type_related;
+			$data['details_slider'] = $this->template->frontend_view("details_slider", $info, true, "biz_listing");
+	
+			## this section for insert popular item ##
+			$data['var'] = array('biz_domain_dd' => getBizDomainHelper(), 'biz_types_dd' => getBizTypeHelper(), 'country_dd' => getCountryHelper());
+			$data["results"] = $results;
+			$this->load->module('popular/popular');
+			$data['get_popular_search_sidebar'] = $this->popular->getPopularSearchSidebar('1', 'ai_bizlisting_id', 'Most Popular Searches on Need Biz Now');
+			$data['get_popular_county_search_sidebar'] = $this->popular->getPopularSearchSidebar('1', 'county_id', 'Most Popular Searches on Need Biz Now by County');
+			$data['biz_hit_count'] = $this->popular->bizHitCount($dtls);
+			$data["head"] = $this->template->frontend_view("details", '', true, "biz_listing");
+			$data["foot"] = $this->template->frontend_view("full_details", $data, true, "biz_listing");
+		}
         $data["content"] = $this->template->frontend_view("popup", $data, true, "biz_listing");
         $this->template->build_frontend_output($data);
     }
@@ -686,7 +693,14 @@ class Biz_listing extends MX_Controller {
         $this->template->set_frontend_layout("popup");
         $this->template->build_frontend_output($data);
     }
-
+	
+	function manage(){
+		if( !$this->current_user )
+			loginRedirect( "login" );		
+		$data = $this->biz_listing_admin->list_records();
+		$data["content"] = $this->template->frontend_view("manage", $data, true, "biz_listing");
+        $this->template->build_frontend_output($data);
+	}
     /**
      * commingsoon
      * for comming soon page

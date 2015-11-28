@@ -671,6 +671,7 @@ if (!function_exists('doAction')) {
             }
             if (!$return) {
                 $affected = $ci->$model->dbUpdate($action, $row_id, $DATAVAR);
+				$affected = $DATAVAR["affected_from_outside"] ? true : $affected;
                 $return = array("event" => ($affected ? 'success' : 'error'), "msg" => ($affected ? _e($action . 'successmsg') : _e($action . 'errormsg')));
             }
 

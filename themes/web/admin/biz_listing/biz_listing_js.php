@@ -11,7 +11,8 @@ function afterValidCheck($this, errors, event)
 
 function bizlistingAfterAction(data)
 {
-	var data = $.parseJSON(data);
+	console.log(data);
+	var data = $.parseJSON(data);	
 	showMsg('div[msg="biz_listing"]', data.event, data.msg, '', true);	
 }
 

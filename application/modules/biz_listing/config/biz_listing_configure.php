@@ -24,7 +24,7 @@ $config['biz_listing_configure']['dependent_on'] = array(
             'is_main',
             'context_id'
         ),
-		'where' => array( '(CASE WHEN image.context_id IS NULL THEN 1 ELSE image.context_id = 3 END)' )// Place image context id now biz = 3 as image context id
+		'where' => array( '(CASE WHEN image.context_id IS NULL THEN 1 ELSE image.context_id = 1 END)' )// Place image context id now biz = 3 as image context id
     ),
     'country' => array(
         'on' => 'biz_listing.country_id = country.ai_country_id',
@@ -549,12 +549,17 @@ $config['biz_listing_configure']['possible_insert'] = array(
   |
  */
 $config['biz_listing_configure']['possible_orderby'] = array(
-    'sortbyasking_price' => 'asking_price',
+    'sortbyheadline' => 'headline',
+	'sortbytagline' => 'tagline',
+	'sortbyasking_price' => 'asking_price',
     'sortbycash_flow' => 'cash_flow',
     'sortbycreation_time' => 'creation_time',
     'sortbyprovince_id' => 'province.province',
     'sortbycounty_id' => 'county.county',
-    'sortbycity' => 'city'
+    'sortbycity' => 'city',
+	'sortbytime' => 'creation_time',
+    'sortbymfdtime' => 'update_time',
+    'sortbyactive' => 'biz_listing.is_trashed'
 );
 
 /*
