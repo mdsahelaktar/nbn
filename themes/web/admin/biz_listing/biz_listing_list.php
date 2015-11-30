@@ -116,6 +116,9 @@ if (!$response["event"]["error"]):
            <li> <?php echo form_label('<p>' . _e('Keywords') . '</p>', 'keywords') ?>
             <?php echo form_textarea(array('name' => 'keywords', 'id' => 'keywords', 'value' => $results["records"][0]->keywords, 'placeholder' => 'add about keywords here', 'rows' => 5)); ?></li>
             
+           <li> <?php echo form_label('<p>' . _e('Approve status') . '</p>', 'active') ?>
+            <?php echo form_checkbox('active', 1, $results["records"][0]->active, 'id="active"'); ?> </li>
+            
           <li>  <?php echo form_hidden('method', 'edit'); ?>
             <?php echo form_submit(array('name' => 'biz_listing_update', 'id' => 'biz_listing_update', 'class' => 'margin-top10'), _e('Update')); ?></li> <?php echo form_close() ?>
 </ul></div>
@@ -186,7 +189,7 @@ if (!$response["event"]["error"]):
                 <th class="actionth"><?php echo _e('Action') ?></th>
             </tr>
             <tr id="blanktr">
-                <td colspan="38">&nbsp;</td>
+                <td colspan="39">&nbsp;</td>
             </tr>
             <tr id="filter_section">
                 <td><?php echo form_input(array('name' => 'headline', 'id' => 'headline', 'placeholder' => 'search by headline', 'size' => 20, 'value' => $this->input->get('headline'))); ?></td>
@@ -198,7 +201,7 @@ if (!$response["event"]["error"]):
                 <td><?php echo anchor('admin/biz_listing/edit', _e('Reset'), array('title' => _e('Reset'), 'class' => 'refresh btn-type1 margin-right10 margin-left20 float-left')) ?> <?php echo form_button(array('name' => 'search', 'id' => 'search', 'class' => 'filter', 'onclick' => 'return goFilter(this)'), _e('Filter')); ?></td>
             </tr>
             <tr id="blanktr">
-                <td colspan="38">&nbsp;</td>
+                <td colspan="39">&nbsp;</td>
             </tr>
             <tr id="multiple_action_section">
                 <td colspan="38"><a onclick="return selectAll(this)" class="btn-type1 margin-right10 float-left" title="<?php echo _e('Select All') ?>" href="#"><span class="ion-checkmark-circled"></span><?php echo _e('Select All') ?></a> <a onclick="return unselectAll(this)" class="btn-type1 margin-right10 float-left" title="<?php echo _e('Unselect All') ?>" href="#"><span class="ion-close-circled"></span><?php echo _e('Unselect All') ?></a></td>
@@ -207,7 +210,7 @@ if (!$response["event"]["error"]):
                         <span class = "ion-play"></span></button></td>
             </tr>
             <tr id = "blanktr">
-                <td colspan = "38">&nbsp;
+                <td colspan = "39">&nbsp;
                 </td>
             </tr>
             <?php ### If Record Found Begin ### 
@@ -216,7 +219,7 @@ if (!$response["event"]["error"]):
             if (count($results["records"])) {
                 ?>
                 <?php foreach ($results["records"] as $value): ?>
-                    <tr>
+                    <tr <?php echo $value->active ? 'class="approved"' : 'class="not-approved"'?>>
                         <td><label><?php echo form_checkbox('row_id[]', $value->ai_biz_listing_id); ?><?php echo $value->headline ?></label></td>
                         <td align="center"><?php echo $value->tagline ?></td>
                         <td align="center"><?php echo $value->description ?></td>
@@ -258,7 +261,7 @@ if (!$response["event"]["error"]):
                         <td align="center"><a href="<?php echo createEditUrl($value->ai_biz_listing_id) ?>" class="ion-edit"></a>     | &nbsp;<a href="<?php echo createRevertDeleteUrl($value->ai_biz_listing_id, $value->is_trashed) ?>" class="editrevert<?php echo $value->is_trashed ?>"></a></td>
                     </tr>
                     <tr id="blanktr">
-                        <td colspan="38">&nbsp;</td>
+                        <td colspan="39">&nbsp;</td>
                     </tr>
                 <?php endforeach; ?>
                 <tr>

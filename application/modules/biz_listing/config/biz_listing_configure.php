@@ -537,6 +537,7 @@ $config['biz_listing_configure']['possible_insert'] = array(
     'creation_time',
     'creator_id',
     'status',
+	'active',
     'user_id'
 );
 
