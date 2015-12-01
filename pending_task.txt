@@ -45,4 +45,3 @@ Broker:
 3. http://localhost/nbn/broker/profileinfo (design)
 4. http://localhost/nbn/broker/searchbroker (design)
 5. http://localhost/nbn/broker/brokerdetails?broker=1 (design)
-

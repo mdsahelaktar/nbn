@@ -1,8 +1,8 @@
 <div id="body">
   <div class="wrapper">
     <div class="width100 float-left margin-bottom20 margin-top140 padding-bottom25">
-      <div class="width60 float-left">
-        <div class="float-left margin-left355 margin-top20"> <?php echo renderResposeMessage('login', $response) ?><?php echo form_open( '', array( 'name' => 'login_form', 'id' => 'login_form' ) )?>
+      <div class="width100 float-left loginformcont">
+        <div class="margin-top20 loginform"> <?php echo renderResposeMessage('login', $response) ?><?php echo form_open( '', array( 'name' => 'login_form', 'id' => 'login_form' ) )?>
           <ul>
             <li> <?php echo form_label( '<p><strong>'._e( 'User Name/Email Address' ).'</strong></p>', 'user_name' )?> <?php echo form_input( array( 'name' => 'user_name', 'id' => 'user_name', 'placeholder' => 'user or user@email.com', 'class' => 'validate', 'data-display' =>  _e( 'User Name/Email Address' ), 'data-rules' => 'required') );?> </li>
             <li> <?php echo form_label( '<p><strong>'._e( 'Password' ).'</strong></p>', 'password' )?> <?php echo form_password( array( 'name' => 'password', 'id' => 'password', 'placeholder' => '****************', 'class' => 'validate', 'data-display' =>  _e( 'Password' ), 'data-rules' => 'required' ) );?> </li>
@@ -19,7 +19,7 @@
 		$this->template->embed_asset_code('frontend', 'js', 'login_js_function', $js_function);
 		### If No Error End ###
 ?>
-          Don't have an account? <span class="registerbtn"><?php echo anchor( $register_link, _e( 'Register' ), array( 'title' => _e( 'Register' ) ) )?></span> </div>
+          <p class="registernew">Don't have an account? <span class="registerbtn"><?php echo anchor( $register_link, _e( 'Register' ), array( 'title' => _e( 'Register' ) ) )?></span> </p></div>
       </div>
       <div class="width320 float-right"> </div>
     </div>

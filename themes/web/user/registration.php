@@ -1,9 +1,9 @@
  <div id="body">
         <div class="wrapper">
             <div class="width100 float-left margin-bottom20 margin-top140 padding-bottom25">
-                <div class="width60 bg-grey padding-bottom15 padding-left15 padding-right10 padding-top15 margin-top15 float-left">					
-                    <h2 class="helvetica float-left"><?php echo $registration_title?></h2>                    
-					<div class="form_three-forth">                    
+                <div class="width60 bg-grey padding-bottom15 padding-left15 padding-right10 padding-top15 margin-top15 float-left">
+                	<h2 class="helvetica float-left"><?php echo $registration_title?></h2>
+                    <div class="form_three-forth">                    
 					<?php if( $response["event"]["error"] ): ?>
 					<?php echo renderResposeMessage('user', $response) ?>
 					<?php else:?>
@@ -36,13 +36,14 @@
                     
                     <div class="clear"></div>
                     <?php echo form_hidden('user_category_id', $user_category_id); ?> <?php echo form_hidden('user_role_id', $user_role_id); ?> <?php echo form_submit(array('name' => 'user_add', 'id' => 'user_add', 'class' => 'margin-top10'), _e('register')); ?> 
-</ul><?php echo form_close() ?></div>
+</ul><?php echo form_close() ?>
                
 					<?php endif;?>
-				</div>
+                    </div>	
+                </div>
                 <p> &nbsp; &nbsp; &nbsp; &nbsp;</p>
 
-                <?php
+               <div class="width320 float-right "> <?php
                 if ($user_category_id == 2 && $user_role_id== 1) {
                     ?>
 					
@@ -84,9 +85,10 @@
                     </div>
         <?php
     }
-    ?>
+    ?></div>
             </div>
         </div>
+      </div>
 
 
     <?php
