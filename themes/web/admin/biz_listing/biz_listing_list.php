@@ -117,7 +117,9 @@ if (!$response["event"]["error"]):
             <?php echo form_textarea(array('name' => 'keywords', 'id' => 'keywords', 'value' => $results["records"][0]->keywords, 'placeholder' => 'add about keywords here', 'rows' => 5)); ?></li>
             
            <li> <?php echo form_label('<p>' . _e('Approve status') . '</p>', 'active') ?>
-            <?php echo form_checkbox('active', 1, $results["records"][0]->active, 'id="active"'); ?> </li>
+            <span>Deactivate<?php echo form_radio('active', 0, ( !$results["records"][0]->active ? true : false ), 'id="active"'); ?></span>
+            <span>Activate<?php echo form_radio('active', 1, ( $results["records"][0]->active ? true : false ), 'id="active_true"'); ?></span>
+             </li>
             
           <li>  <?php echo form_hidden('method', 'edit'); ?>
             <?php echo form_submit(array('name' => 'biz_listing_update', 'id' => 'biz_listing_update', 'class' => 'margin-top10'), _e('Update')); ?></li> <?php echo form_close() ?>

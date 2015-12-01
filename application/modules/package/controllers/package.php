@@ -36,7 +36,7 @@ class Package extends MX_Controller {
         )
     );
 	
-	private $user_category_context = array( 2 => 1 );
+	private $user_category_context = array( 2 => 1, 4 => 2 );
     /**
      * Constructor
      */
@@ -60,11 +60,16 @@ class Package extends MX_Controller {
 		## Load config and store ##
         $CFG = $this->config->item('package_configure');	
 		## Load package against context_id and this context id genearted from user category id ##
-		$wheres = createWhereArray( array( 'context_id' => $this->user_category_context[$_GET['ct']] ), $CFG );
-		$records = $this->pmodel->getRecords( $wheres );
-		$data["content"] = $this->template->frontend_view("package", array( "packages" => $records ), true, "package");
+		if( !array_key_exists( $_GET['ct'], $this->user_category_context ) ){
+			$data["response"]["event"] = "error";
+			$data["response"]["msg"] = _e("bad_parameter_for_registration");
+			$data["content"] = $this->template->frontend_view("package", $data, true, "package");
+		}else{
+			$wheres = createWhereArray( array( 'context_id' => $this->user_category_context[$_GET['ct']] ), $CFG );
+			$records = $this->pmodel->getRecords( $wheres );
+			$data["content"] = $this->template->frontend_view("package", array( "packages" => $records ), true, "package");
+		}
 		$this->template->build_frontend_output($data);
-		//var_dump($records);
     }
 
 }

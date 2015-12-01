@@ -39,7 +39,7 @@ $config['popular_configure']['dependent_on'][1]		= array(
 												'image' => array(
 															'on' 	=> 'popular.object = image.relation_id',
 															'type' 	=> 'left',
-															'where' => array( '(CASE WHEN image.context_id IS NULL THEN 1 ELSE image.context_id = 3 END)' ),// Place image context id now biz = 3 as image context id
+															'where' => array( '(CASE WHEN image.context_id IS NULL THEN 1 ELSE image.context_id = 1 END)' ),// Place image context id now biz = 3 as image context id
 															'fetch' => array(
 																		'image_url',
 																		'is_trashed',

@@ -183,7 +183,26 @@ class Broker extends MX_Controller {
         $login_info = isLoggedIn();
         $data['user_id'] = $login_info["user_id"];
 		$profile = $this->getBrokerDetailsByid( $login_info["user_id"] );		
-		$data = array_merge( $data , (array)$profile[0] );			
+		$data = array_merge( $data , (array)$profile[0] );
+		
+		if( $profile[0]->country_id )
+			$data["provinces_dd"] = modules::run('province/province_admin/getProvincesByCountryId', $profile[0]->country_id );
+		else
+			$data["provinces_dd"] = array('' => _e("choose_provice"));
+		
+		if( $profile[0]->province_id )
+			$data["counties_dd"] = modules::run('county/county_admin/getCountiesByProvinceId', $profile[0]->province_id );
+		else
+			$data["counties_dd"] = array('' => _e("choose_counties"));
+		
+		if( $profile[0]->county_id )
+			$data["cities_dd"] = modules::run('location/location/getCityByCountyId', $profile[0]->county_id );
+		else
+			$data["cities_dd"] = array('' => _e("choose_counties"));	
+		
+		if( !$profile[0]->city )	
+			$data["zipcodes_dd"] = array('' => _e("choose_zipcodes"));	
+		
         $data["content"] = $this->template->frontend_view("broker_profile_info", $data, true, "broker");
         $this->template->build_frontend_output($data);
     }
@@ -315,17 +334,32 @@ class Broker extends MX_Controller {
                         unset($post_var['county_id']);
                         unset($post_var['city_id']);
                         unset($post_var['zipcode']);
-
-                        $loc_push = array('location_id' => $results);
+						
+						$login_info = isLoggedIn();
+						$data['user_id'] = $login_info["user_id"];
+						$profile = $this->getBrokerDetailsByid( $login_info["user_id"] );
+						
+						$loc_push = array('location_id' => $results);
                         $post_val = array_merge($loc_push, $post_var);
-                        $insertedrows = $this->brokermod->insertInto($post_val);
+						
+						if( !empty( $profile ) ){
+							$post_val["row_id"] = $profile[0]->ai_broker_id;
+							$this->brokermod->dbUpdate('update', '',$post_val);
+							$rows_updated = true;
+							$relation_id_for_image = $profile[0]->ai_broker_id;
+						}else{                        
+                        	$insertedrows = $this->brokermod->insertInto($post_val);
+							$relation_id_for_image = lastInsertedId($CFG);
+						}
                         $image_value = $this->upload->get_multi_upload_data();
-                        $relation_id_for_image = lastInsertedId($CFG);
-                        $create_post = array("context_id" => "2", "relation_id" => $relation_id_for_image);
-                        $this->load->module('image/image_admin');
-                        $img_insert = $this->image_admin->multipleDataInsert($create_post, $image_value);
+						
+						if( $image_value ){
+							$create_post = array("context_id" => "2", "relation_id" => $relation_id_for_image);
+							$this->load->module('image/image_admin');
+							$img_insert = $this->image_admin->multipleDataInsert($create_post, $image_value);
+						}
 
-                        if ($insertedrows)
+                        if ($insertedrows or $rows_updated)
                             echo json_encode(array("event" => "success", "msg" => _e('broker information added')));
                         else
                             echo json_encode(array("event" => "error", "msg" => _e('broker information add fail')));

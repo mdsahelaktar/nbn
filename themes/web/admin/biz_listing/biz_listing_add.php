@@ -107,7 +107,11 @@ if (!$response["event"]["error"]):
 
             <li><?php echo form_label('<p>' . _e('Keywords') . '</p>', 'keywords') ?>
                 <?php echo form_textarea(array('name' => 'keywords', 'id' => 'keywords', 'placeholder' => 'add about keywords here', 'rows' => 5)); ?></li>
-
+			<li> <?php echo form_label('<p>' . _e('Approve status') . '</p>', 'active') ?>
+            <span>Deactivate<?php echo form_radio('active', 0, false, 'id="active"'); ?></span>
+            <span>Activate<?php echo form_radio('active', 1, true, 'id="active_true"'); ?></span>
+             </li>
+             
             <li><?php echo form_label('<p>' . _e('Images') . '</p>', 'images') ?>
                 <div id="imageUpload">
                     <div class="imageplacer"><span class="otherbutton"></span><?php echo form_upload(array('name' => 'images[]', 'placeholder' => 'add images')); ?></div>

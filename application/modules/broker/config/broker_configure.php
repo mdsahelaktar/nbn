@@ -215,7 +215,11 @@ $config['broker_configure']['possible_where'] 	= array(
 |
 */
 $config['broker_configure']['possible_update'] 	= array(
-													'service_area'
+													'service_area',
+													'additional_services',
+													'company_details',
+													'bio',
+													'location_id',
 );
 
 /*

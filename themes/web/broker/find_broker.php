@@ -62,7 +62,7 @@
          	<p class="bg-blue padding-bottom10 padding-left10 padding-right10 padding-top10 font16 white"><?php echo _e( 'biz_bro_list_now' ); ?></p>
             <div class="bg-lightbrown padding-bottom10 padding-left10 padding-right10 padding-top10 float-left ">
             	<p><strong><?php echo _e( 'buyers_sellers_msg' ); ?>.</strong> <?php echo _e( 'post_biz' ); ?>. </p>
-                <a href="<?php echo base_url()?>user?<?php echo implode( "&", setRegisterParam(32, 7) )?>" target="_self" class="global4 font14 float-left margin-top20 padding-bottom5 padding-top5 padding-left20 padding-right20 margin-left45 margin-bottom10"><?php echo _e( 'become_bro_mem' ); ?></a>
+                <a href="<?php echo base_url()?>package?<?php echo implode( "&", setRegisterParam(4, 3) )?>" target="_self" class="global4 font14 float-left margin-top20 padding-bottom5 padding-top5 padding-left20 padding-right20 margin-left45 margin-bottom10"><?php echo _e( 'become_bro_mem' ); ?></a>
             </div>
         </div>
       </div>

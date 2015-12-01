@@ -34,3 +34,15 @@ My Account:
 BizListing Add:
 1. After adding biz listing admin will get a mail for new listing to approve them.
 2. Allow only approved listing to show in front end.
+
+BizListing Manage:
+1. Click http://localhost/nbn/biz_listing/manage (follow recursively) (design)
+2. Wrong data is coming(backend)
+
+Broker:
+1. Register as broker (design)
+2. http://localhost/nbn/broker/ (design)
+3. http://localhost/nbn/broker/profileinfo (design)
+4. http://localhost/nbn/broker/searchbroker (design)
+5. http://localhost/nbn/broker/brokerdetails?broker=1 (design)
+

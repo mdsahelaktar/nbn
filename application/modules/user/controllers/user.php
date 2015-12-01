@@ -39,8 +39,8 @@ class User extends MX_Controller {
     );
 	
 	private $current_user = false;	
-	private $allowed_register_categories_roles = array( 2 => array( 1 ) );
-	private $current_packages = array( 1, 2 );
+	private $allowed_register_categories_roles = array( 2 => array( 1 ), 4 => array( 3 ) );
+	private $current_packages = array( 1, 2, 3, 4 );
     /**
      * 	Constructor
      */

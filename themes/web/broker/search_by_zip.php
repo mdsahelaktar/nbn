@@ -46,7 +46,7 @@
          	<p class="bg-blue padding-bottom10 padding-left10 padding-right10 padding-top10 font16 white">Business Brokers: Get Listed Now</p>
             <div class="bg-lightbrown padding-bottom10 padding-left10 padding-right10 padding-top10 float-left ">
             	<p><strong>Reach millions of prospective buyers and sellers.</strong> Post your business for sale listings. Broker memberships start at only $49.95 a month. </p>
-                <a href="<?php echo base_url()?>user?<?php echo implode( "&", setRegisterParam(32, 7) )?>" target="_self" class="global4 font14 float-left margin-top20 padding-bottom5 padding-top5 padding-left20 padding-right20 margin-left45 margin-bottom10">Become a Broker Member</a>
+                <a href="<?php echo base_url()?>package?<?php echo implode( "&", setRegisterParam(4, 3) )?>" target="_self" class="global4 font14 float-left margin-top20 padding-bottom5 padding-top5 padding-left20 padding-right20 margin-left45 margin-bottom10">Become a Broker Member</a>
             </div>
         </div>
       </div>

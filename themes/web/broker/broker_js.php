@@ -13,6 +13,7 @@ function afterValidCheck($this, errors, event)
 
 function brokerAfterAction(data)
 {
+	console.log(data);
 	var data = $.parseJSON(data);
 	showMsg('div[msg="brokermsg"]', data.event, data.msg, '', true);
 }
@@ -161,6 +162,10 @@ $(document).ready(function(){
 			scrollTop: $("#frm").offset().top
 		}, 2000);
 	});
+	<?php if( $city ):?>
+		getZipByCity("#city_id_broker_profile");
+		$("#zipcode_broker_profile").val(<?php echo $zipcode?>);
+	<?php endif;?>
 });
 
  function initialize(lat,long) 
