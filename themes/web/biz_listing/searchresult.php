@@ -48,9 +48,10 @@ $var = array_merge( $config_var, $var );
                     
                     <li><input type="text" name="cfl" value="" id="cfl" placeholder="<?php echo _e('Cash Flow Low') ?>"></li>
                     
-                     <li><div class="customeselect"><dfn><?php echo _e('Show Businesses Listed:') ?></dfn>
-					  <select name="show_biz_list_bydate" id="show_biz_list_bydate">
-                      <option value = "">Anytime</option>
+                     <li><div class="customeselect"><?php /*?><dfn><?php echo _e('Show Businesses Listed:') ?><?php */?></dfn>
+					  <select name="show<strong></strong>_biz_list_bydate" id="show_biz_list_bydate">
+                      <option value="1">Show Businesses Listed</option>
+                      <option value = "2">Anytime</option>
                       <option value = "3">last 3 days</option>
                       <option value = "7">last 7 days</option>
                       <option value = "30">last 30 days</option>

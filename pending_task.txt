@@ -34,3 +34,9 @@ My Account:
 BizListing Add:
 1. After adding biz listing admin will get a mail for new listing to approve them.
 2. Allow only approved listing to show in front end.
+
+
+
+
+
+margin-left355 float-left
