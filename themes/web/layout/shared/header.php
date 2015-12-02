@@ -11,11 +11,28 @@ $var = array_merge( $config_var, ( is_array( $var ) ? $var : array() ) );
             </div>
             <!--big header right head start-->
             <div class="righthead">
-                <?php if (isLoggedIn()) : ?>
-                    <div id="loggedin_cont" class="login"><a href="#" onclick="logOut(afterLogOut)" target="_self"?><?php echo _e('Logout') ?></a></div>
-                <?php else : ?>
-                    <div id="loggedin_cont" class="login"><?php echo anchor('login/', _e('Login')) ?></div>
-                <?php endif; ?>
+               <div class="top"> 
+               		<div id="top-menu">
+                      <ul>
+                        <li id="dropDown"><a href="#" class="myaccount">My Account</a>
+                          <ul>
+                            <li><a href="#">My Profile</a></li>
+                            <li><a href="#">Edit Profile</a></li>
+                            <li><a href="#">Change Passwprd</a></li>
+                            <li><a href="#">My Jobs</a></li>
+                            <li><a href="#">My Profile</a></li>
+                            <li><a href="#">My Jobs</a></li>
+                          </ul>
+                        </li>
+                      </ul>
+    				</div>
+				   <?php if (isLoggedIn()) : ?>
+                        <div id="loggedin_cont" class="login"><a href="#" onclick="logOut(afterLogOut)" target="_self"?><?php echo _e('Logout') ?></a></div>
+                    <?php else : ?>
+                        <div id="loggedin_cont" class="login"><?php echo anchor('login/', _e('Login')) ?></div>
+                    <?php endif; ?>
+                </div>
+                	
                 <?php $this->template->frontend_view('quick_search', '', FALSE, "biz_listing"); ?>
                 <ul>
                     <li> <?php echo anchor('user', _e('Sign Up'), array('title' => _e('Sign Up'))) ?> </li>
