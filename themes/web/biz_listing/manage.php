@@ -49,13 +49,13 @@ if ($response["event"] != "error"):
           </li>
           <li> <?php echo form_label('<p>' . _e('Value of FF&E') . '</p>', 'ffe_value') ?> <?php echo form_input(array('name' => 'ffe_value', 'id' => 'ffe_value', 'size' => 30, 'value' => $results["records"][0]->ffe_value, 'placeholder' => 'add Furniture, Fixtures, and Equipment price here')); ?></li>
           <li>
-            <div class="margin-top35"><?php echo form_checkbox('is_ffe_included', 1, $results["records"][0]->is_ffe_included, 'id="is_ffe_included"'); ?> <?php echo form_label('<p>' . _e('Furniture, Fixtures, and Equipment included in asking price.') . '</p>', 'is_ffe_included') ?></div>
+            <div class="margin-top20"><?php echo form_checkbox('is_ffe_included', 1, $results["records"][0]->is_ffe_included, 'id="is_ffe_included"'); ?> <?php echo form_label('<p>' . _e('Furniture, Fixtures, and Equipment included in asking price.') . '</p>', 'is_ffe_included') ?></div>
           </li>
-          <li> <?php echo form_label('<p>' . _e('Value of Real Estate') . '</p>', 'rs_value') ?> <?php echo form_input(array('name' => 'rs_value', 'id' => 'rs_value', 'size' => 30, 'value' => $results["records"][0]->rs_value, 'placeholder' => 'add real estate price here')); ?><br />
-            <?php echo form_checkbox('is_rs_included', 1, $results["records"][0]->is_rs_included, 'id="is_rs_included"'); ?> <?php echo form_label('<p>' . _e('Real Estate included in asking price.') . '</p>', 'is_rs_included') ?> <br />
-            <?php echo form_checkbox('is_biz_relctble', 1, $results["records"][0]->is_biz_relctble, 'id="is_biz_relctble"'); ?> <?php echo form_label('<p>' . _e('Business is relocatable.') . '</p>', 'is_biz_relctble') ?> <br />
-            <?php echo form_checkbox('is_biz_franchis', 1, $results["records"][0]->is_biz_franchis, 'id="is_biz_franchis"'); ?> <?php echo form_label('<p>' . _e('Business is a franchise.') . '</p>', 'is_biz_franchis') ?> <br />
-            <?php echo form_checkbox('is_biz_hb', 1, $results["records"][0]->is_biz_hb, 'id="is_biz_hb"'); ?> <?php echo form_label('<p>' . _e('Business is home based') . '</p>', 'is_biz_hb') ?> </li>
+          <li> <?php echo form_label('<p>' . _e('Value of Real Estate') . '</p>', 'rs_value') ?> <?php echo form_input(array('name' => 'rs_value', 'class' => 'rs_value margin-bottom10', 'id' => 'rs_value', 'size' => 30, 'value' => $results["records"][0]->rs_value, 'placeholder' => 'add real estate price here')); ?><br />
+            <?php echo form_label('<p>' . _e('Real Estate included in asking price.') . '</p>', 'is_rs_included') ?><?php echo form_checkbox('is_rs_included', 1, $results["records"][0]->is_rs_included, 'id="is_rs_included"'); ?>  <br />
+           <?php echo form_label('<p>' . _e('Business is relocatable.') . '</p>', 'is_biz_relctble') ?> <?php echo form_checkbox('is_biz_relctble', 1, $results["records"][0]->is_biz_relctble, 'id="is_biz_relctble"'); ?>  <br />
+           <?php echo form_label('<p>' . _e('Business is a franchise.') . '</p>', 'is_biz_franchis') ?>  <?php echo form_checkbox('is_biz_franchis', 1, $results["records"][0]->is_biz_franchis, 'id="is_biz_franchis"'); ?> <br />
+            <?php echo form_label('<p>' . _e('Business is home based') . '</p>', 'is_biz_hb') ?> <?php echo form_checkbox('is_biz_hb', 1, $results["records"][0]->is_biz_hb, 'id="is_biz_hb"'); ?>  </li>
           <li> <?php echo form_label('<p>' . _e('Seller Financing Info.') . '</p>', 'seller_fincng_info') ?> <?php echo form_textarea(array('name' => 'seller_fincng_info', 'id' => 'seller_fincng_info', 'size' => 30, 'value' => $results["records"][0]->seller_fincng_info, 'placeholder' => 'add seller financing info here', 'rows' => 5)); ?></li>
           <li><?php echo form_label('<p>' . _e('Training & Support') . '</p>', 'training_support') ?> <?php echo form_textarea(array('name' => 'training_support', 'id' => 'training_support', 'value' => $results["records"][0]->training_support, 'placeholder' => 'add training support info here', 'rows' => 5)); ?></li>
           <li> <?php echo form_label('<p>' . _e('Reason for Selling') . '</p>', 'selling_reason') ?> <?php echo form_textarea(array('name' => 'selling_reason', 'id' => 'selling_reason', 'value' => $results["records"][0]->selling_reason, 'placeholder' => 'add reason for selling here', 'rows' => 5)); ?></li>
@@ -94,7 +94,7 @@ if ($response["event"] != "error"):
       <?php ### Edit Section End ####  ?>
       <?php else: ?>
       <?php ### List Section Begin ###  ?>
-      <?php echo form_open('', array('name' => 'biz_listing_search_form', 'id' => 'biz_listing_search_form', 'class' => 'width100 float-left margin-bottom30 margin-top10', 'method' => 'get')) ?>
+      <div class="manage-biz-listing-search-cont"><?php echo form_open('', array('name' => 'biz_listing_search_form', 'id' => 'biz_listing_search_form', 'class' => 'width100 float-left margin-bottom30 margin-top10', 'method' => 'get')) ?>
       <table id="bizlist">
         <tr id="caption_section">
           <th><a href="<?php echo sortBy($var['CFG'], 'sortbyheadline') ?>" class="<?php echo sortClass($var['CFG'], 'sortbyheadline') ?>"><?php echo _e('Headline') ?></a></th>
@@ -168,12 +168,12 @@ if ($response["event"] != "error"):
               <p><?php echo _e('No records found') ?></p>
             </div></td>
         </tr>
-        <?php ### If No Record Found Begin ###  ?>
+        <?php ### If No Record Found Ends ###  ?>
         <?php }
             ?>
       </table>
-      <?php echo form_close() ?>
-      <?php ### List Section Begin ###  ?>
+      <?php echo form_close() ?></div>
+      <?php ### List Section Ends ###  ?>
       <?php
     endif;
 endif;

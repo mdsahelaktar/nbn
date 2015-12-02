@@ -314,7 +314,7 @@ a.global4 {color: #fff; transition : all 0.3s ease-in 0s; background: #00305e; c
 a.global4:hover {color: #fff; background: #fbb03b;}
 
 a.btn-type1 {background-color: #00305e; color: #fff; padding: 8px 22px; border: none; cursor: pointer; transition : all 0.3s ease-in 0s; margin: 0 0px 0 0 0;}
-a.btn-type1 span {float: left; margin: 0 5px 0 0;}
+a.btn-type1 span {/*float: left;*/ display: inline-block; margin: 0 5px 0 0;}
 a.btn-type1:hover {color: #fcaf3d; transition : all 0.3s ease-in 0s;}
 
 input.blue[type="button"] {background: #00305e; color: #fff; padding: 5px 10px; border: 0; cursor: pointer;}
@@ -365,6 +365,7 @@ input.gray[type="button"]:hover {background: #00305e;}
 .underline {text-decoration: underline;}
 
 .radius4{border-radius:4px;}
+.radius3{border-radius:3px;}
 
 h6.type1 {background: url(../images/bg-h2.jpg) bottom left repeat-x; padding: 0 0 10px 0;}
 h6.type2 {background: #00305e; padding: 8px 0; color: #fff; text-align: center; -moz-border-radius: 6px 6px 0 0; border-radius: 6px 6px 0 0; margin: 0;}
@@ -848,21 +849,23 @@ a.email-alert{background: url(../images/email-alert.png) no-repeat; color: #fff;
 .back {width: 22px; height: 22px; background: url(../images/bg-back.png) no-repeat; outline: none;}
 .foreward {width: 22px; height: 22px; background: url(../images/bg-foreward.png) no-repeat; outline: none;}
 
-.srp-details {position:relative; /*cursor:pointer;*/ width: 715px; float: left; margin: 0 0 20px 0; padding: 4px 4px 4px 4px; background-color: #f8f8f8; transition: all 0.5s ease-in 0s; border: 1px solid #f2f2f2;}
-.srp-details:hover {background: #fff; padding: 4px 4px 4px 4px; -webkit-box-shadow: 0px 5px #dbd9d9; transition: all 0.3s ease-in 0s; box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);border: 1px solid #cccccc;}
+.srp-details-cont {padding-bottom: 20px; border-bottom: 1px #ddd dashed;}
+.srp-details {position:relative; width: 715px; float: left; margin: 0; padding: 10px; background-color: #f8f8f8; transition: all 0.5s ease-in 0s; border: 1px solid #f2f2f2;}
+.srp-details:hover {background: #fff; padding: 10px; -webkit-box-shadow: 0px 5px #dbd9d9; transition: all 0.3s ease-in 0s; box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);border: 1px solid /*#cccccc*/ /*#fbb03b*/ #ed9c1d;}
 .srp-details-left {float: left; margin: 0; border: 1px #c3c3c3 solid; padding: 2px;}
 .srp-details-left img {float: left;}
 
 .srp-details-right {width: /*505*/ 538px; float: left; margin-left: 20px;}
 .srp-details-right .biz-location {width: 100%; float: left; margin-bottom: 5px;}
-.srp-details-right h3 {width: 100%; float: left; margin: 0 0 10px 0; color: #00305e; font-size: 18px; font-weight: bold;}
+.srp-details-right h3 {width: 100%; float: left; margin: 0 0 10px 0; color: #00305e; font-size: 18px; font-weight: bold; text-transform: capitalize;}
 .srp-details-right p {width: 100%; float: left; margin-bottom: 10px; font-size: 14px;}
 .srp-details-right ul {width: 100%; float: left; margin: 7px 0 0 0;}
-.srp-details-right ul li, .cardetails-right ul li a {float: left; color: #da0729; margin: 0 2px;}
-.srp-details .tools {width: /*505*/ 538px; float: left; margin: 0 0 0 20px; /*position: absolute;*/ bottom: 5px; right: 0;}
-.srp-details .tools ul {width: /*400px;*/ /*auto*/ 390px; float: left; margin: -1px 0 0 0; padding: 8px 0; border-top: 1px #c3c3c3 solid; border-bottom: 1px #c3c3c3 solid;}
+.srp-details-right ul li, .cardetails-right ul li a {float: left; /*color: #da0729;*/ margin: 0 2px;}
+.srp-details .tools {width: /*505*/ 537px; float: left; margin: 0; /*position: absolute;*/ bottom: 5px; right: 0;}
+.srp-details .tools ul {width: /*400px;*/ /*auto*/ /*390px;*/ 100%; float: left; margin: -1px 0 0 0; padding: 8px 0; border-top: 1px #c3c3c3 solid; border-bottom: 1px #c3c3c3 solid;}
 .srp-details .tools ul li {float: left; margin-right: 15px;}
 .srp-details .tools ul li.last {margin-right: 0px; /*margin-left: 120px;*/}
+.srp-details-right strong{font-size: 14px;}
 
 
 /*pricing page----------------------------*/
@@ -924,7 +927,7 @@ ul.profile-item li:last-child {border-bottom: 2px #00305e solid;}
 
 /*some more style
 -----------------------------------------------------------------------------------------*/	
-.defaultcountry {margin: -73px 0 0 121px; float: left; transition: all 0.3s ease-in 0s; display: block;}
+.defaultcountry {margin: -73px 0 0 87px; float: left; transition: all 0.3s ease-in 0s; display: block;}
 .defaultcountry select {width: 220px; float: left; -moz-appearance: none; background: url(../images/dropdown.png) no-repeat 98% center; line-height: 1; border: 1px solid #00305e; padding: 4px; cursor: pointer; color: #999;}
 .defaultcountry .choose {background: #fff; padding: 0 0 3px 0; transition: all 0.3s ease-in 0;}	
 .choose p {display: none; transition: all 0.3s ease-in 0s;}	
@@ -956,7 +959,7 @@ ul.profile-item li:last-child {border-bottom: 2px #00305e solid;}
 .brokerpic {padding: 3px; background: #fff; border: 1px #333 solid; width: 43%; margin-top: 38px;}
 .contactseller .error_msg {margin-left: 68px;}
 
-#biz_listing_edit_form {width: 580px;}
+/*#biz_listing_edit_form {width: 580px;}*/ 
 .popup {padding: 1.5%; width: 97%;}
 
 .formcont-small {width: 20%;}
@@ -1059,3 +1062,138 @@ a.forgot_password {color: #00305e;}
 .loginformcont .loginform {width: 250px; display: inline-block;}
 .registernew {text-align: left;}
 .slide-controller .loginform {width: 280px;}
+
+/*dropdown menu -------starts------------------------------------*/
+#top-menu {
+	margin: 15px 0 0 0;
+	position: relative;
+	z-index: 1;
+	float: right;
+}
+#top-menu ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+#top-menu ul li {
+	float: left;
+}
+#top-menu ul li a {
+	font-family: proxima_novasemibold, Arial;
+	font-size: 17px;
+	padding: 11px 18px;
+	color: white;
+	text-decoration: none;
+	text-shadow: 0 -1px 0 #0b3751;
+	-webkit-transition: background 0.5s ease, color 0.3s ease;
+	transition: background 0.5s ease, color 0.3s ease;
+	color: #333;
+}
+#top-menu ul li a.myaccount {
+	background: url(../images/my-account-blue.png) no-repeat; width: 24px; height: 27px; float: left; text-indent: -999999px; padding: 0; margin-left: 10px;
+	margin-top: -4px;
+	}
+	
+#top-menu ul li a.myaccount:hover, #top-menu ul li#dropDown:hover {background-color: transparent; border: 0; padding: 0;}	
+#top-menu ul li:hover > a {
+	/*background-color: #00305e;*/
+	/*border: 1px solid #30677b;*/
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	/*padding: 10px 17px;*/
+	color: #bbecff;
+}
+/* START Drop Down Menu
+	******************************************************************/
+	#top-menu li ul {
+	min-width: 200px;
+	position: absolute;
+	margin: 35px 0 0 1px;
+	opacity: 0;
+	visibility: hidden;
+	transition: visibility 0s linear 0.5s, opacity 0.5s linear;
+	z-index: 12;
+}
+#top-menu li ul li {
+	background: #00305e;
+	min-width: /*212*/180px;
+	clear: both;
+	padding: 5px 10px;
+	border-bottom: 1px solid #bbecff;
+}
+#top-menu li ul li a {
+	color: #fff;
+	font-size: 14px;
+	padding: 5px;
+	width: 100%;
+}
+#top-menu li ul li a:after {
+	content: none;
+	}
+#top-menu li ul li:hover {background-color: #feb542;}
+#top-menu li ul li:hover a {
+	background: none !important;
+	border: 0 !important;
+	padding: 5px !important;
+	color: #000;
+}
+#top-menu ul li:hover ul,  #top-menu li li:hover ul,  #top-menu li li li:hover ul {
+	opacity: 1;
+	overflow: hidden;
+	visibility: visible;
+	transition-delay: 0s;
+}
+#top-menu li ul li:last-child {
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.manage-biz-listing-search-cont {overflow: scroll;}
+tr#caption_section {
+    /*background: #ccc;*/
+}
+table, table tbody {width: 100%; /*float: left;*/}
+th {line-height: 40px; background: #fdb03e; color: #fff; min-width: /*130px;*/ 160px;}
+table#bizlist th {min-width: /*205*/ 225px;}
+table#bizlist td {padding: 0 10px;}
+.bizlist-add input[type="checkbox"] {float: left; margin: 12px 5px 0 0;}
+select[name="action"] {width: 65%;}
+a[title="Select All"], a[title="Unselect All"] {border-radius: 4px;}
+
+.asc {
+    background: #e18c0d url(../images/icon_open.png) no-repeat 90% 60%;
+    /*padding: 0 40px;*/
+}
+.desc {
+    background: #e18c0d url(../images/icon_arrow_up.png) no-repeat 90% 60%;
+    /*padding: 0 40px;*/
+}
+
+.refresh {background: url(../images/refresh.png) no-repeat 18% center; text-indent: 10px; transition: all 0.5s ease-in 0s;}
+.refresh:hover {background: #00305e url(../images/refresh-hover.png) no-repeat 18% center; transition: all 0.5s ease-in 0s;}
+
+.filter {background: #00305e url(../images/filter-normal.png) no-repeat 18% center; text-indent: 10px; transition: all 0.5s ease-in 0s;}
+.filter:hover {background: #00305e url(../images/filter.png) no-repeat 18% center; transition: all 0.5s ease-in 0s;}
+
+.viewicon {background: #00305e url(../images/view-icon.png) no-repeat 18% center; text-indent: 10px; transition: all 0.5s ease-in 0s;}
+.viewicon:hover {background: #00305e url(../images/view-icon-hover.png) no-repeat 18% center; transition: all 0.5s ease-in 0s;}
+
+th a {background: #fdb03e; float: left; color: #fff; width: 100%;}
+th a:hover {background: #e18c0d;}
+
+button {background-color: #00305e; color: #fff; padding: 7px 22px; border: none; cursor: pointer; transition : all 0.5s ease-in 0s; margin: 0 0px 0 0 0;}
+button:hover {color: #fcaf3d; transition : all 0.5s ease-in 0s;}
+button.go {padding: 7px 15px;}
+table#list a.editrevert0, a.ion-edit, a.ion-settings {
+    color: #00305e;
+    float: none;
+    margin: 0 5px 0 0;
+    transition: all 0.5s ease-in 0s;
+}
+a.editrevert0, a.ion-edit, a.editrevert1 {
+    color: #00305e;
+    margin: 0 5px 0 0;
+    transition: all 0.5s ease-in 0s;
+}
+#biz_listing_edit_form p{line-height: 25px;}
+#biz_listing_edit_form input[type="checkbox"], input[type="radio"] {float: right;}
