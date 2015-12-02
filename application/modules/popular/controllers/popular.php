@@ -17,12 +17,15 @@ class Popular extends MX_Controller
 	 *	Loads other accessories required for this model.
 	 */	
 	public $autoload = array(
-        		'config'     => array(
-								'popular_configure'
-								),
-				'helpers' 	 => array(
-								'form'
-								)
+			'language'  => array(
+				'popular'
+			),
+			'config'     => array(
+				'popular_configure'
+			),
+			'helpers' 	 => array(
+				'form'
+			)
     );
 		
 	/**

@@ -79,11 +79,11 @@ CREATE TABLE `biz_listing` (
   `creation_time` datetime DEFAULT NULL,
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ai_biz_listing_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `biz_listing` */
 
-insert  into `biz_listing`(`ai_biz_listing_id`,`headline`,`tagline`,`description`,`biz_type_id`,`other_biz_type_id`,`country_id`,`province_id`,`county_id`,`is_county_cnfdntl`,`city`,`asking_price`,`is_fincng_avlble`,`year_established`,`employees`,`biz_website`,`gross_revenue`,`gross_revenue_comments`,`cash_flow`,`cash_flow_comments`,`inv_value`,`is_inv_included`,`ffe_value`,`is_ffe_included`,`rs_value`,`is_rs_included`,`is_biz_relctble`,`is_biz_franchis`,`is_biz_hb`,`seller_fincng_info`,`training_support`,`selling_reason`,`facilities`,`mkt_outlook_cmp`,`keywords`,`creator_id`,`user_id`,`status`,`active`,`is_trashed`,`is_deleted`,`creation_time`,`update_time`) values (1,'Biz test','biz test tagline','sas',9,1,16,0,0,0,'howrah',5,1,0000,'45454','5454',545,'45',454,'54',54,0,54,0,45,0,0,0,0,'45','4','54','54','5','45',0,2,2,0,0,0,'2015-11-27 14:30:19','2015-11-27 20:41:09'),(2,'','','',0,0,0,0,0,0,'',0,0,0000,'','',0,'',0,'',0,0,0,0,0,0,0,0,0,'','','','','','',0,2,1,0,0,0,'2015-11-27 14:31:08','2015-11-27 20:01:08');
+insert  into `biz_listing`(`ai_biz_listing_id`,`headline`,`tagline`,`description`,`biz_type_id`,`other_biz_type_id`,`country_id`,`province_id`,`county_id`,`is_county_cnfdntl`,`city`,`asking_price`,`is_fincng_avlble`,`year_established`,`employees`,`biz_website`,`gross_revenue`,`gross_revenue_comments`,`cash_flow`,`cash_flow_comments`,`inv_value`,`is_inv_included`,`ffe_value`,`is_ffe_included`,`rs_value`,`is_rs_included`,`is_biz_relctble`,`is_biz_franchis`,`is_biz_hb`,`seller_fincng_info`,`training_support`,`selling_reason`,`facilities`,`mkt_outlook_cmp`,`keywords`,`creator_id`,`user_id`,`status`,`active`,`is_trashed`,`is_deleted`,`creation_time`,`update_time`) values (1,'Biz test','biz test tagline','sas',9,1,16,0,0,0,'howrah',5,1,0000,'45454','5454',545,'45',454,'54',54,0,54,0,45,0,0,0,0,'45','4','54','54','5','45',0,2,2,1,0,0,'2015-11-27 14:30:19','2015-12-01 16:11:43'),(2,'','','',0,0,0,0,0,0,'',0,0,0000,'','',0,'',0,'',0,0,0,0,0,0,0,0,0,'','','','','','',0,2,1,0,0,0,'2015-11-27 14:31:08','2015-11-27 20:01:08'),(3,'','','',0,0,0,0,0,0,'',0,0,0000,'','',0,'',0,'',0,0,0,0,0,0,0,0,0,'','','','','','',4,4,1,0,0,0,'2015-12-01 11:15:54','2015-12-01 16:45:54');
 
 /*Table structure for table `biz_type` */
 
@@ -121,9 +121,11 @@ CREATE TABLE `broker` (
   `creation_time` datetime DEFAULT NULL,
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ai_broker_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 /*Data for the table `broker` */
+
+insert  into `broker`(`ai_broker_id`,`user_id`,`service_area`,`additional_services`,`company_details`,`bio`,`location_id`,`is_trashed`,`is_deleted`,`creation_time`,`update_time`) values (1,4,'service area update','additional services update','company details update','broker bio update',41709,0,0,'2015-12-01 14:56:14','2015-12-01 20:29:22');
 
 /*Table structure for table `cms` */
 
@@ -161,11 +163,11 @@ CREATE TABLE `context` (
   `creation_time` datetime DEFAULT NULL,
   `update_time` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`ai_context_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 /*Data for the table `context` */
 
-insert  into `context`(`ai_context_id`,`context`,`description`,`is_trashed`,`is_deleted`,`creation_time`,`update_time`) values (1,'Biz','Context related with Biz',0,0,'2015-11-20 14:32:37',NULL);
+insert  into `context`(`ai_context_id`,`context`,`description`,`is_trashed`,`is_deleted`,`creation_time`,`update_time`) values (1,'Biz','Context related with Biz',0,0,'2015-11-20 14:32:37',NULL),(2,'Broker','Context related to broker',0,0,'2015-12-01 11:08:24',NULL);
 
 /*Table structure for table `country` */
 
@@ -242,9 +244,11 @@ CREATE TABLE `image` (
   `creation_time` datetime DEFAULT NULL,
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ai_image_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 /*Data for the table `image` */
+
+insert  into `image`(`ai_image_id`,`context_id`,`relation_id`,`caption`,`image_url`,`alt`,`edit_history`,`order`,`is_main`,`is_trashed`,`is_deleted`,`creation_time`,`update_time`) values (1,2,1,'NULL','broker/01.JPG','NULL','',0,0,0,0,'2015-12-01 14:59:50','0000-00-00 00:00:00');
 
 /*Table structure for table `language` */
 
@@ -304,11 +308,11 @@ CREATE TABLE `package` (
   `creation_time` datetime DEFAULT NULL,
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ai_package_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 /*Data for the table `package` */
 
-insert  into `package`(`ai_package_id`,`context_id`,`package`,`description`,`amount`,`vim`,`order`,`is_trashed`,`is_deleted`,`creation_time`,`update_time`) values (1,1,'Silver','<div class=\"head\">Featured Ad<br /> <p>Essential features for business sellers.</p></div>\r\n                        <div class=\"featured\"><img src=\"http://localhost/nbn/themes/web/layout/assets/images/plan-flag.png\" /></div>\r\n                        <div class=\"price\"><sup>$</sup> <span>89.95</span> <sub>/mo.</sub></div>\r\n                         <ul class=\"features\">\r\n                            <li><b>Top display in search results</b></li>\r\n                            <li><a href=\"#\">Guide to Selling</a> included</li>\r\n                            <li>Add multiple photos and a video to your listing</li>\r\n                            <li>Get a list of local prospective buyers</li>\r\n                            <li>Customizable sales tagline in search results</li>\r\n                            <li>Dedicated Email Brochure sent to potential buyers</li>\r\n                            <li>Real-time Lead Delivery &amp; Stats</li>\r\n                        </ul>',200,23,0,0,0,'2015-09-09 09:35:05','2015-11-20 20:03:17'),(2,1,'Gold','<div class=\"head\">Economy As<br /> <p>Greater visibility and more responses.</p></div>\r\n                        <div class=\"price\"><sup>$</sup> <span>55.95</span> <sub>/mo.</sub></div>\r\n                         <ul class=\"features\">\r\n                            <li><b>Top display in search results</b></li>\r\n                            <li><a href=\"#\">Guide to Selling</a> included</li>\r\n                            <li>Add multiple photos and a video to your listing</li>\r\n                            <li>Get a list of local prospective buyers</li>\r\n                            <li>Customizable sales tagline in search results</li>\r\n                            <li>Dedicated Email Brochure sent to potential buyers</li>\r\n                            <li>Real-time Lead Delivery &amp; Stats</li>\r\n                        </ul>',220,25,0,0,0,'2015-09-09 10:09:06','2015-11-20 20:03:11');
+insert  into `package`(`ai_package_id`,`context_id`,`package`,`description`,`amount`,`vim`,`order`,`is_trashed`,`is_deleted`,`creation_time`,`update_time`) values (1,1,'Silver','<div class=\"head\">Featured Ad<br /> <p>Essential features for business sellers.</p></div>\r\n                        <div class=\"featured\"><img src=\"http://localhost/nbn/themes/web/layout/assets/images/plan-flag.png\" /></div>\r\n                        <div class=\"price\"><sup>$</sup> <span>89.95</span> <sub>/mo.</sub></div>\r\n                         <ul class=\"features\">\r\n                            <li><b>Top display in search results</b></li>\r\n                            <li><a href=\"#\">Guide to Selling</a> included</li>\r\n                            <li>Add multiple photos and a video to your listing</li>\r\n                            <li>Get a list of local prospective buyers</li>\r\n                            <li>Customizable sales tagline in search results</li>\r\n                            <li>Dedicated Email Brochure sent to potential buyers</li>\r\n                            <li>Real-time Lead Delivery &amp; Stats</li>\r\n                        </ul>',200,23,0,0,0,'2015-09-09 09:35:05','2015-11-20 20:03:17'),(2,1,'Gold','<div class=\"head\">Economy As<br /> <p>Greater visibility and more responses.</p></div>\r\n                        <div class=\"price\"><sup>$</sup> <span>55.95</span> <sub>/mo.</sub></div>\r\n                         <ul class=\"features\">\r\n                            <li><b>Top display in search results</b></li>\r\n                            <li><a href=\"#\">Guide to Selling</a> included</li>\r\n                            <li>Add multiple photos and a video to your listing</li>\r\n                            <li>Get a list of local prospective buyers</li>\r\n                            <li>Customizable sales tagline in search results</li>\r\n                            <li>Dedicated Email Brochure sent to potential buyers</li>\r\n                            <li>Real-time Lead Delivery &amp; Stats</li>\r\n                        </ul>',220,25,0,0,0,'2015-09-09 10:09:06','2015-11-20 20:03:11'),(3,2,'Silver','<div class=\"head\">Featured Ad<br /> <p>Essential features for business sellers.</p></div>\r\n                        <div class=\"featured\"><img src=\"http://localhost/nbn/themes/web/layout/assets/images/plan-flag.png\" /></div>\r\n                        <div class=\"price\"><sup>$</sup> <span>89.95</span> <sub>/mo.</sub></div>\r\n                         <ul class=\"features\">\r\n                            <li><b>Top display in search results</b></li>\r\n                            <li><a href=\"#\">Guide to Selling</a> included</li>\r\n                            <li>Add multiple photos and a video to your listing</li>\r\n                            <li>Get a list of local prospective buyers</li>\r\n                            <li>Customizable sales tagline in search results</li>\r\n                            <li>Dedicated Email Brochure sent to potential buyers</li>\r\n                            <li>Real-time Lead Delivery &amp; Stats</li>\r\n                        </ul>',200,23,0,0,0,'2015-09-09 09:35:05','2015-11-20 20:03:17'),(4,2,'Gold','<div class=\"head\">Economy As<br /> <p>Greater visibility and more responses.</p></div>\r\n                        <div class=\"price\"><sup>$</sup> <span>55.95</span> <sub>/mo.</sub></div>\r\n                         <ul class=\"features\">\r\n                            <li><b>Top display in search results</b></li>\r\n                            <li><a href=\"#\">Guide to Selling</a> included</li>\r\n                            <li>Add multiple photos and a video to your listing</li>\r\n                            <li>Get a list of local prospective buyers</li>\r\n                            <li>Customizable sales tagline in search results</li>\r\n                            <li>Dedicated Email Brochure sent to potential buyers</li>\r\n                            <li>Real-time Lead Delivery &amp; Stats</li>\r\n                        </ul>',220,25,0,0,0,'2015-09-09 10:09:06','2015-11-20 20:03:11');
 
 /*Table structure for table `permission` */
 
@@ -460,11 +464,11 @@ CREATE TABLE `user` (
   `creation_time` datetime DEFAULT NULL,
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ai_user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 /*Data for the table `user` */
 
-insert  into `user`(`ai_user_id`,`user_name`,`email`,`password`,`salutation`,`first_name`,`middle_name`,`last_name`,`work_phone_no`,`mobile_phone_no`,`fax_num`,`parent_id`,`activation_key`,`reset_key`,`disable`,`is_deleted`,`creation_time`,`update_time`) values (1,'sahel','sahel@webzstore.com','5cd36101ab57672e1ff752bd327b6aab','Mr.','Md','Sahel','Aktar',NULL,NULL,NULL,NULL,NULL,NULL,0,0,'2015-11-20 16:33:24','2015-11-20 16:33:28'),(2,'charlessmith','charlessmith@writeme.com','5cd36101ab57672e1ff752bd327b6aab','Dr.','Charles','St.','Smith','1234567895','123456789','no fax',0,'','',0,0,'2015-11-23 13:32:09','2015-11-25 19:39:18'),(3,'charlesmith','charlesmith@writeme.com','5cd36101ab57672e1ff752bd327b6aab','Mr.','Charles','Smith','Dear','','','',0,'c9574005c33033dbe9d65543d09ae88a',NULL,1,0,'2015-11-23 13:40:37','2015-11-24 20:23:30');
+insert  into `user`(`ai_user_id`,`user_name`,`email`,`password`,`salutation`,`first_name`,`middle_name`,`last_name`,`work_phone_no`,`mobile_phone_no`,`fax_num`,`parent_id`,`activation_key`,`reset_key`,`disable`,`is_deleted`,`creation_time`,`update_time`) values (1,'sahel','sahel@webzstore.com','5cd36101ab57672e1ff752bd327b6aab','Mr.','Md','Sahel','Aktar',NULL,NULL,NULL,NULL,NULL,NULL,0,0,'2015-11-20 16:33:24','2015-11-20 16:33:28'),(2,'charlessmith','charlessmith@writeme.com','5cd36101ab57672e1ff752bd327b6aab','Dr.','Charles','St.','Smith','1234567895','123456789','no fax',0,'','',0,0,'2015-11-23 13:32:09','2015-11-25 19:39:18'),(3,'charlesmith','charlesmith@writeme.com','5cd36101ab57672e1ff752bd327b6aab','Mr.','Charles','Smith','Dear','','','',0,'c9574005c33033dbe9d65543d09ae88a',NULL,1,0,'2015-11-23 13:40:37','2015-11-24 20:23:30'),(4,'','charlesboker@writeme.com','5cd36101ab57672e1ff752bd327b6aab','Mr.','Charles','Broker','Smith','','','',0,'',NULL,0,0,'2015-12-01 11:12:28','2015-12-01 16:44:13');
 
 /*Table structure for table `user_category` */
 
@@ -499,11 +503,11 @@ CREATE TABLE `user_map` (
   `creation_time` datetime DEFAULT NULL,
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ai_user_map_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 /*Data for the table `user_map` */
 
-insert  into `user_map`(`ai_user_map_id`,`user_id`,`user_category_id`,`user_role_id`,`disable`,`is_deleted`,`creation_time`,`update_time`) values (1,1,1,1,0,0,'2015-11-20 16:38:23','2015-11-20 16:38:25'),(2,2,2,1,0,0,'2015-11-23 13:32:10','2015-11-23 19:02:10'),(3,3,2,1,0,0,'2015-11-23 13:40:37','2015-11-23 19:10:37');
+insert  into `user_map`(`ai_user_map_id`,`user_id`,`user_category_id`,`user_role_id`,`disable`,`is_deleted`,`creation_time`,`update_time`) values (1,1,1,1,0,0,'2015-11-20 16:38:23','2015-11-20 16:38:25'),(2,2,2,1,0,0,'2015-11-23 13:32:10','2015-11-23 19:02:10'),(3,3,2,1,0,0,'2015-11-23 13:40:37','2015-11-23 19:10:37'),(4,4,2,3,0,0,'2015-12-01 11:12:28','2015-12-01 16:42:28');
 
 /*Table structure for table `user_role` */
 

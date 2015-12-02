@@ -37,7 +37,7 @@ class Home extends MX_Controller
      */	
     public function __construct()
     {
-	parent::__construct();
+		parent::__construct();
         $this->load->module('common/common_admin');        
     }
 	
@@ -51,17 +51,17 @@ class Home extends MX_Controller
      */
     function index()
     {
-        $data["title"] = _e("Welcome");        
+        $data["title"] = _e("welcome");        
         ## for show popular search result section ## 
         $this->load->module('popular/popular');
-        $data['get_popular'] = $this->popular->getPopularItemList('1', 'ai_bizlisting_id', 'Browse More Popular Businesses for Sale');
-        $data['get_popular_industry'] = $this->popular->getPopularItemList('1', 'biz_type_id', 'Browse Business for Sale Listings by Industry');
-        $data['get_popular_province'] = $this->popular->getPopularItemList('1', 'province_id', 'Browse Business for Sale Listings by State');
-        $data['get_popular_city'] = $this->popular->getPopularItemList('1', 'city', 'Browse Business for Sale Listings by Top Cities');
-        $data['get_popular_restaurant'] = $this->popular->getPopularItemList('1', 'restaurant', 'Browse Popular Restaurants for Sale');
+        $data['get_popular'] = $this->popular->getPopularItemList('1', 'ai_bizlisting_id', _e('browse_more_popular_businesses_for_sale'));
+        $data['get_popular_industry'] = $this->popular->getPopularItemList('1', 'biz_type_id', _e('browse_business_for_sale_listings_by_industry'));
+        $data['get_popular_province'] = $this->popular->getPopularItemList('1', 'province_id', _e('browse_business_for_sale_listings_by_state'));
+        $data['get_popular_city'] = $this->popular->getPopularItemList('1', 'city', _e('browse_business_for_sale_listings_by_top_cities'));
+        $data['get_popular_restaurant'] = $this->popular->getPopularItemList('1', 'restaurant', _e('browse_popular_restaurants_for_sale'));
 
-        $data['get_popular_side'] = $this->popular->getPopularItemSidebar('1', 'ai_bizlisting_id','Top 10 Business For Sale');
-        $data['get_top_search'] = $this->popular->getPopularItemSidebar('1', 'province_id','Top Searches:');
+        $data['get_popular_side'] = $this->popular->getPopularItemSidebar('1', 'ai_bizlisting_id',_e('top_10_business_for_sale'));
+        $data['get_top_search'] = $this->popular->getPopularItemSidebar('1', 'province_id',_e('top_searches'));
         ## for show popular search result section ## 
         $data["content"] = $this->template->frontend_view("home", $data, true, "home");	
         $this->template->build_frontend_output($data);

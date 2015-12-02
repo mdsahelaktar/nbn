@@ -604,7 +604,9 @@ if (!function_exists('showImageBroker')) {
  * @return	ip address
  */
 function getRealIpAddr() {
-    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {   //check ip from share internet
+	if( $_SERVER['HTTP_HOST'] == "localhost" ){
+	    $ip = "122.163.86.27";	
+	} elseif (!empty($_SERVER['HTTP_CLIENT_IP'])) {   //check ip from share internet
         $ip = $_SERVER['HTTP_CLIENT_IP'];
     } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {   //to check ip is pass from proxy
         $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];

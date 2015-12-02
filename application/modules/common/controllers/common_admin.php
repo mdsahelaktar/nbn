@@ -94,21 +94,21 @@ class Common_admin extends MX_Controller {
 			$client_country_ids = array( $default_country_id, $default_country_id );
 		}
         $biz_domain = Modules::run('biz_type/biz_type_admin/getBizDomain');
-        $biz_domain_dd = array('' => _e('Choose biz domain')) + $biz_domain;
+        $biz_domain_dd = array('' => _e('choose_biz_domain')) + $biz_domain;
         
-        $biz_types_dd = array('' => _e('Choose biz type'));
+        $biz_types_dd = array('' => _e('choose_biz_type'));
 
         $countries = Modules::run('country/country_admin/getCountries');
-        $countries_dd = array('' => _e('Choose country')) + $countries;
+        $countries_dd = array('' => _e('choose_country')) + $countries;
         
         $provinces = Modules::run('province/province_admin/getProvincesByCountryId', $client_country_ids[0] );
-        $provinces_dd = array('' => _e('Choose province')) + $provinces;
+        $provinces_dd = array('' => _e('choose_province')) + $provinces;
         
-        $counties_dd = array('' => _e('Choose county'));
+        $counties_dd = array('' => _e('choose_county'));
 		
-		$cities_dd = array('' => _e('Choose city'));
+		$cities_dd = array('' => _e('choose_city'));
 		
-		$zipcodes_dd = array('' => _e('Choose zip'));
+		$zipcodes_dd = array('' => _e('choose_zip'));
         
         $var = array( 'default_country_id' => $client_country_ids[1],
             'client_country_id' => $client_country_ids[0],

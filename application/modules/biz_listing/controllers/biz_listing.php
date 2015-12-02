@@ -59,7 +59,7 @@ class Biz_listing extends MX_Controller {
      */
     function index() {
         $data = array();
-        $data["title"] = _e("Biz Listing");
+        $data["title"] = _e("biz_listing");
         ## Load config and store ##
         $CFG = $this->config->item('biz_listing_configure');
 

@@ -69,6 +69,4 @@ $lang['uuuuuuuu'] = 'uuuuuuuu';
 $lang['oooooooo'] = 'oooooooo';
 $lang['abhijikt'] = 'abhijikt';
 $lang['ami_add_korechi_eng_lang'] = 'ami add korechi eng lang';
-$lang['ghgh'] = '';
-
 ?>

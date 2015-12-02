@@ -6,6 +6,7 @@
 |
 |
 */
+$lang['biz_listing'] = 'Seller Financing Available!';
 $lang['seller_financing_available'] = 'Seller Financing Available!';
 $lang['na'] = 'n/a';
 $lang['asking_price'] = 'Asking Price';
@@ -70,7 +71,7 @@ $lang['privacy3'] = 'Our site is secure. Your information is sent to us via a se
 $lang['about_headlines'] = 'About Headlines';
 $lang['create_ad'] = 'Create Your Business for Sale Ad';
 $lang['step'] = 'Step';
-$lang['ac'] = 'Enter Account and Featured Listing Information';
+$lang['ac'] = 'Enter Account and Biz Listing Information';
 $lang['requ'] = 'Required fields are in Bold';
 $lang['note'] = 'Note: You can upload a photo for this listing once your payment is complete';
 $lang['login_ac'] = 'Create an Account or Login';

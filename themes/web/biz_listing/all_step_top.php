@@ -10,7 +10,6 @@
 </div>
 <div class="float-left width100">
   <p class="font18 margin-top15" ><?php echo _e( 'step' ); ?> <?php echo $step; ?>: <?php echo _e( 'ac' ); ?></p>
-  <p class="theme-blue margin-top10"><?php echo _e( 'requ' ); ?></p>
   <p class="margin-top10"><?php echo _e( 'note' ); ?></p>
 </div>
 <div class="step-cont">
@@ -22,7 +21,7 @@
     <li> <dfn class="<?php echo isset($class2)?$class2:'normal'; ?>">2</dfn>
       <p><?php echo _e( 'basic_info' ); ?></p>
     </li>
-    <li> <dfn class="<?php echo isset($class3)?$class3:normal; ?>">3</dfn>
+    <li> <dfn class="<?php echo isset($class3)?$class3:'normal'; ?>">3</dfn>
       <p><?php echo _e( 'opt' ); ?> <span><?php echo _e( 'checkout' ); ?></span> </p>
     </li>
   </ul>
