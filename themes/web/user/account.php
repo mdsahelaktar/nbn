@@ -16,7 +16,7 @@
       </div>
       <div class="profile-steps">
         <h2 class="helvetica bg-seperator padding-bottom20 float-left">Welcome to Needbiznow
-          <p class="font14 light-black margin-top10">We're glad to have you as part of our businesss for sale community. Here are three easy steps to get started:</p>
+          <p class="font14 light-black margin-top10">We're glad to have you as part of our businesss for sale community.</p>
         </h2>
         <div msg="user"></div>
         <?php echo $current_profile_section_html; ?>

@@ -133,12 +133,12 @@ if (!function_exists('loginRedirect')) {
         if (site_url() != currentBrowserUrl() && site_url() . "admin" != currentBrowserUrl())
             $redirect_url .= "?next=" . currentBrowserUrl();
         if (!isLoggedIn()) {
-            $ci->session->set_flashdata(array('event' => 'error', 'msg' => _e('Access denied.Please login now')));
+            $ci->session->set_flashdata(array('event' => 'error', 'msg' => _e('access_denied_login')));
             $redirect_url = site_url() . $redirect_url;
             if (!isAjax())
                 redirect($redirect_url);
             else {
-                echo json_encode(array("event" => "no-authentication", "redirect" => $redirect_url, "msg" => _e('Access denied.Please login now')));
+                echo json_encode(array("event" => "no-authentication", "redirect" => $redirect_url, "msg" => _e('access_denied_login')));
                 die();
             }
         } elseif (site_url() . "admin" == currentBrowserUrl())
@@ -176,7 +176,7 @@ if (!function_exists('isAjax')) {
 if (!function_exists('getFilterStatusDD')) {
 
     function getFilterStatusDD() {
-        return array('' => _e('Choose'), _e("Active"), _e("Inactive"));
+        return array('' => _e('choose'), _e("active"), _e("inactive"));
     }
 
 }
@@ -192,7 +192,7 @@ if (!function_exists('getFilterStatusDD')) {
 if (!function_exists('getActionDD')) {
 
     function getActionDD() {
-        return array('' => _e('Choose'), 'delete' => _e('Trash'), 'revert' => _e('Revert'), 'permanent_delete' => _e('Permanent delete'));
+        return array('' => _e('choose'), 'delete' => _e('trash'), 'revert' => _e('revert'), 'permanent_delete' => _e('permanent_delete'));
     }
 
 }
@@ -337,7 +337,7 @@ if (!function_exists('addPermissionMsg')) {
 
     function addPermissionMsg($sector, $msg = '') {
         if (!addPermission($sector))
-            return array('event' => 'error', 'msg' => _e('access denied'));
+            return array('event' => 'error', 'msg' => _e('access_denied'));
         else
             return true;
     }
@@ -380,7 +380,7 @@ if (!function_exists('viewPermissionMsg')) {
 
     function viewPermissionMsg($allsector, $childsector, $msg = "") {
         if (!viewPermission($allsector, $childsector))
-            return array('event' => 'error', 'msg' => _e('access denied'));
+            return array('event' => 'error', 'msg' => _e('access_denied'));
         else
             return true;
     }
@@ -446,7 +446,7 @@ if (!function_exists('updatePermissionMsg')) {
 
     function updatePermissionMsg($allsector, $childsector, $msg = "") {
         if (!updatePermissionMsg($allsector, $childsector))
-            return array('event' => 'error', 'msg' => _e('access denied'));
+            return array('event' => 'error', 'msg' => _e('access_denied'));
         else
             return true;
     }
@@ -466,7 +466,7 @@ if (!function_exists('getBizDomainHelper')) {
         $ci = & get_instance();
         $ci->load->module('biz_type/biz_type_admin');
         $biz_domain = $ci->biz_type_admin->getBizDomain();
-        return array('' => _e('Choose biz domain')) + $biz_domain;
+        return array('' => _e('choose_biz_domain')) + $biz_domain;
     }
 
 }
@@ -485,7 +485,7 @@ if (!function_exists('getBizTypeHelper')) {
         $ci = & get_instance();
         $ci->load->module('biz_type/biz_type_admin');
         $biz_type = $ci->biz_type_admin->getBizTypesByDomain($biz_domain_id);
-        return array('' => _e('Choose biz type')) + $biz_type;
+        return array('' => _e('choose_biz_type')) + $biz_type;
     }
 
 }
@@ -504,7 +504,7 @@ if (!function_exists('getCountryHelper')) {
         $ci = & get_instance();
         $ci->load->module('country/country_admin');
         $country = $ci->country_admin->getCountries();
-        return array('' => _e('Choose country')) + $country;
+        return array('' => _e('choose_country')) + $country;
     }
 
 }

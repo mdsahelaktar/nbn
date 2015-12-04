@@ -98,7 +98,7 @@ class Biz_listing extends MX_Controller {
      * @return	web html front
      */
     function secondstep() {
-        $data["title"] = _e("Biz Listing");
+        $data["title"] = _e("biz_listing");
         ## Load config and store ##
         $CFG = $this->config->item('biz_listing_configure');
         if (!isLoggedIn()) {
@@ -135,7 +135,7 @@ class Biz_listing extends MX_Controller {
         $all_province = $this->province_admin->getProvinces();
 
         ## Load biz_type module ##
-        $data['var'] = array('biz_domain_dd' => getBizDomainHelper(), 'biz_types_dd' => getBizTypeHelper(), 'country_dd' => getCountryHelper(), 'countries_dd' => ( array('' => _e('Choose countries')) + $countries ), 'provinces_dd' => ( array('' => _e('Choose provinces')) + $all_province ), 'counties_dd' => ( array('' => _e('Choose counties')) + $all_county ), 'biz_types_dd_for_second' => ( array('' => _e('Choose biz type')) + $biz_types ));
+        $data['var'] = array('biz_domain_dd' => getBizDomainHelper(), 'biz_types_dd' => getBizTypeHelper(), 'country_dd' => getCountryHelper(), 'countries_dd' => ( array('' => _e('choose_country')) + $countries ), 'provinces_dd' => ( array('' => _e('choose_province')) + $all_province ), 'counties_dd' => ( array('' => _e('choose_county')) + $all_county ), 'biz_types_dd_for_second' => ( array('' => _e('choose_biz_type')) + $biz_types ));
 
         ## for input value ##
         $user = isLoggedIn();
@@ -180,7 +180,7 @@ class Biz_listing extends MX_Controller {
      * @return	web html front
      */
     function thirdstep() {
-        $data["title"] = _e("Biz Listing");
+        $data["title"] = _e("biz_listing");
         ## Load config and store ##
         if (!isLoggedIn()) {
             redirect(base_url() . 'biz_listing');
@@ -255,14 +255,14 @@ class Biz_listing extends MX_Controller {
                 $CFG = $this->config->item('biz_listing_configure');
                 $this->form_validation->set_rules($this->config->item('insert', 'biz_listing_validation'));
                 if ($this->form_validation->run($this, 'update') == FALSE)
-                    echo json_encode(array("event" => "error", "msg" => _e('biz listing update fail')));
+                    echo json_encode(array("event" => "error", "msg" => _e('biz_listing_update_fail')));
                 else {
                     $row_id = $this->input->post('row_id');
                     $updaterows = doAction('bizlig', 'update', $row_id, false, $this->input->post());
                     if ($updaterows == true)
-                        echo json_encode(array("event" => "success", "chk" => $this->input->post('saveandcontlet'), "msg" => _e('Your information is saved')));
+                        echo json_encode(array("event" => "success", "chk" => $this->input->post('saveandcontlet'), "msg" => _e('biz_listing_second_step_completed')));
                     else
-                        echo json_encode(array("event" => "error", "msg" => _e('biz listing update fail')));
+                        echo json_encode(array("event" => "error", "msg" => _e('biz_listing_update_fail')));
                 }
                 break;
 
@@ -270,9 +270,9 @@ class Biz_listing extends MX_Controller {
                 $row_id = $this->input->post('row_id');
                 $updaterows = doAction('bizlig', 'update', $row_id, false, $this->input->post());
                 if ($updaterows == true)
-                    echo json_encode(array("event" => "success", "msg" => _e('Your information is saved')));
+                    echo json_encode(array("event" => "success", "msg" => _e('biz_listing_final_step_completed')));
                 else
-                    echo json_encode(array("event" => "error", "msg" => _e('biz listing update fail')));
+                    echo json_encode(array("event" => "error", "msg" => _e('biz_listing_update_fail')));
                 break;
 
             case "innersearch" :
@@ -364,9 +364,9 @@ class Biz_listing extends MX_Controller {
 
                 $count_row = $this->bizlig->getNumRecordsPagination($where, '');
                 if ($count_row > 1)
-                    $esstr = _e('Businesses');
+                    $esstr = _e('businesses');
                 else
-                    $esstr = _e('Business');
+                    $esstr = _e('business');
 
                 if (!empty($POST['country_id'])) {
                     $this->load->module('country/country_admin');
@@ -414,7 +414,7 @@ class Biz_listing extends MX_Controller {
                 if (!empty($info['data']['records']))
                     echo json_encode(array('event' => "success", 'html' => $information, 'total' => $count_row_string, 'string' => $string, 'bizforsale' => $bizforsale));
                 else {                    
-                    $include = renderResposeMessage('message', array('msg' => _e('Sorry, no business for sale listings were found matching your search criteria')));
+                    $include = renderResposeMessage('message', array('event' => 'error','msg' => _e('no_biz_listing_found')));
                     echo json_encode(array('event' => "error", 'html' => $include, 'total' => $count_norow, 'string' => $string, 'bizforsale' => $bizforsale));
                 }
                 break;
@@ -428,7 +428,7 @@ class Biz_listing extends MX_Controller {
                 if ($updaterows == true)
                     echo json_encode(array("event" => "success", "msg" => _e('Your information is saved')));
                 else
-                    echo json_encode(array("event" => "error", "msg" => _e('biz listing update fail')));
+                    echo json_encode(array("event" => "error", "msg" => _e('biz_listing_update_fail')));
                 break;
 
             case "detailsmail" :
@@ -450,7 +450,7 @@ class Biz_listing extends MX_Controller {
                 $newsletter = $this->input->post('newsletter');
                 $learnchk = $this->input->post('learnchk');
                 if (empty($post_name) && empty($post_email) && empty($post_phone) && empty($post_message)) {
-                    echo json_encode(array("event" => "error", "msg" => _e('You must fill in all of the fields.')));
+                    echo json_encode(array("event" => "error", "msg" => _e('contact_seller_validation')));
                     break;
                 } else {
                     ################## eNeedBizNow Contact Business Seller ##########################################
@@ -461,7 +461,7 @@ class Biz_listing extends MX_Controller {
                     $email1 = 'noreply@needbiznow.com';
                     $this->email->from($email1, $name1);
                     $this->email->to($to_email);
-                    $this->email->subject('NeedBizNow Contact Business Seller');
+                    $this->email->subject( _e('contact_seller_email_subject') );
                     $mail_data['contactname'] = $post_name;
                     $mail_data['email'] = $post_email;
                     $mail_data['phone'] = $post_phone;
@@ -474,9 +474,9 @@ class Biz_listing extends MX_Controller {
                     $send_chk = $this->email->send();
                     ################## NeedBizNow Contact Business Seller ##########################################
                     if ($send_chk == true)
-                        echo json_encode(array("event" => "success", "msg" => _e('message sent')));
+                        echo json_encode(array("event" => "success", "msg" => _e('email_sent_to_seller')));
                     else
-                        echo json_encode(array("event" => "error", "msg" => _e('message not sent')));
+                        echo json_encode(array("event" => "error", "msg" => _e('email_not_sent_to_seller')));
                 }
                 break;
         }
@@ -500,32 +500,32 @@ class Biz_listing extends MX_Controller {
 		if( $data["country_id"] ){
 			$this->load->module('province/province_admin');
 			$get_provinces = $this->province_admin->getProvincesByCountryId( $data["country_id"] );			
-			$data['var']['provinces_dd'] = array("0" => _e("Choose province") ) + $get_provinces;			
+			$data['var']['provinces_dd'] = array("0" => _e("choose_province") ) + $get_provinces;			
 		}
 		
 		if( $data["province_id"] ){
 			$this->load->module('province/province_admin');
 			$data["country_id"] = $this->province_admin->getCountryIdByProvinceId( $data["province_id"] );
 			$get_provinces = $this->province_admin->getProvincesByCountryId( $data["country_id"] );			
-			$data['var']['provinces_dd'] = array("0" => _e("Choose province") ) + $get_provinces;			
+			$data['var']['provinces_dd'] = array("0" => _e("choose_province") ) + $get_provinces;			
 		}
 		
 		if( $data["county_id"] ){
 			$this->load->module('county/county_admin');
 			$data["province_id"] = $this->county_admin->getProvinceIdByCountyId( $data["county_id"] );
 			$get_counties = $this->county_admin->getCountiesByProvinceId( $data["province_id"] );				
-			$data['var']['counties_dd'] = array("0" => _e("Choose county")) + $get_counties;						
+			$data['var']['counties_dd'] = array("0" => _e("choose_county")) + $get_counties;						
 			
 			$this->load->module('province/province_admin');
 			$data["country_id"] = $this->province_admin->getCountryIdByProvinceId( $data["province_id"] );
 			$get_provinces = $this->province_admin->getProvincesByCountryId( $data["country_id"] );			
-			$data['var']['provinces_dd'] = array("0" => _e("Choose province") ) + $get_provinces;			
+			$data['var']['provinces_dd'] = array("0" => _e("choose_province") ) + $get_provinces;			
 		}
 		
 		if( $data['biz_domain_id'] ){
 			$this->load->module('biz_type/biz_type_admin');
 			$get_biz_types = $this->biz_type_admin->getBizTypesByDomain( $data['biz_domain_id'] );
-			$data['var']['biz_types_dd'] = array("0" => _e("Choose biz type") ) + $get_biz_types;			
+			$data['var']['biz_types_dd'] = array("0" => _e("choose_biz_type") ) + $get_biz_types;			
 		}
 		
 		if( $data['biz_type_id'] ){
@@ -533,13 +533,13 @@ class Biz_listing extends MX_Controller {
 			$data['biz_domain_id'] = $this->biz_type_admin->getBizDomainByTypeId( $data['biz_type_id'] ); 
 			
 			$get_biz_types = $this->biz_type_admin->getBizTypesByDomain( $data['biz_domain_id'] );
-			$data['var']['biz_types_dd'] = array("0" => _e("Choose biz type") ) + $get_biz_types;
+			$data['var']['biz_types_dd'] = array("0" => _e("choose_biz_type") ) + $get_biz_types;
 		}
 		
 		$this->load->module('biz_listing/biz_listing_admin');		
-		$data['var']['askingprice_dd_min'] = array("0" => _e("Choose min asking price")) + $this->biz_listing_admin->getAskingPrice() ;
-		$data['var']['askingprice_dd_max'] = array("0" => _e("Choose max asking price")) + $this->biz_listing_admin->getAskingPriceMax() ;				
-        $data["title"] = _e("Search Result");
+		$data['var']['askingprice_dd_min'] = array("0" => _e("choose_min_asking_price")) + $this->biz_listing_admin->getAskingPrice() ;
+		$data['var']['askingprice_dd_max'] = array("0" => _e("choose_max_asking_price")) + $this->biz_listing_admin->getAskingPriceMax() ;				
+        $data["title"] = _e("search_result");
 		
 		//$data['cklsearch'] = $this->input->post('cklsearch') ? $this->input->post('cklsearch') : $this->input->get('city');        
 		
@@ -560,7 +560,7 @@ class Biz_listing extends MX_Controller {
      * @return	web html
      */
     function details() {
-        $data["title"] = _e("Biz Details");
+        $data["title"] = _e("biz_details");
         $CFG = $this->config->item('biz_listing_configure');
         $dtls = $this->input->get('dtls');
         $groupby = $CFG['ai_id'];
@@ -569,7 +569,7 @@ class Biz_listing extends MX_Controller {
         $results = $this->bizlig->getRecords($where, '', '', '', $groupby, $group_select);
 		if( empty($results) ){
 			$data["response"]['event'] = "error";
-			$data["response"]['msg'] = _e("no_biz_listing_found");
+			$data["response"]['msg'] = _e("no_biz_listing_details_found");
 		}
 		elseif( !$results[0]->active ){
 			$data["response"]['event'] = "error";
@@ -615,7 +615,7 @@ class Biz_listing extends MX_Controller {
 
     function brokerlisting() {
         $data = array();
-        $data["title"] = _e("Broker Listings");
+        $data["title"] = _e("broker_listings");
         $CFG = $this->config->item('biz_listing_configure');
         $data['var'] = array('biz_domain_dd' => getBizDomainHelper(), 'biz_types_dd' => getBizTypeHelper(), 'country_dd' => getCountryHelper());
 
@@ -671,7 +671,7 @@ class Biz_listing extends MX_Controller {
      * @return	web html
      */
     function popup() {
-        $data["title"] = _e("Preview");
+        $data["title"] = _e("preview");
         $CFG = $this->config->item('biz_listing_configure');
         $user = isLoggedIn();
         $user_id = $user['user_id'];
@@ -709,7 +709,7 @@ class Biz_listing extends MX_Controller {
      * @return	page comesoon
      */
     function commingsoon() {
-        $data["title"] = _e("Comming Soon");
+        $data["title"] = _e("comming_soon");
         $data['var'] = array('biz_domain_dd' => getBizDomainHelper(), 'biz_types_dd' => getBizTypeHelper(), 'country_dd' => getCountryHelper());
         $data["content"] = $this->template->frontend_view("comesoon", $data, true, "home");
         $this->template->build_frontend_output($data);

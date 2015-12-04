@@ -1,11 +1,10 @@
 <?php echo renderResposeMessage('login', $response) ?><?php echo form_open( '', array( 'name' => 'login_form', 'id' => 'login_form' ) )?>
-
 <ul>
-  <li> <?php echo form_label( '<p><strong>'._e( 'User Name/Email Address' ).'</strong></p>', 'user_name' )?> <?php echo form_input( array( 'name' => 'user_name', 'id' => 'user_name', 'placeholder' => 'user or user@email.com', 'class' => 'validate', 'data-display' =>  _e( 'User Name/Email Address' ), 'data-rules' => 'required') );?> </li>
-  <li> <?php echo form_label( '<p><strong>'._e( 'Password' ).'</strong></p>', 'password' )?> <?php echo form_password( array( 'name' => 'password', 'id' => 'password', 'placeholder' => '****************', 'class' => 'validate', 'data-display' =>  _e( 'Password' ), 'data-rules' => 'required' ) );?> </li>
-  <li> <?php echo form_submit( array( 'name' => 'submit', 'id' => 'submit' ), _e( 'Login' ) );?> <?php echo form_label( _e( 'Remember my passsword' ), 'remember', array( "class" => "type1" ) )?> <?php echo form_checkbox( array( 'name' => 'remember', 'id' => 'remember' ), 1, TRUE )?> </li>
+  <li> <?php echo form_label( '<p><strong>'._e( 'user_name_email' ).'</strong></p>', 'user_name' )?> <?php echo form_input( array( 'name' => 'user_name', 'id' => 'user_name', 'placeholder' => 'user or user@email.com', 'class' => 'validate', 'data-display' =>  _e( 'user_name_email' ), 'data-rules' => 'required') );?> </li>
+  <li> <?php echo form_label( '<p><strong>'._e( 'password' ).'</strong></p>', 'password' )?> <?php echo form_password( array( 'name' => 'password', 'id' => 'password', 'placeholder' => '****************', 'class' => 'validate', 'data-display' =>  _e( 'password' ), 'data-rules' => 'required' ) );?> </li>
+  <li> <?php echo form_submit( array( 'name' => 'submit', 'id' => 'submit' ), _e( 'login' ) );?> <?php echo form_label( _e( 'remember_my_passsword' ), 'remember', array( "class" => "type1" ) )?> <?php echo form_checkbox( array( 'name' => 'remember', 'id' => 'remember' ), 1, TRUE )?> </li>
   <?php echo form_hidden('next', 'biz_listing/secondstep')?>
-  <li> <?php echo anchor( current_url().'#', _e( 'Forgot Your Password' ), array( 'class' => 'forgot_password' ) )?> </li>
+  <li> <?php echo anchor( "user/forgot_password", _e( 'forgot_your_password' ), array( 'class' => 'forgot_password' ) )?> </li>
 </ul>
 <?php echo form_close()?>
 <?php

@@ -12,21 +12,18 @@ $var = array_merge( $config_var, ( is_array( $var ) ? $var : array() ) );
       <!--big header right head start-->
       <div class="righthead">
         <div class="top">
+          <?php if (isLoggedIn()) : ?>
           <div id="top-menu">
             <ul>
-              <li id="dropDown"><a href="#" class="myaccount">My Account</a>
+              <li id="dropDown"><?php echo anchor('user/edit_profile', _e('my_account'), array( 'class' => 'myaccount' )) ?>
                 <ul>
-                  <li><a href="#">My Profile</a></li>
-                  <li><a href="#">Edit Profile</a></li>
-                  <li><a href="#">Change Passwprd</a></li>
-                  <li><a href="#">My Jobs</a></li>
-                  <li><a href="#">My Profile</a></li>
-                  <li><a href="#">My Jobs</a></li>
+                  <li><?php echo anchor('user/edit_profile', _e('edit_profile')) ?></li>
+                  <li><?php echo anchor('user/change_password', _e('change_password')) ?></li>
+                  <li><?php echo anchor('biz_listing/manage', _e('manage_listing')) ?></li>
                 </ul>
               </li>
             </ul>
           </div>
-          <?php if (isLoggedIn()) : ?>
           <div id="loggedin_cont" class="login"><a href="#" onclick="logOut(afterLogOut)" target="_self"?><?php echo _e('logout') ?></a></div>
           <?php else : ?>
           <div id="loggedin_cont" class="login"><?php echo anchor('login/', _e('login')) ?></div>
@@ -34,11 +31,13 @@ $var = array_merge( $config_var, ( is_array( $var ) ? $var : array() ) );
         </div>
         <?php $this->template->frontend_view('quick_search', '', FALSE, "biz_listing"); ?>
         <ul>
+        <?php if ( !isLoggedIn() ) : ?>	
           <li> <?php echo anchor('user', _e('sign_up'), array('title' => _e('sign_up'))) ?> </li>
+        <?php endif;?>  
           <li> <?php echo anchor('broker', _e('find_a_broker'), array('title' => _e('find_a_broker'))) ?> </li>
           <li> <?php echo anchor('biz_listing', _e('sell_a_business'), array('title' => _e('sell_a_business'))) ?></li>
           <li> <?php echo anchor('franchise', _e('buy_a_franchise'), array('title' => _e('buy_a_franchise'))) ?></li>
-          <li> <?php echo anchor('biz_listing', _e('buy_a_business'), array('title' => _e('buy_a_business'))) ?> </li>
+          <li> <?php echo anchor('biz_listing/search', _e('buy_a_business'), array('title' => _e('buy_a_business'))) ?> </li>
         </ul>
       </div>
       <!--big header right head end--> 

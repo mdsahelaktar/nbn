@@ -6,10 +6,20 @@
 |
 |
 */
-$lang['biz_listing'] = 'Seller Financing Available!';
+$lang['biz_listing'] = 'Biz Listing';
 $lang['seller_financing_available'] = 'Seller Financing Available!';
 $lang['na'] = 'n/a';
+$lang['headline'] = 'Head line';
+$lang['type_of_business'] = 'Type of Business';
+$lang['other_business_type'] = 'Other Business Type';
+$lang['country'] = 'Country';
+$lang['state_province'] = 'State/Province';
+$lang['province'] = 'Province';
+$lang['county'] = 'County';
+$lang['county_confidential'] = 'Keep the County information confidential';
+$lang['city'] = 'City';
 $lang['asking_price'] = 'Asking Price';
+$lang['seller_financing_avail'] = 'Yes! Seller Financing is available';
 $lang['gross_rev'] = 'Gross Revenue';
 $lang['cash_flow'] = 'Cash Flow';
 $lang['inventory'] = 'Inventory';
@@ -32,6 +42,49 @@ $lang['ph'] = 'Phone';
 $lang['msg'] = 'Message';
 $lang['like_buy'] = 'Yes, I would like to receive the BizQuest Buyer'.'s Newsletter';
 $lang['learn_to'] = 'Learn to use your IRA/401K to buy a business: Guidant Financial (min. $50K needed in IRA/401K)';
+$lang['add_headline'] = 'add headline here';
+$lang['add_tagline'] = 'add tagline here';
+$lang['add_city'] = 'add city here';
+$lang['enter_asking_price'] = 'add asking price here';
+$lang['add_description'] = 'add description here';
+$lang['year'] = 'year established';
+$lang['year_plcholder'] = 'e.g. 1999';
+$lang['employees'] = 'Employees';
+$lang['employees_plcholder'] = 'e.g. 8 FTE; 4 PTE';
+$lang['business_website'] = 'Business Website';
+$lang['business_plcholder'] = 'add business website here';
+$lang['gross_revenue'] = 'Gross Revenue';
+$lang['gross_revenue_plcholder'] = 'add gross revenue here';
+$lang['gross_revenue_comments'] = 'Gross Revenue Comments';
+$lang['gross_revenue_comments_plcholder'] = 'add gross revenue comments here';
+$lang['cash_flow'] = 'Cash Flow';
+$lang['cash_flow_plcholder'] = 'add cash flow here';
+$lang['cash_flow_comments'] = 'Cash Flow Comments';
+$lang['cash_flow_comments_plcholder'] = 'add cash flow comments here';
+$lang['value_of_inventory'] = 'Value of Inventory';
+$lang['value_of_inventory_plcholder'] = 'add value of inventory here';
+$lang['inventory_is_included_in_asking_price'] = 'Inventory is included in asking price.';
+$lang['value_ffe'] = 'Value of FF&E';
+$lang['value_ffe_plcholder'] = 'add Furniture, Fixtures, and Equipment price here';
+$lang['ffe_included_in_asking_price'] = 'Furniture, Fixtures, and Equipment included in asking price.';
+$lang['value_real_estate'] = 'Value of Real Estate';
+$lang['value_real_estate_plcholder'] = 'add real estate price here';
+$lang['real_estate_included_in_asking_price'] = 'Real Estate included in asking price.';
+$lang['business_is_relocatable'] = 'Business is relocatable.';
+$lang['business_is_a_franchise'] = 'Business is a franchise.';
+$lang['business_is_home_based'] = 'Business is home based.';
+$lang['seller_financing_info'] = 'Seller Financing Info';
+$lang['seller_financing_info_plcholder'] = 'add seller financing info here';
+$lang['training_support'] = 'Training & Support';
+$lang['training_support_plcholder'] = 'add training support info here';
+$lang['reason_for_selling'] = 'Reason for Selling';
+$lang['reason_for_selling_plcholder'] = 'add reason for selling here';
+$lang['facilities'] = 'Facilities';
+$lang['facilities_plcholder'] = 'add facilities here';
+$lang['market_outlook_competition'] = 'Market Outlook/Competition';
+$lang['market_outlook_competition_plcholder'] = 'add about market outlook and competition info here';
+$lang['keywords'] = 'Keywords';
+$lang['keywords_plcholder'] = 'add about keywords here';
 /*
 |--------------------------------------------------------------------------
 | Bizlisting FULL DEATILS page
@@ -78,14 +131,11 @@ $lang['login_ac'] = 'Create an Account or Login';
 $lang['basic_info'] = 'Enter Basic Info';
 $lang['opt'] = 'Add Other Listing Details (Optional)';
 $lang['checkout'] = 'You will be able to add a photo to your listing after checkout';
-/*
-|--------------------------------------------------------------------------
-| Bizlisting BIZ LISTING TOP page
-|--------------------------------------------------------------------------
-|
-|
-*/
-$lang['no_ac'] = 'Don'.'t have an account';
+$lang['continue_arrow'] = 'Continue  &rarr;';
+$lang['continue'] = 'Continue';
+$lang['preview'] = 'Preview';
+$lang['preview_arrow'] = 'Preview &rarr;';
+$lang['save_and_continue'] = 'Preview &rarr;';
 /*
 |--------------------------------------------------------------------------
 | Bizlisting DETAILS SLIDER TOP page
@@ -105,5 +155,21 @@ $lang['right'] = 'right';
 |
 */
 $lang['back'] = 'Go Back';
-
+$lang['biz_listing_update_fail'] = 'An error occured during biz listing creation.';
+$lang['biz_listing_second_step_completed'] = 'You have completed second step of biz listing creation. Please wait, you will be redirected to final step now.';
+$lang['biz_listing_final_step_completed'] = 'A notification sent to the admin. This listing is under processing now. It will populate to the listing once admin approve this.';
+$lang['businesses'] = 'Businesses';
+$lang['business'] = 'business';
+$lang['no_biz_listing_found'] = 'Sorry, no business for sale listings were found matching your search criteria';
+$lang['contact_seller_validation'] = 'You must fill in all of the fields.';
+$lang['contact_seller_email_subject'] = 'NeedBizNow Contact Business Seller';
+$lang['email_sent_to_seller'] = 'Email sent to the seller';
+$lang['email_not_sent_to_seller'] = 'Email sent failed due to some technical problem. Try again.';
+$lang['choose_min_asking_price'] = 'Choose minimum asking price';
+$lang['choose_max_asking_price'] = 'Choose maximum asking price';
+$lang['search_result'] = 'Search Result';
+$lang['biz_details'] = 'Biz Details';
+$lang['no_biz_listing_details_found'] = 'No biz listing details found';
+$lang['inactive_biz_listing'] = 'This biz listing is not active now';
+$lang['broker_listings'] = 'Broker Listings';
 ?>

@@ -5,8 +5,8 @@
 <div class="width100 float-left">
 <div class="bg-seperator float-left width100">
   <h2 class="helvetica float-left" style="width: auto;"><?php echo _e( 'create_ad' ); ?></h2>
-  <input type="button" value="Continue &rarr;" <?php echo $style; ?> class="float-right blue margin-left10 margin-top10" id = "<?php echo $idnamecon; ?>" name = "<?php echo $idnamecon; ?>"/>
-  <input type="button" value="Preview &rarr;" <?php echo $style; ?> class="float-right orange margin-top10"  id="<?php echo $idnamepri; ?>" name="<?php echo $idnamepri; ?>"/>
+  <input type="button" value="<?php echo _e('continue')?>" <?php echo $style; ?> class="float-right blue margin-left10 margin-top10" id = "<?php echo $idnamecon; ?>" name = "<?php echo $idnamecon; ?>"/>
+  <input type="button" value="<?php echo _e('preview')?>" <?php echo $style; ?> class="float-right orange margin-top10"  id="<?php echo $idnamepri; ?>" name="<?php echo $idnamepri; ?>"/>
 </div>
 <div class="float-left width100">
   <p class="font18 margin-top15" ><?php echo _e( 'step' ); ?> <?php echo $step; ?>: <?php echo _e( 'ac' ); ?></p>
