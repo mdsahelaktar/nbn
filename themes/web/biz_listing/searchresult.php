@@ -28,27 +28,40 @@ $var = array_merge( $config_var, $var );
             
             <li><div class="customeselect"> <?php echo form_label( '<dfn>'._e( 'County' ).'</dfn>', 'county_id' )?> <?php echo form_dropdown('county_id', $var['counties_dd'], $county_id,'id="county_id" disabled="disabled" class="validate" data-display="'._e( 'County' ).'" data-rules="required"');?> </div></li>           
             
-            <li><div class="customeselect"> <dfn>Price:</dfn>
-				<?php echo form_dropdown('asking_price_min', $var['askingprice_dd_min'], $asking_price_min, 'id="asking_price_min"');?>              
-            </div>
-            
-            <div class="customeselect margin-top5">
-				<?php echo form_dropdown('asking_price_max', $var['askingprice_dd_max'], $asking_price_max, 'id="asking_price_max"');?>              
-            </div></li>
+            <li>
+            	<div class="customeselect"> <dfn>Min Price:</dfn>
+					<?php echo form_dropdown('asking_price_min', $var['askingprice_dd_min'], $asking_price_min, 'id="asking_price_min"');?>              
+                </div>
+            </li>
+            <li>
+                <div class="customeselect">
+                	<dfn>Max Price:</dfn>
+                    <?php echo form_dropdown('asking_price_max', $var['askingprice_dd_max'], $asking_price_max, 'id="asking_price_max"');?>              
+                </div>
+            </li>
 
             <li><div class="customeselect"> <dfn>Industry:</dfn> <?php echo form_dropdown('biz_domain_id', $var['biz_domain_dd'], $biz_domain_id, 'id="biz_domain_id" data-biztype-sel="#biz_type_id" data-display="'._e( 'Type of Business' ).'" data-rules="required" onchange="getBizTypeByBizDomain(this)"'); ?> </div></li>
             
             <li><div class="customeselect"> <dfn>Segment:</dfn> <?php echo form_dropdown('biz_type_id', $var['biz_types_dd'], $biz_type_id, 'id="biz_type_id"  data-display="'._e( 'Type of Business' ).'"');?> </div></li>
                    
-                    <div class="slidediv"><li><input type="text" name="grh" value="" id="grh" placeholder="<?php echo _e('Gross Revenue High') ?>"></li>
+                    <div class="slidediv">
+                    <li><div class="customeselect"><dfn><?php echo _e('Show Businesses Listed:') ?></dfn>
+					  <select name="show<strong></strong>_biz_list_bydate" id="show_biz_list_bydate">
+                      <option value = "2">Anytime</option>
+                      <option value = "3">last 3 days</option>
+                      <option value = "7">last 7 days</option>
+                      <option value = "30">last 30 days</option>
+                      </select>
+                     </div></li>
+                    <li><dfn>&nbsp;</dfn> <input type="text" name="grh" value="" id="grh" placeholder="<?php echo _e('Gross Revenue High') ?>"></li>
                     
-                    <li><input type="text" name="grl" value="" id="grl" placeholder="<?php echo _e('Gross Revenue Low') ?>"></li>
+                    <li><dfn>&nbsp;</dfn> <input type="text" name="grl" value="" id="grl" placeholder="<?php echo _e('Gross Revenue Low') ?>"></li>
                     
-                    <li><input type="text" name="cfh" value="" id="cfh" placeholder="<?php echo _e('Cash Flow High') ?>"></li>
+                    <li><dfn>&nbsp;</dfn> <input type="text" name="cfh" value="" id="cfh" placeholder="<?php echo _e('Cash Flow High') ?>"></li>
                     
-                    <li><input type="text" name="cfl" value="" id="cfl" placeholder="<?php echo _e('Cash Flow Low') ?>"></li>
+                    <li><dfn>&nbsp;</dfn> <input type="text" name="cfl" value="" id="cfl" placeholder="<?php echo _e('Cash Flow Low') ?>"></li>
                     
-                     <li><div class="customeselect"><?php /*?><dfn><?php echo _e('Show Businesses Listed:') ?><?php */?></dfn>
+                     <?php /*?><li><div class="customeselect"><dfn><?php echo _e('Show Businesses Listed:') ?></dfn>
 					  <select name="show<strong></strong>_biz_list_bydate" id="show_biz_list_bydate">
                       <option value="1">Show Businesses Listed</option>
                       <option value = "2">Anytime</option>
@@ -56,11 +69,11 @@ $var = array_merge( $config_var, $var );
                       <option value = "7">last 7 days</option>
                       <option value = "30">last 30 days</option>
                       </select>
-                     </div></li>
+                     </div></li><?php */?>
                      
-                     <li><input type="text" name="cklsearch" value="<?php echo $cklsearch; ?>" id="cklsearch"  placeholder="City, Keyword or Listing ID"></li>
+                     <li><dfn>&nbsp;</dfn> <input type="text" name="cklsearch" value="<?php echo $cklsearch; ?>" id="cklsearch"  placeholder="City, Keyword or Listing ID"></li>
                      
-                     <li><label><input type="checkbox" name="is_fincng_avlble" id="is_fincng_avlble" value="1">Only show listings with Seller Financing</label></li></div>
+                     <li><dfn>&nbsp;</dfn> <label class="float-left"><input type="checkbox" name="is_fincng_avlble" id="is_fincng_avlble" value="1">Only show listings with Seller Financing</label></li></div>
            </ul>
            			<div class="buttonscont">
 						<?php echo form_submit( array( 'name' => 'inner_search', 'id' => 'inner_search', 'class' => 'orange radius4' , 'style' => 'padding: 9px 22px'), _e( 'Search' ) );?> <?php echo form_close()?>

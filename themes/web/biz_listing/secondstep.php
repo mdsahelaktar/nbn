@@ -26,7 +26,6 @@
 <div class="float-left margin-left355 margin-top20">
   <input type="button" value="Save and continue latter" class="float-right gray margin-top10 margin-left10"  id = "biz_listing_save" name = "biz_listing_save"/>
   <input type="submit" value="Continue &rarr;" class="float-right blue margin-left10 margin-top10"  id = "biz_listing_add" name = "biz_listing_add"/>
-  &nbsp;&nbsp;
   <input type="button" value="Preview &rarr;" class="float-right orange margin-top10" id ="pri" name="pri"/>
   <?php echo form_close() ?>
   <?php

@@ -10,8 +10,8 @@
             	<h2 class="helvetica18"><?php echo _e('Search Business Brokers By Postal Code, Province, County, City'); ?></h2>
                 
                	    <?php echo form_open( 'broker/searchbroker', array( 'name' => 'zip_broker_search_form', 'id' => 'zip_broker_search_form', 'class' => 'cont-biz-seller', 'method' => 'get') )?>
-                    <dfn class="float-left margin-right10"> 
-                    <input Type="checkbox" class="lettertyp" id="lettertyp1" name="lettertyp" value="Repeat Hotel Visit"/><?php echo _e('Search With Postalcode'); ?>:</dfn> 
+                  <label>  <dfn class="float-left margin-right10"> 
+                    <input Type="checkbox" class="lettertyp" id="lettertyp1" name="lettertyp" value="Repeat Hotel Visit"/><?php echo _e('Search With Postalcode'); ?>:</dfn> </label>
                     <?php echo form_input( array( 'name' => 'postalcode', 'class' => 'tpy', 'id' => 'postalcode', 'placeholder' => _e('Enter Postal Code') , 'value' => $zip, 'onkeypress' =>'autoSuggestZip(this)') );?>
                     <span id="results1" style="float:left;  margin-left: 10px; margin-top: 10px;;"></span>
                     <input type="submit" name="search" value="Search" class="margin-left10 orange" id = "sub1"/>
@@ -19,9 +19,9 @@
                     
                     
                     <?php echo form_open( 'broker/searchbroker', array( 'name' => 'province_broker_search_form', 'id' => 'province_broker_search_form', 'class' => 'cont-biz-seller', 'method' => 'get') )?>
-                    <dfn class="float-left margin-right10">
+                    <label><dfn class="float-left margin-right10">
                      <input Type="checkbox" class="lettertyp" id="lettertyp2" name="lettertyp" value="Repeat Hotel Visit"/>
-					<?php echo _e('Search With Province'); ?>:</dfn> 
+					<?php echo _e('Search With Province'); ?>:</dfn> </label>
                     <?php echo form_input( array( 'name' => 'province', 'data-hidden-province-elm' => '#broker_search_by_province', 'class' => 'tpy', 'id' => 'province', 'placeholder' => _e('Enter Province') , 'value' => $zip, 'onkeypress' =>'autoSuggestProvince(this)') );?>
 					<input type="hidden" name="province_id" id="broker_search_by_province" value="" />
                     <span id="results" style="float:left;  margin-left: 10px; margin-top: 10px;;"></span>
@@ -30,9 +30,9 @@
                     
                     
                      <?php echo form_open( 'broker/searchbroker', array( 'name' => 'county_broker_search_form', 'id' => 'county_broker_search_form', 'class' => 'cont-biz-seller', 'method' => 'get') )?>
-                    <dfn class="float-left margin-right10">
+                    <label><dfn class="float-left margin-right10">
                     <input Type="checkbox" class="lettertyp" id="lettertyp3" name="lettertyp" value="Repeat Hotel Visit"/>
-					<?php echo _e('Search With County'); ?>:</dfn> 
+					<?php echo _e('Search With County'); ?>:</dfn> </label>
                     <?php echo form_input( array( 'name' => 'county', 'data-hidden-county-elm' => '#broker_search_by_county', 'class' => 'tpy',  'id' => 'county', 'placeholder' => _e('Enter County') , 'value' => $zip, 'onkeypress' =>'autoSuggestCounty(this)') );?>    
 					<input type="hidden" name="county_id" id="broker_search_by_county" value="" />
                     <span id="results2" style="float:left;  margin-left: 10px; margin-top: 10px;;"></span>
@@ -40,9 +40,9 @@
               	    <?php echo form_close()?>
 
                     <?php echo form_open( 'broker/searchbroker', array( 'name' => 'city_broker_search_form', 'id' => 'city_broker_search_form', 'class' => 'cont-biz-seller', 'method' => 'get') )?>
-                    <dfn class="float-left margin-right10">
+                    <label><dfn class="float-left margin-right10">
                     <input Type="checkbox" class="lettertyp" id="lettertyp4" name="lettertyp" value="Repeat Hotel Visit"/>
-					<?php echo _e('Search With City'); ?>:</dfn> 
+					<?php echo _e('Search With City'); ?>:</dfn> </label>
                     <?php echo form_input( array( 'name' => 'city','class' => 'tpy', 'id' => 'city', 'placeholder' => _e('Enter City') , 'value' => $zip, 'onkeypress' =>'autoSuggestCity(this)') );?>
                     <span id="results3" style="float:left;  margin-left: 10px; margin-top: 10px;;"></span>
                     <input type="submit" name="search" value="Search" class="margin-left10 orange" id = "sub4"/>

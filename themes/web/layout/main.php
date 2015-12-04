@@ -5,6 +5,7 @@
 <title><?php echo $title ?></title>
 <meta name="viewport" content="initial-scale=1">
 <?php $this->template->get_frontend_css(); ?>
+ <link rel="icon" href="favicon.ico"> 
 </head>
 <body>
 <div id="maindiv">
