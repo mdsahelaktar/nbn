@@ -21,7 +21,7 @@ h1, h2, h3, h4, h5, h6, p, form {
 }
 
 a {
-    text-decoration: none;
+    text-decoration: none; color: #00305e;
 }
 ul {
     list-style: none outside none;
@@ -36,7 +36,7 @@ input {
     outline: medium none;
 }
 dfn, em {
-    font-style: normal; line-height: 25px;
+    font-style: normal; line-height: 25px; font-weight: bold;
 }
 @font-face { font-family: "micross_0"; font-style: normal; src: url(../fonts/micross_0.ttf); }
 @font-face { font-family: "helvetica"; font-style: normal; src: url(../fonts/helvetica-neue-lt-com-67-medium-condensed.ttf);}
@@ -71,6 +71,8 @@ h2.helvetica14 {width: 100%; font-size: 14px; font-weight: normal; margin: 14px 
 .error2 {min-width: 77%; padding: 10px 35px; background: url(../images/error2.png) no-repeat 10px 8px; background-color: #efe276; color: #7c4907; font-size: 13px; /*display: block;*/ display: inline-block; text-transform: capitalize;}
 .success {min-width: 77%; padding: 10px 35px; background: url(../images/correct.png) no-repeat 10px 8px; background-color: #b7ffb9; color: #0d7410; font-size: 13px; /*display: block;*/ display: inline-block; text-transform: capitalize;}
 .error_msg {float: left; color: #b40d0c; text-transform: capitalize;}
+#edit_profile_form .error_msg {position: absolute; top: 55px;}
+#login_form .error_msg {font-size: 12px;}
 
 
 .clear {clear: both;}
@@ -374,16 +376,16 @@ h6.type4 {background: #00305e; padding: 8px 0; color: #fff; text-align: left; -m
 
 .brdr-rdus-rhgt-bot {border-radius: 0 5px 5px 0;}
 
-select {/*-moz-appearance: none; background: #eaeaea url(../images/bg-select.png) no-repeat 100% center !important; line-height: 1;*/ border: 1px solid #a3b4c4;
+select {/*-moz-appearance: none; background: #eaeaea url(../images/bg-select.png) no-repeat 100% center !important; line-height: 1;*/ 
+	border: 1px solid #a3b4c4;
     float: left;
-    padding: /*6px 25px 6px 6px;*/ 7px 0;
     width: 100%;
 	 -moz-appearance: none;
 	 -webkit-appearance: none;
     background: #eaeaea url(../images/custome-select.png) no-repeat scroll 95% center !important;
-    line-height: 1;
 	cursor: pointer;
-	text-transform: capitalize;}
+	text-transform: capitalize;
+	line-height: 18px;}
 
 ul.type1 {}
 ul.type1 li {background: url(../images/bullet-blue.png) no-repeat 0px 10px; padding: 8px 0 8px 20px; width: auto; float: left;}
@@ -463,7 +465,7 @@ ul.nested2 li ul li a:hover {color: #00305E;}
     width: 680px; transition : all 0.3s ease-in 0s;
 }
 .cbp-af-header .righthead form { float: right; margin: 10px 0 0 0; width: 260px; }
-.cbp-af-header .righthead form input { float: left; margin: 0; width: 202px; border: 1px #00305e solid; padding: 5px 3px; font-size: 13px; color: #3e3f40; background-color: /*#fff;*/ #eaeaea;}
+.cbp-af-header .righthead form input { float: left; margin: 0; width: 202px; border: 1px #00305e solid; padding: 5px 3px; font-size: 13px; color: #3e3f40; background-color: /*#fff;*/ #eaeaea; line-height: 16px;}
 .cbp-af-header .righthead form input.search {width: 38px; float: left; height: 28px; background: url(../images/bg-search-btn.jpg) no-repeat; cursor: pointer;}
 .cbp-af-header .righthead .login a {background: #00305e; padding: 4px 15px; color: #fff; float: right; margin: 10px 0 0 0;}
 
@@ -505,9 +507,10 @@ float: left; border-right: 2px solid #00305e; font-size: 16px; color: #00305e; h
 	border: 1px #eaeaea solid;
     cursor:pointer;
 	width: 170px;
-	-webkit-appearance: menulist-button;
+	/*-webkit-appearance: menulist-button;*/
+	-webkit-appearance: none;
 	background: #fff;
-	line-height: 26px;/*for safari*/
+	line-height: 18px;/*for safari*/
 	}
 .cbp-af-header.cbp-af-header-shrink .search-form input.submit1 {background: #fbb342 url(../images/header-search.gif) no-repeat 7px 4px; border: none; cursor: pointer; float: right; margin: 11px 0 0 0; width: 30px; height: 37px; display: block; position: relative; z-index: 999;}
  
@@ -534,7 +537,7 @@ float: left; border-right: 2px solid #00305e; font-size: 16px; color: #00305e; h
 #banner-wrap .searchbar form div.customeselect {float: left; margin: 0 15px 0 0; width: 270px;}
 #banner-wrap .searchbar form div.customeselect select {
 	float: left; 
-	padding: 9px 0px;
+	padding: 9px 5px;
     margin: 0;
     border-radius:4px;
     color:#888;
@@ -544,9 +547,10 @@ float: left; border-right: 2px solid #00305e; font-size: 16px; color: #00305e; h
 	border: 1px #fff solid;
     cursor:pointer;
 	width: 270px;
-	-webkit-appearance: menulist-button;
+	/*-webkit-appearance: menulist-button;*/
+	-webkit-appearance: none;
 	background: #eaeaea;
-	line-height: 26px;/*for safari*/
+	line-height: 18px;/*for safari*/
 	}
 
 #banner-wrap .searchbar form p {width: 106px; height: 38px; float: left; margin: 0;}
@@ -591,7 +595,7 @@ div.customeselect:before {
 
 #body {width: 100%; float: left; margin: 0;}
 .threesec {width: 960px; float: left; margin: 30px 0 20px  0;}
-.threesec .box1 {width: 306px; float: left; box-shadow: 0px 0px 10px #979797;}
+.threesec .box1 {width: 306px; float: left; box-shadow: 0px 0px 10px #979797; min-height: 322px;}
 .threesec .box1 .top {width: 286px; float: left; background: #00305e; color: #fff; padding: 15px 10px 5px 10px; border-radius: 3px 3px 0 0;}
 .threesec .box1 .top strong {font-weight: normal; font-size: 18px;}
 .threesec .box1 .top ul {width: 100%; float: left; margin: 8px 0 10px 0;}
@@ -608,7 +612,7 @@ div.customeselect:before {
 .threesec .box1 .bot form input.search {float: left; width: 57px; height: 26px; background: url(../images/bg-zip-search.jpg) no-repeat; float: left; margin: 0;}
 .threesec .box1 .bot p {float: left; margin: 10px 0;}
 
-.threesec .box2 {width: 306px; float: left; box-shadow: 0px 0px 10px #979797; margin: 0 0 0 20px;}
+.threesec .box2 {width: 306px; float: left; box-shadow: 0px 0px 10px #979797; margin: 0 0 0 20px; min-height: 322px;}
 .threesec .box2 img {float: left;}
 .threesec .box2 strong {font-size: 24px; color: #00305e; margin: 10px 0 0 0; width: 100%; text-align: center; float: left; font-weight: normal;}
 .threesec .box2 ul {width: 100%; float: left; margin: 10px 0 0 32px;}
@@ -673,9 +677,10 @@ div.customeselect:before {
 	border: 1px #c3c3c3 solid;
     cursor:pointer;
 	width: 214px;
-	-webkit-appearance: menulist-button;
+	/*-webkit-appearance: menulist-button;*/
+	-webkit-appearance: none;
 	background: #eaeaea;
-	line-height: 26px;/*for safari*/
+	line-height: 18px;/*for safari*/
 	}
 
 
@@ -695,8 +700,7 @@ div.customeselect:before {
 #franchise-finder-right-cont .search-btn-cont input[type=submit] {background: url(../images/franchise-finder-search.jpg) no-repeat 11px 0px; width: 16px; height: 91px; border: none; cursor: pointer; text-align: center; color: #fff; padding: 0 20px 0 26px; float: left;}
 
 #franchise-finder-right-cont div.customeselect {float: left; margin: 2px 0 0 0px; width: 150px;}
-#franchise-finder-right-cont div.customeselect select {float: left; adding: 9px 0px; margin: 0; border-radius:4px; color:#888; border:none; outline:none; display: inline-block;
-	border: 1px #c3c3c3 solid; cursor:pointer; width: 150px; -webkit-appearance: menulist-button; background: #eaeaea; line-height: 26px;/*for safari*/	}
+#franchise-finder-right-cont div.customeselect select {float: left; adding: 9px 0px; margin: 0; border-radius:4px; color:#888; border:none; outline:none; display: inline-block; border: 1px #c3c3c3 solid; cursor:pointer; width: 150px; /*-webkit-appearance: menulist-button;*/ -webkit-appearance: none; background: #eaeaea; line-height: 18px;/*for safari*/	}
 
 #news-letter_widget {width: 194px; padding: 10px; float: left; background-color: #00305E; margin: -5px 0 0 0;}
 #news-letter_widget input[type=email] {width: 148px; background-color: #fff; border: none; float: left;}
@@ -758,9 +762,9 @@ ul.listing li {background: url(../images/bullet.jpg) no-repeat 0px 10px; padding
 	border: 1px #c3c3c3 solid;
     cursor:pointer;
 	width: 255px;
-	-webkit-appearance: menulist-button;
+	/*-webkit-appearance: menulist-button;*/
 	background: #eaeaea;
-	line-height: 26px;/*for safari*/
+	line-height: 18px;/*for safari*/
 	}
 #cusomize-valuation select {width: 255px;}
 ul.analyze {width: 100%; float: left;}
@@ -794,14 +798,14 @@ form#billinginfo {float: left; width: 100%;}
 form#billinginfo input[type="text"], form#billinginfo input[type="email"] {background-color: #EAEAEA; border: 1px solid #C3C3C3; width: 180px; padding: 5px 10px; float: left;}
 form#billinginfo div.customeselect {float: left; margin: 2px 0 0 0px;}
 form#billinginfo div.customeselect select.small {width: 130px;}
-form#billinginfo div.customeselect select {background: none repeat scroll 0 0 #EAEAEA; border: 1px solid #C3C3C3; border-radius: 4px; color: #888888; cursor: pointer; display: inline-block;  float: left; line-height: 26px;  margin: 0; outline: medium none; padding: 9px 0; width: 214px;}
+form#billinginfo div.customeselect select {background: none repeat scroll 0 0 #EAEAEA; border: 1px solid #C3C3C3; border-radius: 4px; color: #888888; cursor: pointer; display: inline-block;  float: left; line-height: 18px;  margin: 0; outline: medium none; padding: 9px 0; width: 214px; -webkit-appearance: none;}
 
 .step-cont {float: left; height: 70px; position: relative; width: 100%;}
 .step-cont .bar {background-color: #fff; height: 9px; position: relative; width: 100%; z-index: 1; border: 1px #083663 solid; top: 37px;}
 .step-cont ul {height: 100px; overflow: hidden; position: absolute; top: 17px; width: 960px; z-index: 9;}
 .step-cont ul li {float: left; width: 320px;}
 .step-cont ul li dfn.normal { background: url(../images/bg-steps-normal.png) no-repeat scroll 0 0 rgba(0, 0, 0, 0); margin: 0 0 0 0; overflow: hidden; transition: all 0.5s ease-in 0s; float: left; width: 50px; height: 18px; color: #00305e; font-size: 24px; padding: 16px 17px;}
-.step-cont ul li dfn.active { background: url(../images/bg-steps-active.png) no-repeat scroll 0 0 rgba(0, 0, 0, 0); margin: 0 0 0 0; overflow: hidden; transition: all 0.5s ease-in 0s; float: left; width: 50px; height: 18px; color: #fff; font-size: 24px; padding: 16px 17px;}
+.step-cont ul li dfn.active { background: url(../images/bg-steps-active.png) no-repeat scroll 0 0 rgba(0, 0, 0, 0); margin: 0 0 0 0; overflow: hidden; transition: all 0.5s ease-in 0s; float: left; width: 50px; height: 18px; color: #fff; font-size: 24px; padding: /*16px 17px*/ 12px 17px 19px 17px;}
 .step-cont ul li dfn:first-child {margin: 0 0 0 140px;}
 .step-cont ul li p {float: left; width: 100%; text-align: center; margin: 10px 0 0 0;}
 .step-cont ul li span {float: left; font-size: 10px;}
@@ -820,7 +824,7 @@ form#billinginfo div.customeselect select {background: none repeat scroll 0 0 #E
 #stepsform p textarea {width: 250px; height: 80px; background-color: #eaeaea; border: 1px solid #A3B4C4; padding: 4px;}
 #stepsform p textarea:focus {transition : all 0.3s ease-in 0s; border: 1px solid #00315c;}
 #stepsform div.customeselect {float: left; margin: 0 0 10px 0px;}
-#stepsform select {background: none repeat scroll 0 0 #EAEAEA; border: 1px solid #A3B4C4; border-radius: 0; color: #888888; cursor: pointer; display: inline-block; float: left; line-height: 26px; margin: 0; outline: medium none; padding: 7px 0; width: 260px;}
+#stepsform select {background: none repeat scroll 0 0 #EAEAEA; border: 1px solid #A3B4C4; border-radius: 0; color: #888888; cursor: pointer; display: inline-block; float: left; line-height: 18px; margin: 0; outline: medium none; padding: 7px 0; width: 260px; -webkit-appearance: none;}
 /*#stepsform .error_msg {margin-left: 180px;}*/
 
 ul.tools {float: left; margin: 5px 0 0 0;}
@@ -829,9 +833,11 @@ ul.tools li.email {background: url(../images/iconset2.png) no-repeat -72px 3px; 
 ul.tools li.save {background: url(../images/iconset2.png) no-repeat -147px 3px; text-indent: 25px; float: left;}
 ul.tools li a:hover {color: #000;}
 
-.cont-biz-seller {float: left;}
+.cont-biz-seller {float: left; width: 100%;}
+.cont-biz-seller dfn {width: 180px;}
 .cont-biz-seller input[type="text"], .cont-biz-seller input[type="email"] {width: 230px; background: none; border: 1px #333 solid; height: 20px !important;}
 .cont-biz-seller textarea {width: 223px; background: none; border: 1px #333 solid; height: 80px; margin-left: 7px; padding: 4px;}
+#city_broker_search_form > label, county_broker_search_form label, #zip_broker_search_form label, #province_broker_search_form label {display: block; float: left;} 
 
 a.savesearch {background: url(../images/save-this-search.png) no-repeat; color: #fff; text-indent: 28px; float: left;}
 a.email-alert{background: url(../images/email-alert.png) no-repeat; color: #fff; text-indent: 28px; float: left;}
@@ -842,8 +848,8 @@ a.email-alert{background: url(../images/email-alert.png) no-repeat; color: #fff;
 
 #srpform {float: left; width: 100%;}
 #srpform div.customeselect {float: left; width: 100%;}
-#srpform div.customeselect dfn {float: left; width: /*30%;*/ 100%; line-height: 25px;}
-#srpform div.customeselect select {border: 1px solid #C3C3C3; border-radius: 4px; color: #888888; cursor: pointer; display: nline-block; float: left; line-height: 26px; margin: 0; outline: medium none; padding: 7px 0; width: /*140px;*/ 100%;}
+#srpform div.customeselect dfn {float: left; width: /*30%;*/ 100%; line-height: 25px; font-weight: bold;}
+#srpform div.customeselect select {border: 1px solid #C3C3C3; border-radius: 4px; color: #888888; cursor: pointer; display: nline-block; float: left; line-height: 18px; margin: 0; outline: medium none; padding: 7px 5px; width: /*140px;*/ 100%; -webkit-appearance: none;}
 #srpform input[type="text"] {width: 95%;}
 
 .back {width: 22px; height: 22px; background: url(../images/bg-back.png) no-repeat; outline: none;}
@@ -927,9 +933,9 @@ ul.profile-item li:last-child {border-bottom: 2px #00305e solid;}
 
 /*some more style
 -----------------------------------------------------------------------------------------*/	
-.defaultcountry {margin: -73px 0 0 87px; float: left; transition: all 0.3s ease-in 0s; display: block;}
-.defaultcountry select {width: 220px; float: left; -moz-appearance: none; background: url(../images/dropdown.png) no-repeat 98% center; line-height: 1; border: 1px solid #00305e; padding: 4px; cursor: pointer; color: #999;}
-.defaultcountry .choose {background: #fff; padding: 0 0 3px 0; transition: all 0.3s ease-in 0;}	
+.defaultcountry {/*margin: -73px 0 0 80px;*/ float: left; transition: all 0.3s ease-in 0s; display: block; position: relative;}
+.defaultcountry select {width: 220px; float: left; -moz-appearance: none; background: url(../images/dropdown.png) no-repeat 98% center; line-height: 17px; border: 1px solid #00305e; padding: 4px; cursor: pointer; color: #999;}
+.defaultcountry .choose {background: #fff; padding: 0 0 3px 0; transition: all 0.3s ease-in 0; right: -300px; top: 10px; position: absolute;}	
 .choose p {display: none; transition: all 0.3s ease-in 0s;}	
 .defaultcountry:hover .choose p {display: block; transition: all 0.3s ease-in 0s; color: #d98d15;}
 .defaultcountry a {color: #00305e;}
@@ -937,7 +943,7 @@ ul.profile-item li:last-child {border-bottom: 2px #00305e solid;}
 
 .formwrap {width: 100%; float: left;}
 .formwrap ul {width: 100%; float: left;}
-.formwrap ul li {float: left; width: 30%; margin-right: 3.33%; list-style: none; margin-bottom: 10px;}
+.formwrap ul li {float: left; width: 30%; margin-right: 3.33%; list-style: none; margin-bottom: /*10px*/ 15px; position: relative;}
 .formwrap input[type="text"], input[type="email"], input[type="tel"], input[type="number"] {background-color: #eaeaea; border: 1px solid #c3c3c3;}
 .buttonscont {margin-top: 10px; width: 100%; float: left;}
 
@@ -968,17 +974,31 @@ ul.profile-item li:last-child {border-bottom: 2px #00305e solid;}
 
 .form_three-forth {width: 580px; float: left;}
 .form_three-forth ul {width: 100%; float: left;}
-.form_three-forth ul li {width: /*31%*/ 46%; /*float: left;*/ display: inline-block; margin-right: 3%; /*min-height: 90px;*/ vertical-align: top; margin-bottom: 25px;}
+.form_three-forth ul li {width: /*31%*/ 46%; /*float: left;*/ display: inline-block; margin-right: 3%; /*min-height: 90px;*/ vertical-align: top; margin-bottom: 20px;}
 .form_three-forth ul li:nth-child(3n+0) {/*margin-right: 0;*/}
 .form_three-forth ul li label {float: left; width: 90%;}
 .form_three-forth ul li input[type="text"], .form_three-forth ul li input[type="email"], .form_three-forth ul li input[type="password"], textarea {width: 96%;}
 
 .fullwidthform {width: 100%; float: left;}
 .fullwidthform ul {width: 100%; float: left;}
-.fullwidthform ul li {width: /*31%*/ 30%; /*float: left;*/ display: inline-block; margin-right: 3%; /*min-height: 90px;*/ vertical-align: top; margin-bottom: 10px;}
-.fullwidthform ul li:nth-child(3n+0) {/*margin-right: 0;*/}
+.fullwidthform ul li {width: /*31%*/ 30%; /*float: left;*/ display: inline-block; margin-right: 3%; /*min-height: 90px;*/ vertical-align: top; margin-bottom: 15px;}
+.fullwidthform ul li:nth-child(3n+0) {/*margin-right: 0;*/ margin-right: 0; width: 33%;}
 .fullwidthform ul li label {float: left; width: 90%;}
 .fullwidthform ul li input[type="text"], .fullwidthform ul li input[type="email"], .fullwidthform ul li input[type="password"], textarea {width: 96%;}
+
+.fullwidthform-new {width: 100%; float: left;}
+.fullwidthform-new ul {width: 100%; float: left;}
+.fullwidthform-new ul li {width: /*31%*/ 30%; /*float: left;*/ display: inline-block; margin-right: 3%; /*min-height: 90px;*/ vertical-align: top; margin-bottom: 15px;}
+.fullwidthform-new ul li:nth-child(3n+0) {/*margin-right: 0;*/}
+.fullwidthform-new ul li label {float: left; width: 90%;}
+.fullwidthform-new ul li input[type="text"], .fullwidthform ul li input[type="email"], .fullwidthform ul li input[type="password"], textarea {width: 96%;}
+
+.fullwith-fifty {width: 100%; float: left;}
+.fullwith-fifty ul {width: 100%; float: left;}
+.fullwith-fifty ul li {width: 47.5%; float: left; margin-right: 3%; margin-bottom: 15px;}
+.fullwith-fifty ul li:nth-child(2n+0) {margin-right: 0;}
+.fullwith-fifty ul li textarea{width: 100%}
+#brokerinfo_add_form fieldset {border: 1px solid #ddd; margin-bottom: 20px; padding: 0 20px;}
 
 .ion-android-system-back {margin: 4px 5px 0 0 !important;}
 #zip_search_form dfn {margin-bottom: 10px;}
@@ -1057,7 +1077,7 @@ a.forgot_password {color: #00305e;}
 #edit_profile_form select {width: 225px;}
 #edit_profile_form input[type="submit"] {margin-top: 25px; padding: 8px 22px;}
 .user_change_password input[type="submit"], .forgot_password input[type="submit"] {padding: 8px 22px;}
-.user_edit_profile p, .user_change_password p, .forgot_password p {float: left; line-height: 25px; width: 100%;}
+.user_edit_profile p, .user_change_password p, .forgot_password p {float: left; line-height: 25px; width: 100%; font-weight: bold;}
 .loginformcont {text-align: center;}
 .loginformcont .loginform {width: 250px; display: inline-block;}
 .registernew {text-align: left;}
@@ -1091,7 +1111,7 @@ a.forgot_password {color: #00305e;}
 }
 #top-menu ul li a.myaccount {
 	background: url(../images/my-account-blue.png) no-repeat; width: 24px; height: 27px; float: left; text-indent: -999999px; padding: 0; margin-left: 10px;
-	margin-top: -4px;
+	margin-top: -5px;
 	}
 	
 #top-menu ul li a.myaccount:hover, #top-menu ul li#dropDown:hover {background-color: transparent; border: 0; padding: 0;}	
@@ -1108,18 +1128,20 @@ a.forgot_password {color: #00305e;}
 	#top-menu li ul {
 	min-width: 200px;
 	position: absolute;
-	margin: 35px 0 0 1px;
+	/*margin: 35px 0 0 1px;*/
+	top: 20px;
 	opacity: 0;
 	visibility: hidden;
 	transition: visibility 0s linear 0.5s, opacity 0.5s linear;
 	z-index: 12;
 }
+#top-menu li ul li:first-child {margin-top: 10px;}
 #top-menu li ul li {
 	background: #00305e;
 	min-width: /*212*/180px;
 	clear: both;
 	padding: 5px 10px;
-	border-bottom: 1px solid #bbecff;
+	border-bottom: 1px solid #222;
 }
 #top-menu li ul li a {
 	color: #fff;
@@ -1197,3 +1219,5 @@ a.editrevert0, a.ion-edit, a.editrevert1 {
 }
 #biz_listing_edit_form p{line-height: 25px;}
 #biz_listing_edit_form input[type="checkbox"], input[type="radio"] {float: right;}
+
+.broker-not-found h4 {background: #dbffd7; border: 1px solid #13be01; font-size: 18px; line-height: 40px; text-indent: 15px; text-transform: capitalize;}

@@ -14,7 +14,7 @@
                    <li> <?php echo form_label('<p><strong>' . _e('password') . '</strong></p>', 'password') ?> <?php echo form_password(array('name' => 'password', 'id' => 'password', 'class' => 'validate', 'data-display' => _e('password'), 'data-rules' => 'required|strict_password|matches[passconf]')); ?></li>
                     
                    <li> <?php echo form_label('<p><strong>' . _e('confirm_password') . '</strong></p>', 'passconf') ?> <?php echo form_password(array('name' => 'passconf', 'id' => 'passconf', 'class' => 'validate', 'data-display' => _e('confirm_password'), 'data-rules' => 'required')); ?></li>
-                    <li><?php echo form_label('<p>' . _e('salutation') . '</p>', 'salutation') ?> 
+                    <li><?php echo form_label('<p><strong>' . _e('salutation') . '</strong></p>', 'salutation') ?> 
                     <?php // echo form_input( array( 'name' => 'salutation', 'id' => 'salutation', 'placeholder' => 'add salutation here') );?>
                     <select name="salutation" id = "salutation">
                         <option value=""> - Select Your Salutation - </option>
@@ -30,7 +30,7 @@
 
                    <li> <?php echo form_label('<p><strong>' . _e('first_name') . '</strong></p>', 'first_name') ?> <?php echo form_input(array('name' => 'first_name', 'id' => 'first_name', 'placeholder' => 'add first name here', 'class' => 'validate', 'data-display'=> 'First Name','data-rules' => 'required')); ?></li>
 
-                   <li> <?php echo form_label('<p>' . _e('middle_name') . '</p>', 'middle_name') ?> <?php echo form_input(array('name' => 'middle_name', 'id' => 'middle_name', 'placeholder' => 'add middle name here')); ?></li>
+                   <li> <?php echo form_label('<p><strong>' . _e('middle_name') . '</strong></p>', 'middle_name') ?> <?php echo form_input(array('name' => 'middle_name', 'id' => 'middle_name', 'placeholder' => 'add middle name here')); ?></li>
 
                   <li>  <?php echo form_label('<p><strong>' . _e('last_name') . '</strong></p>', 'last_name') ?> <?php echo form_input(array('name' => 'last_name', 'id' => 'last_name', 'placeholder' => 'add last name here', 'class' => 'validate', 'data-display'=> 'Last Name', 'data-rules' => 'required')); ?></li>
                     

@@ -32,7 +32,7 @@
             <strong class="margin-top10 float-left width100"><?php echo ucfirst($results[0]->salutation).' '.ucfirst($results[0]->first_name).' '.ucfirst($results[0]->middle_name).' '. ucfirst($results[0]->last_name)?></strong>
             <p class="margin-top10 float-left"> <?php echo $results[0]->bio ?></p>
             
-            <div class="float-left margin-top25 pos-rel">
+            <div class="float-left margin-top25 pos-rel broker-not-found">
             	
     <?php echo $details_slider ?>
     		<p>The information on this listing has been provided by either the seller or a business broker representing the seller. BizQuest has no interest or stake in the sale of this business and has not verified any of the information and assumes no responsibility for its accuracy, veracity, or completeness.Please review our full Terms & Conditions here.</p>
