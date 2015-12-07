@@ -72,32 +72,8 @@ class Login extends MX_Controller
 					{
 						## Load user admin module ##
 						$this->load->module('user/user_admin');
-						$user_details = $this->user_admin->getUserDetailsByLogin( $this->input->post() );
-						if( ! $user_details )
-							echo json_encode( array("event" => "error", "msg" => 'wrong credential') );
-						else
-						{
-							if( $user_details[0]->disable ){
-								if( $user_details[0]->activation_key )
-									echo json_encode( array("event" => "error", "msg" => 'user not activated') ); 
-								else
-									echo json_encode( array("event" => "error", "msg" => 'user disabled') ); 
-							}
-							else
-							{
-									$this->session->set_userdata( array( 'login' => $details ) );
-									if( $this->input->post('remember') )
-										set_cookie( 'login', serialize($details), $this->config->item('cookie_expire') );
-									else
-										set_cookie( 'login', serialize($details) );
-									
-									## check if next url exist or not ##
-									$next = $this->input->post('next');
-									$next = $next ? $next : ( isAdminArea() ? afterLoginAdmin() : afterLoginFront() );											
-									echo json_encode( array("event" => "success", "msg" => _e('login success'), 'redirect' => $next) );
-																
-							}
-						}
+						$user_details = $this->user_admin->logIn( $this->input->post() );
+						echo json_encode( $user_details );						
 					}
 					break;
 			case	"logout" :

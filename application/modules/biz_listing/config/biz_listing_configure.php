@@ -665,11 +665,11 @@ $config['biz_listing_configure']['possible_update'] = array(
   |
  */
 $config['biz_listing_configure']['sector'] = array(
-    'add' => 46,
-    'view_all' => 47,
-    'view_child' => 61,
-    'edit_all' => 48,
-    'edit_child' => 62
+    'add' => 1,
+    'view_all' => 2,
+    'view_child' => 0,
+    'edit_all' => 3,
+    'edit_child' => 0
 );
 
 /* End of file biz_listing_configure.php */ 

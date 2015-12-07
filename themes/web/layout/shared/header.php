@@ -1,6 +1,7 @@
 <?php
 $config_var = $this->config->item('var');
 $var = array_merge( $config_var, ( is_array( $var ) ? $var : array() ) );
+$current_user = isLoggedIn();
 ?>
 <div class="cbp-af-header">
   <div class="cbp-af-inner">
@@ -12,7 +13,7 @@ $var = array_merge( $config_var, ( is_array( $var ) ? $var : array() ) );
       <!--big header right head start-->
       <div class="righthead">
         <div class="top">
-          <?php if (isLoggedIn()) : ?>
+          <?php if ( $current_user ) : ?>
           <div id="top-menu">
             <ul>
               <li id="dropDown"><?php echo anchor('user/edit_profile', _e('my_account'), array( 'class' => 'myaccount' )) ?>
@@ -20,6 +21,9 @@ $var = array_merge( $config_var, ( is_array( $var ) ? $var : array() ) );
                   <li><?php echo anchor('user/edit_profile', _e('edit_profile')) ?></li>
                   <li><?php echo anchor('user/change_password', _e('change_password')) ?></li>
                   <li><?php echo anchor('biz_listing/manage', _e('manage_listing')) ?></li>
+				  <?php if( $current_user["category_id"] == 2 ): //for broker?>
+                      <li><?php echo anchor('broker/profileinfo', _e('broker_profile')) ?></li>                      
+                  <?php endif;?>
                 </ul>
               </li>
             </ul>
@@ -31,7 +35,7 @@ $var = array_merge( $config_var, ( is_array( $var ) ? $var : array() ) );
         </div>
         <?php $this->template->frontend_view('quick_search', '', FALSE, "biz_listing"); ?>
         <ul>
-        <?php if ( !isLoggedIn() ) : ?>	
+        <?php if ( !$current_user ) : ?>	
           <li> <?php echo anchor('user', _e('sign_up'), array('title' => _e('sign_up'))) ?> </li>
         <?php endif;?>  
           <li> <?php echo anchor('broker', _e('find_a_broker'), array('title' => _e('find_a_broker'))) ?> </li>

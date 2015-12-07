@@ -221,9 +221,11 @@ CREATE TABLE `default_permission` (
   `creation_time` datetime DEFAULT NULL,
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ai_default_permission_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `default_permission` */
+
+insert  into `default_permission`(`ai_default_permission_id`,`user_role_id`,`allowed_permission_id`,`is_trashed`,`is_deleted`,`creation_time`,`update_time`) values (1,2,1,0,0,'2015-12-07 15:52:01','2015-12-07 21:22:01'),(2,2,2,0,0,'2015-12-07 15:52:04','2015-12-07 21:22:04'),(3,2,3,0,0,'2015-12-07 15:52:06','2015-12-07 21:22:06');
 
 /*Table structure for table `image` */
 
@@ -327,9 +329,11 @@ CREATE TABLE `permission` (
   `creation_time` datetime DEFAULT NULL,
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ai_permission_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `permission` */
+
+insert  into `permission`(`ai_permission_id`,`group_id`,`permission`,`is_trashed`,`is_deleted`,`creation_time`,`update_time`) values (1,11,'Add',0,0,'2015-12-07 15:50:04','2015-12-07 21:20:04'),(2,11,'View',0,0,'2015-12-07 15:50:49','2015-12-07 21:20:49'),(3,11,'Edit',0,0,'2015-12-07 15:50:54','2015-12-07 21:20:54');
 
 /*Table structure for table `permission_group` */
 
@@ -468,7 +472,7 @@ CREATE TABLE `user` (
 
 /*Data for the table `user` */
 
-insert  into `user`(`ai_user_id`,`user_name`,`email`,`password`,`salutation`,`first_name`,`middle_name`,`last_name`,`work_phone_no`,`mobile_phone_no`,`fax_num`,`parent_id`,`activation_key`,`reset_key`,`disable`,`is_deleted`,`creation_time`,`update_time`) values (1,'sahel','sahel@webzstore.com','5cd36101ab57672e1ff752bd327b6aab','Mr.','Md','Sahel','Aktar',NULL,NULL,NULL,NULL,NULL,NULL,0,0,'2015-11-20 16:33:24','2015-11-20 16:33:28'),(2,'charlessmith','charlessmith@writeme.com','5cd36101ab57672e1ff752bd327b6aab','Dr.','Charles','St.','Smith','1234567895','123456789','no fax',0,'','',0,0,'2015-11-23 13:32:09','2015-11-25 19:39:18'),(3,'charlesmith','charlesmith@writeme.com','5cd36101ab57672e1ff752bd327b6aab','Mr.','Charles','Smith','Dear','','','',0,'c9574005c33033dbe9d65543d09ae88a',NULL,0,0,'2015-11-23 13:40:37','2015-12-04 16:40:00'),(4,'','charlesboker@writeme.com','5cd36101ab57672e1ff752bd327b6aab','Mr.','Charles','Broker','Smith','','','',0,'',NULL,0,0,'2015-12-01 11:12:28','2015-12-01 16:44:13');
+insert  into `user`(`ai_user_id`,`user_name`,`email`,`password`,`salutation`,`first_name`,`middle_name`,`last_name`,`work_phone_no`,`mobile_phone_no`,`fax_num`,`parent_id`,`activation_key`,`reset_key`,`disable`,`is_deleted`,`creation_time`,`update_time`) values (1,'sahel','sahel@webzstore.com','5cd36101ab57672e1ff752bd327b6aab','Mr.','Md','Sahel','Aktar',NULL,NULL,NULL,NULL,NULL,NULL,0,0,'2015-11-20 16:33:24','2015-11-20 16:33:28'),(2,'charlessmith','charlessmith@writeme.com','5cd36101ab57672e1ff752bd327b6aab','Dr.','Charles','St.','Smith','1234567895','123456789','no fax',1,'','',0,0,'2015-11-23 13:32:09','2015-12-07 21:11:06'),(3,'charlesmith','charlesmith@writeme.com','5cd36101ab57672e1ff752bd327b6aab','Mr.','Charles','Smith','Dear','','','',1,'c9574005c33033dbe9d65543d09ae88a',NULL,0,0,'2015-11-23 13:40:37','2015-12-07 21:11:07'),(4,'','charlesboker@writeme.com','5cd36101ab57672e1ff752bd327b6aab','Mr.','Charles','Broker','Smith','','','',1,'',NULL,0,0,'2015-12-01 11:12:28','2015-12-07 21:11:08');
 
 /*Table structure for table `user_category` */
 

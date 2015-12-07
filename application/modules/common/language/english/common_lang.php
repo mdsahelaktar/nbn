@@ -31,5 +31,6 @@ $lang['my_account'] = 'My Account';
 $lang['edit_profile'] = 'Edit Profile';
 $lang['change_password'] = 'Change Password';
 $lang['manage_listing'] = 'Manage Listing';
+$lang['broker_profile'] = 'Broker Profile';
 $lang['already_exist'] = '%s already exist';
 ?>

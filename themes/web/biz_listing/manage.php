@@ -1,6 +1,7 @@
 <div id="body">
   <div class="wrapper">
     <div class="width100 float-left margin-bottom20 margin-top140 padding-bottom25">
+    <?php echo renderResposeMessage('biz_listing', $response) ?>
       <?php
 ### Edit Section Begin ### 
 ### If No Error Begin ###
@@ -13,8 +14,7 @@ if ($response["event"] != "error"):
         if (isset($results["records"][0]->ai_biz_listing_id)):
             ?>
             
-      <div class="fullwidthform-new">
-	  <?php echo renderResposeMessage('biz_listing', $response) ?>
+      <div class="fullwidthform-new">	  
         <ul>
           <?php
             echo form_open('', array('name' => 'biz_listing_edit_form', 'id' => 'biz_listing_edit_form', 'class' => 'width100 float-left margin-bottom30'));
