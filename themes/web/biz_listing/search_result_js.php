@@ -89,7 +89,8 @@ $( document ).ready(function()
 	 			param += "county_id=<?php echo $_REQUEST["county_id"]?>";
 				$("#county_id").attr("disabled", false);
 	<?php } if($_REQUEST["country_id"] ) { ?>
-	 			param += "country_id=<?php echo $_REQUEST["country_id"]?>";				
+	 			param += "country_id=<?php echo $_REQUEST["country_id"]?>";		
+				getProvinceByCountry('#country_selector #country_id');		
 	<?php } ?>
 								
 	searchBiz(param);	

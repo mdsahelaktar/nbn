@@ -8,7 +8,7 @@
             <li> <?php echo form_label( '<p><strong>'._e( 'Password' ).'</strong></p>', 'password' )?> <?php echo form_password( array( 'name' => 'password', 'id' => 'password', 'placeholder' => '****************', 'class' => 'validate', 'data-display' =>  _e( 'Password' ), 'data-rules' => 'required' ) );?> </li>
             <li> <?php echo form_submit( array( 'name' => 'submit', 'id' => 'submit' ), _e( 'Login' ) );?> <?php echo form_label( _e( 'Remember my passsword' ), 'remember', array( "class" => "type1" ) )?> <?php echo form_checkbox( array( 'name' => 'remember', 'id' => 'remember' ), 1, TRUE )?> </li>
             <?php echo form_hidden('next', $next)?>
-            <li> <?php echo anchor( current_url().'#', _e( 'Forgot Your Password' ), array( 'class' => 'forgot_password' ) )?> </li>
+            <li> <?php echo anchor( "user/forgot_password", _e( 'forgot_your_password' ), array( 'class' => 'forgot_password' ) )?> </li>
           </ul>
           <?php echo form_close()?>
           <?php

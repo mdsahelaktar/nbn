@@ -52,7 +52,7 @@ class Login extends MX_Controller
 	{
 		$data["title"] = _e('Login');
 		$data["register_link"] = "package?ct=2&rl=1";
-		$data["next"] = $_GET["next"];				
+		$data["next"] = $_GET["next"] ? $_GET["next"] : "user/edit_profile";				
 		$data["content"] = $this->template->frontend_view("login", $data, true, "login");
 		$this->template->build_frontend_output($data);	
 	}	

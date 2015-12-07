@@ -15,7 +15,7 @@
  */
 $config['biz_listing_configure']['dependent_on'] = array(
     'image' => array(
-        'on' => 'biz_listing.ai_biz_listing_id = image.relation_id',
+        'on' => 'biz_listing.ai_biz_listing_id = image.relation_id and context_id = 1',
         'type' => 'left',
         'fetch' => array(
             'image_url',
@@ -24,7 +24,7 @@ $config['biz_listing_configure']['dependent_on'] = array(
             'is_main',
             'context_id'
         ),
-		'where' => array( '(CASE WHEN image.context_id IS NULL THEN 1 ELSE image.context_id = 1 END)' )// Place image context id now biz = 3 as image context id
+		'where' => array( '(CASE WHEN image.context_id IS NULL THEN 1 ELSE image.context_id = 1 END)' )// Place image context id now biz = 1 as image context id
     ),
     'country' => array(
         'on' => 'biz_listing.country_id = country.ai_country_id',

@@ -20,13 +20,13 @@ $var = array_merge( $config_var, $var );
             <p class="font14"><?php echo _e('Refine Your Search Here or go to') ?> <a href="#" target="_self" class="global"><?php echo _e('Advanced Search for More Options')?></a></p>
             <div class="formwrap"> <?php echo form_open( '', array( 'name' => 'inner_search_form', 'id' => 'srpform', 'class' => 'margin-top15', 'method' => 'post' ,'onsubmit' => 'return searchBizForm(this)') )?>
               <ul>
-                <li>
-                  <div class="customeselect"> <?php echo form_label( '<dfn>'._e( 'Country' ).'</dfn>', 'country_id' )?> <?php echo form_dropdown('country_id', $var['country_dd'], $country_id, 'id="country_id" onchange="getProvinceByCountry(this)" data-province-sel="#province_id" data-display="'._e( 'Location' ).'" data-rules="required"'); ?> </div>
+                <li id="country_selector">
+                  <div class="customeselect"> <?php echo form_label( '<dfn>'._e( 'Country' ).'</dfn>', 'country_id' )?> <?php echo form_dropdown('country_id', $var['country_dd'], $country_id, 'id="country_id" data-child-input-parent="#location_selector, #county_selector" onchange="getProvinceByCountry(this)" data-province-sel="#province_id" data-display="'._e( 'Location' ).'" data-rules="required"'); ?> </div>
                 </li>
-                <li>
+                <li id="location_selector">
                   <div class="customeselect"> <?php echo form_label( '<dfn>'._e( 'Location' ).'</dfn>', 'province_id' )?> <?php echo form_dropdown('province_id', $var['provinces_dd'], $province_id, 'id="province_id"  onchange="getCountyByProvince(this)" data-county-sel="#county_id" data-display="'._e( 'Province' ).'" data-rules="required"');?> </div>
                 </li>
-                <li>
+                <li id="county_selector">
                   <div class="customeselect"> <?php echo form_label( '<dfn>'._e( 'County' ).'</dfn>', 'county_id' )?> <?php echo form_dropdown('county_id', $var['counties_dd'], $county_id,'id="county_id" disabled="disabled" class="validate" data-display="'._e( 'County' ).'" data-rules="required"');?> </div>
                 </li>
                 <li>
@@ -53,15 +53,12 @@ $var = array_merge( $config_var, $var );
                     <input type="text" name="cfl" value="" id="cfl" placeholder="<?php echo _e('Cash Flow Low') ?>">
                   </li>
                   <li>
-                    <div class="customeselect">
-                      <?php /*?><dfn><?php echo _e('Show Businesses Listed:') ?><?php */?>
-                      </dfn>
-                      <select name="show<strong></strong>_biz_list_bydate" id="show_biz_list_bydate">
-                        <option value="1">Show Businesses Listed</option>
-                        <option value = "2">Anytime</option>
-                        <option value = "3">last 3 days</option>
-                        <option value = "7">last 7 days</option>
-                        <option value = "30">last 30 days</option>
+                    <div class="customeselect">                      
+                      <select name="show_biz_list_bydate" id="show_biz_list_bydate">
+                        <option value = ""><?php echo _e('biz listed') ?> for Anytime</option>
+                        <option value = "3"><?php echo _e('biz listed') ?> last 3 days</option>
+                        <option value = "7"><?php echo _e('biz listed') ?> last 7 days</option>
+                        <option value = "30"><?php echo _e('biz listed') ?> last 30 days</option>
                       </select>
                     </div>
                   </li>
