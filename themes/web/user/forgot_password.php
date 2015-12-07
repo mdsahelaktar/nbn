@@ -6,7 +6,7 @@
     	<div class="formwrap"> 
 			<?php echo form_open('', array('name' => 'forgot_password_form', 'id' => 'forgot_password_form', 'class' => 'width100')) ?> 
             	<ul>
-                    <li><?php echo form_label('<p>' . _e('user_name_email') . '</p>', 'user_name_email') ?> <?php echo form_input(array('name' => 'user_name_email', 'id' => 'user_name_email', 'placeholder' => 'Check user name/email here', 'class' => 'validate', 'data-display' => _e('user_name_email'), 'data-rules' => 'required')); ?></li>
+                    <li><?php echo form_label('<dfn>' . _e('user_name_email') . '</dfn>', 'user_name_email') ?> <?php echo form_input(array('name' => 'user_name_email', 'id' => 'user_name_email', 'placeholder' => 'Check user name/email here', 'class' => 'validate', 'data-display' => _e('user_name_email'), 'data-rules' => 'required')); ?></li>
                     <li><?php echo form_submit(array('name' => 'forgot_password', 'id' => 'forgot_password', 'class' => 'margin-top25'), _e('check_user_name_email')); ?></li>
             </ul>
             <?php echo form_close() ?>

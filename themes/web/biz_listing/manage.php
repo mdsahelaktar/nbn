@@ -7,7 +7,7 @@
 if ($response["event"] != "error"):
     ?>
       <?php if ($edit_id): ?>
-      <?php echo anchor(getBackUrl('edit_id'), '<span class="ion-android-system-back"></span>' . _e('Back'), array('title' => _e('Back to List'), 'class' => 'btn-type1 margin-right10 margin-top10 float-left')) ?>
+      <?php echo anchor(getBackUrl('edit_id'), '<span class="ion-android-system-back"></span>' . _e('Back'), array('title' => _e('Back to List'), 'class' => 'btn-type1 margin-right10 margin-top10 float-left margin-bottom15')) ?>
       <?php
         ### If Valid Edit Id Begin ###
         if (isset($results["records"][0]->ai_biz_listing_id)):
@@ -17,7 +17,7 @@ if ($response["event"] != "error"):
 	  <?php echo renderResposeMessage('biz_listing', $response) ?>
         <ul>
           <?php
-            echo form_open('', array('name' => 'biz_listing_edit_form', 'id' => 'biz_listing_edit_form', 'class' => 'width100 float-left margin-bottom30 margin-top10'));
+            echo form_open('', array('name' => 'biz_listing_edit_form', 'id' => 'biz_listing_edit_form', 'class' => 'width100 float-left margin-bottom30'));
             echo form_hidden('row_id', $results["records"][0]->ai_biz_listing_id);
             ?>
           <li> <?php echo form_label('<dfn>' . _e('Headline') . '</dfn>', 'headline') ?> <?php echo form_input(array('name' => 'headline', 'id' => 'headline', 'size' => 30, 'value' => $results["records"][0]->headline, 'placeholder' => 'add headline here', 'autofocus' => 'autofocus', 'class' => 'validate', 'data-display' => _e('Headline'), 'data-rules' => 'required')); ?></li>
@@ -97,12 +97,11 @@ if ($response["event"] != "error"):
       <div class="manage-biz-listing-search-cont"><?php echo form_open('', array('name' => 'biz_listing_search_form', 'id' => 'biz_listing_search_form', 'class' => 'width100 float-left margin-bottom30 margin-top10', 'method' => 'get')) ?>
       <table id="bizlist">
         <tr id="caption_section">
-          <th><a href="<?php echo sortBy($var['CFG'], 'sortbyheadline') ?>" class="<?php echo sortClass($var['CFG'], 'sortbyheadline') ?>"><?php echo _e('Headline') ?></a></th>
+          <th class="headline"><a href="<?php echo sortBy($var['CFG'], 'sortbyheadline') ?>" class="<?php echo sortClass($var['CFG'], 'sortbyheadline') ?>"><?php echo _e('Headline') ?></a></th>
           <th><a href="<?php echo sortBy($var['CFG'], 'sortbytagline') ?>" class="<?php echo sortClass($var['CFG'], 'sortbytagline') ?>"><?php echo _e('Tagline') ?></a></th>         
           <th><?php echo _e('Images') ?></a></th>
           <th><a href="<?php echo sortBy($var['CFG'], 'sortbytime') ?>"  class="<?php echo sortClass($var['CFG'], 'sortbytime') ?>"><?php echo _e('Time Created') ?></a></th>
-          <th><a href="<?php echo sortBy($var['CFG'], 'sortbymfdtime') ?>"  class="<?php echo sortClass($var['CFG'], 'sortbymfdtime') ?>"><?php echo _e('Modified time') ?></a></th>
-          <th class="actionth"><?php echo _e('Approve Status') ?></th>
+          <th class="approve"><?php echo _e('Approve Status') ?></th>
           <th><a href="<?php echo sortBy($var['CFG'], 'sortbyactive') ?>"  class="<?php echo sortClass($var['CFG'], 'sortbyactive') ?>"><?php echo _e('Status') ?></a></th>          
           <th class="actionth"><?php echo _e('Action') ?></th>
         </tr>
@@ -110,25 +109,24 @@ if ($response["event"] != "error"):
           <td colspan="8">&nbsp;</td>
         </tr>
         <tr id="filter_section">
-          <td><?php echo form_input(array('name' => 'headline', 'id' => 'headline', 'placeholder' => 'search by headline', 'size' => 20, 'value' => $this->input->get('headline'))); ?></td>
-          <td></td>
+          <td><?php echo form_input(array('name' => 'headline', 'id' => 'headline', 'placeholder' => 'Search by Headline', 'size' => 20, 'value' => $this->input->get('headline'))); ?></td>
           <td></td>
           <td></td>
           <td></td>
           <td></td>
           <td><?php echo form_dropdown('is_trashed', $var['filter_status_dd'], $this->input->get('is_trashed') != '' ? $this->input->get('is_trashed') : '' );?></td>          
-          <td><?php echo anchor('biz_listing/manage', _e('Reset'), array('title' => _e('Reset'), 'class' => 'refresh btn-type1 margin-right10 margin-left20 float-left')) ?> <?php echo form_button(array('name' => 'search', 'id' => 'search', 'class' => 'filter', 'onclick' => 'return goFilter(this)'), _e('Filter')); ?></td>
+          <td><?php echo anchor('biz_listing/manage', _e('Reset'), array('title' => _e('Reset'), 'class' => 'refresh btn-type1 margin-right10 margin-left10 float-left')) ?> <?php echo form_button(array('name' => 'search', 'id' => 'search', 'class' => 'filter', 'onclick' => 'return goFilter(this)'), _e('Filter')); ?></td>
         </tr>
         <tr id="blanktr">
-          <td colspan="8">&nbsp;</td>
+          <td colspan="7">&nbsp;</td>
         </tr>
         <tr id="multiple_action_section">
-          <td colspan="7"><a onclick="return selectAll(this)" class="btn-type1 margin-right10 float-left" title="<?php echo _e('Select All') ?>" href="#"><span class="ion-checkmark-circled"></span><?php echo _e('Select All') ?></a> <a onclick="return unselectAll(this)" class="btn-type1 margin-right10 float-left" title="<?php echo _e('Unselect All') ?>" href="#"><span class="ion-close-circled"></span><?php echo _e('Unselect All') ?></a></td>
+          <td colspan="6"><a onclick="return selectAll(this)" class="btn-type1 margin-right10 float-left" title="<?php echo _e('Select All') ?>" href="#"><span class="ion-checkmark-circled"></span><?php echo _e('Select All') ?></a> <a onclick="return unselectAll(this)" class="btn-type1 margin-right10 float-left" title="<?php echo _e('Unselect All') ?>" href="#"><span class="ion-close-circled"></span><?php echo _e('Unselect All') ?></a></td>
           <td><?php echo form_dropdown('action', $var['action_dd']); ?>
             <button onclick="return goAction(this)" class="margin-left5 go" id="go" type="button" name="go"><?php echo _e('Go'); ?> <span class = "ion-play"></span></button></td>
         </tr>
         <tr id = "blanktr">
-          <td colspan = "8">&nbsp;</td>
+          <td colspan = "7">&nbsp;</td>
         </tr>
         <?php ### If Record Found Begin ### 
             ?>
@@ -136,22 +134,18 @@ if ($response["event"] != "error"):
             if (count($results["records"])) {
                 ?>
         <?php foreach ($results["records"] as $value): ?>
-        <tr>
+        <tr id="oddeven">
           <td><label><?php echo form_checkbox('row_id[]', $value->ai_biz_listing_id); ?><?php echo $value->headline ?></label></td>
           <td align="center"><?php echo $value->tagline ?></td>          
           <td align="center"><img src="<?php echo $this->template->get_frontend_image(showImage($value->image_information, '1', '1', 'bizlisting/no.jpg'));?>" alt="certified image not available"  width="20%" height="20%"/></td>
           <td align="center"><?php echo $value->creation_time ?></td>
-          <td align="center"><?php echo $value->update_time ?></td>
           <td align="center"><?php echo $value->active ? _e("approved") : _e("suspended") ?></td>
           <td align="center"><?php echo $value->is_trashed ? _e("Inactive") : _e("Active") ?></td>          
           <td align="center"><a href="<?php echo createEditUrl($value->ai_biz_listing_id) ?>" class="ion-edit"></a> | &nbsp;<a href="<?php echo createRevertDeleteUrl($value->ai_biz_listing_id, $value->is_trashed) ?>" class="editrevert<?php echo $value->is_trashed ?>"></a></td>
         </tr>
-        <tr id="blanktr">
-          <td colspan="8">&nbsp;</td>
-        </tr>
         <?php endforeach; ?>
         <tr>
-          <td colspan="8"><?php echo $results["pagination"] ?></td>
+          <td colspan="7"><?php echo $results["pagination"] ?></td>
         </tr>
         <script type="text/javascript">
                     var deleteconformstring = '<?php echo _e('Confirm delete biz listing') ?>';
@@ -164,7 +158,7 @@ if ($response["event"] != "error"):
                 ?>
         <?php ### If No Record Found Begin ### ?>
         <tr>
-          <td colspan="8"><div class="error">
+          <td colspan="7"><div class="error">
               <p><?php echo _e('No records found') ?></p>
             </div></td>
         </tr>
