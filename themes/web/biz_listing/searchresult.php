@@ -16,9 +16,9 @@ $var = array_merge( $config_var, $var );
               <li class="float-left"><?php echo anchor( 'user', _e( 'Create an Email Alert' ), array( 'class' => 'email-alert global' ) )?></li>
             </ul>
           </div>
-          <div class="width95 bg-grey padding-bottom10 padding-left20 padding-right20 padding-top10 float-left margin-top20">
+          <div class="width95 bg-grey padding-bottom10 padding-left20 padding-right20 padding-top10 float-left margin-top20 margin-bottom15">
             <p class="font14"><?php echo _e('Refine Your Search Here or go to') ?> <a href="#" target="_self" class="global"><?php echo _e('Advanced Search for More Options')?></a></p>
-            <div class="formwrap"> <?php echo form_open( '', array( 'name' => 'inner_search_form', 'id' => 'srpform', 'class' => 'margin-top15', 'method' => 'post' ,'onsubmit' => 'return searchBizForm(this)') )?>
+            <div class="formwrap-searchresult"> <?php echo form_open( '', array( 'name' => 'inner_search_form', 'id' => 'srpform', 'class' => 'margin-top15', 'method' => 'post' ,'onsubmit' => 'return searchBizForm(this)') )?>
               <ul>
                 <li id="country_selector">
                   <div class="customeselect"> <?php echo form_label( '<dfn>'._e( 'Country' ).'</dfn>', 'country_id' )?> <?php echo form_dropdown('country_id', $var['country_dd'], $country_id, 'id="country_id" data-child-input-parent="#location_selector, #county_selector" onchange="getProvinceByCountry(this)" data-province-sel="#province_id" data-display="'._e( 'Location' ).'" data-rules="required"'); ?> </div>
@@ -30,8 +30,10 @@ $var = array_merge( $config_var, $var );
                   <div class="customeselect"> <?php echo form_label( '<dfn>'._e( 'County' ).'</dfn>', 'county_id' )?> <?php echo form_dropdown('county_id', $var['counties_dd'], $county_id,'id="county_id" disabled="disabled" class="validate" data-display="'._e( 'County' ).'" data-rules="required"');?> </div>
                 </li>
                 <li>
-                  <div class="customeselect"> <dfn>Price:</dfn> <?php echo form_dropdown('asking_price_min', $var['askingprice_dd_min'], $asking_price_min, 'id="asking_price_min"');?> </div>
-                  <div class="customeselect margin-top5"> <?php echo form_dropdown('asking_price_max', $var['askingprice_dd_max'], $asking_price_max, 'id="asking_price_max"');?> </div>
+                  <div class="customeselect"> <dfn>Min Price:</dfn> <?php echo form_dropdown('asking_price_min', $var['askingprice_dd_min'], $asking_price_min, 'id="asking_price_min"');?> </div>
+                </li>
+                <li><dfn>Max Price:</dfn>
+                  <div class="customeselect"> <?php echo form_dropdown('asking_price_max', $var['askingprice_dd_max'], $asking_price_max, 'id="asking_price_max"');?> </div>
                 </li>
                 <li>
                   <div class="customeselect"> <dfn>Industry:</dfn> <?php echo form_dropdown('biz_domain_id', $var['biz_domain_dd'], $biz_domain_id, 'id="biz_domain_id" data-biztype-sel="#biz_type_id" data-display="'._e( 'Type of Business' ).'" data-rules="required" onchange="getBizTypeByBizDomain(this)"'); ?> </div>
@@ -53,19 +55,31 @@ $var = array_merge( $config_var, $var );
                     <input type="text" name="cfl" value="" id="cfl" placeholder="<?php echo _e('Cash Flow Low') ?>">
                   </li>
                   <li>
-                    <div class="customeselect">                      
+                    <div class="customeselect">
                       <select name="show_biz_list_bydate" id="show_biz_list_bydate">
-                        <option value = ""><?php echo _e('biz listed') ?> for Anytime</option>
+                        <option value = ""><?php echo _e('biz listed') ?> for anytime</option>
                         <option value = "3"><?php echo _e('biz listed') ?> last 3 days</option>
                         <option value = "7"><?php echo _e('biz listed') ?> last 7 days</option>
                         <option value = "30"><?php echo _e('biz listed') ?> last 30 days</option>
                       </select>
                     </div>
                   </li>
-                  <li>
+                  <li><dfn>&nbsp;</dfn>
+                    <input type="text" name="grh" value="" id="grh" placeholder="<?php echo _e('Gross Revenue High') ?>">
+                  </li>
+                  <li><dfn>&nbsp;</dfn>
+                    <input type="text" name="grl" value="" id="grl" placeholder="<?php echo _e('Gross Revenue Low') ?>">
+                  </li>
+                  <li><dfn>&nbsp;</dfn>
+                    <input type="text" name="cfh" value="" id="cfh" placeholder="<?php echo _e('Cash Flow High') ?>">
+                  </li>
+                  <li><dfn>&nbsp;</dfn>
+                    <input type="text" name="cfl" value="" id="cfl" placeholder="<?php echo _e('Cash Flow Low') ?>">
+                  </li>
+                  <li><dfn>&nbsp;</dfn>
                     <input type="text" name="cklsearch" value="<?php echo $cklsearch; ?>" id="cklsearch"  placeholder="City, Keyword or Listing ID">
                   </li>
-                  <li>
+                  <li class="margin-top20">
                     <label>
                       <input type="checkbox" name="is_fincng_avlble" id="is_fincng_avlble" value="1">
                       Only show listings with Seller Financing</label>

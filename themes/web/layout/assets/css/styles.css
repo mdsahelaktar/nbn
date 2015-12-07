@@ -67,11 +67,11 @@ h2.helvetica18 {width: 100%; font-size: 18px; font-weight: normal; color: #333; 
 h2.helvetica16 {width: 100%; font-size: 16px; font-weight: normal; margin: 14px 0 20px 0; font-family: helvetica !important;}
 h2.helvetica14 {width: 100%; font-size: 14px; font-weight: normal; margin: 14px 0 5px 0; font-family: helvetica !important;}
 
-.error {min-width: 77%; padding: 10px 35px; background: url(../images/error.png) no-repeat 10px 8px; background-color: #fec7c7; color: #b40d0c; font-size: 12px; /*display: block;*/ display: inline-block; text-transform: capitalize;}
-.error2 {min-width: 77%; padding: 10px 35px; background: url(../images/error2.png) no-repeat 10px 8px; background-color: #efe276; color: #7c4907; font-size: 13px; /*display: block;*/ display: inline-block; text-transform: capitalize;}
-.success {min-width: 77%; padding: 10px 35px; background: url(../images/correct.png) no-repeat 10px 8px; background-color: #b7ffb9; color: #0d7410; font-size: 13px; /*display: block;*/ display: inline-block; text-transform: capitalize;}
-.error_msg {float: left; color: #b40d0c; text-transform: capitalize;}
-#edit_profile_form .error_msg {position: absolute; top: 55px;}
+.error {min-width: 77%; padding: 10px 35px; background: url(../images/error.png) no-repeat 10px 8px; background-color: #fec7c7; color: #b40d0c; font-size: 12px; /*display: block;*/ display: inline-block;}
+.error2 {min-width: 77%; padding: 10px 35px; background: url(../images/error2.png) no-repeat 10px 8px; background-color: #efe276; color: #7c4907; font-size: 13px; /*display: block;*/ display: inline-block;}
+.success {min-width: 77%; padding: 10px 35px; background: url(../images/correct.png) no-repeat 10px 8px; background-color: #b7ffb9; color: #0d7410; font-size: 13px; /*display: block;*/ display: inline-block;}
+.error_msg {float: left; color: #b40d0c;}
+#edit_profile_form .error_msg {position: absolute; top: 59px;}
 #login_form .error_msg {font-size: 12px;}
 
 
@@ -467,7 +467,7 @@ ul.nested2 li ul li a:hover {color: #00305E;}
 .cbp-af-header .righthead form { float: right; margin: 10px 0 0 0; width: 260px; }
 .cbp-af-header .righthead form input { float: left; margin: 0; width: 202px; border: 1px #00305e solid; padding: 5px 3px; font-size: 13px; color: #3e3f40; background-color: /*#fff;*/ #eaeaea; line-height: 16px;}
 .cbp-af-header .righthead form input.search {width: 38px; float: left; height: 28px; background: url(../images/bg-search-btn.jpg) no-repeat; cursor: pointer;}
-.cbp-af-header .righthead .login a {background: #00305e; padding: 4px 15px; color: #fff; float: right; margin: 10px 0 0 0;}
+.cbp-af-header .righthead .login a {background: #00305e; padding: 4px 15px; color: #fff; float: right; margin: 10px 0 0 0; line-height: 20px;}
 
 .cbp-af-header .righthead ul {width: 100%; float: right; margin: 25px 0 0 0;}
 .cbp-af-header .righthead ul li {float: right; margin: 0 0;}
@@ -497,7 +497,7 @@ float: left; border-right: 2px solid #00305e; font-size: 16px; color: #00305e; h
 .cbp-af-header.cbp-af-header-shrink .search-form div.customeselect {float: left; margin: 11px 13px 0 0; width: 170px;}
 .cbp-af-header.cbp-af-header-shrink .search-form div.customeselect select {
 	float: left; 
-	padding: 9px 0px;
+	padding: 9px 5px;
     margin: 0;
     border-radius:4px;
     color:#888;
@@ -618,7 +618,7 @@ div.customeselect:before {
 .threesec .box2 ul {width: 100%; float: left; margin: 10px 0 0 32px;}
 .threesec .box2 ul li {list-style-image: url(../images/blue-bullet.png); font-size: 16px; color: #00305e; margin-bottom:7px;}
 .threesec .box2 .find-lawyer {width: 229px; height: 36px; float: left; margin: 15px 0 11px 38px;}
-.threesec .box2 .find-lawyer a {width: 209px; height: 36px; color: #fff; font-size: 20px; float: left; background: url(../images/bg-find-employer.png) no-repeat; padding: 5px 0 0 20px;};
+.threesec .box2 .find-lawyer a {width: 209px; height: 31px; line-height: 28px; color: #fff; font-size: 20px; float: left; background: url(../images/bg-find-employer.png) no-repeat; padding: 5px 0 0 20px;};
 
 
 .containor {width: 960px; float: left; margin: 0;}
@@ -835,7 +835,7 @@ ul.tools li a:hover {color: #000;}
 
 .cont-biz-seller {float: left; width: 100%;}
 .cont-biz-seller dfn {width: 180px;}
-.cont-biz-seller input[type="text"], .cont-biz-seller input[type="email"] {width: 230px; background: none; border: 1px #333 solid; height: 20px !important;}
+.cont-biz-seller input[type="text"], .cont-biz-seller input[type="email"] {width: 230px; background: /*none*/ #fff; /*border: 1px #333 solid;*/ border-radius: 4px; height: 20px !important;}
 .cont-biz-seller textarea {width: 223px; background: none; border: 1px #333 solid; height: 80px; margin-left: 7px; padding: 4px;}
 #city_broker_search_form > label, county_broker_search_form label, #zip_broker_search_form label, #province_broker_search_form label {display: block; float: left;} 
 
@@ -943,9 +943,15 @@ ul.profile-item li:last-child {border-bottom: 2px #00305e solid;}
 
 .formwrap {width: 100%; float: left;}
 .formwrap ul {width: 100%; float: left;}
-.formwrap ul li {float: left; width: 30%; margin-right: 3.33%; list-style: none; margin-bottom: /*10px*/ 15px; position: relative;}
+.formwrap ul li {float: left; /*display: inline-block;*/ width: /*30*/ 31%; margin-right: 3%; list-style: none; margin-bottom: /*10px*/ 15px; position: relative;}
+.formwrap ul li:nth-child(3n+0) {margin-right: 0;}
 .formwrap input[type="text"], input[type="email"], input[type="tel"], input[type="number"] {background-color: #eaeaea; border: 1px solid #c3c3c3;}
 .buttonscont {margin-top: 10px; width: 100%; float: left;}
+
+.formwrap-searchresult {width: 100%; float: left;}
+.formwrap-searchresult ul {width: 100%; float: left;}
+.formwrap-searchresult ul li {float: left; /*display: inline-block;*/ width: 30%; margin-right: 3%; list-style: none; margin-bottom: /*10px*/ 15px; position: relative;}
+.formwrap-searchresult input[type="text"], input[type="email"], input[type="tel"], input[type="number"] {background-color: #eaeaea; border: 1px solid #c3c3c3;}
 
 .pagination {width: 100%; float: left; text-align: center; margin-top: 40px;}
 .pagination ul {float: none; display: inline-block;}
@@ -1074,10 +1080,10 @@ a.forgot_password {color: #00305e;}
 #footer .botfoot ul.social li a img {border: 0}
 
 /*stye in new nbn----------------*/
-#edit_profile_form select {width: 225px;}
+#edit_profile_form select {width: 232px;}
 #edit_profile_form input[type="submit"] {margin-top: 25px; padding: 8px 22px;}
 .user_change_password input[type="submit"], .forgot_password input[type="submit"] {padding: 8px 22px;}
-.user_edit_profile p, .user_change_password p, .forgot_password p {float: left; line-height: 25px; width: 100%; font-weight: bold;}
+/*.user_edit_profile p, .user_change_password p, .forgot_password p {float: left; line-height: 25px; width: 100%; font-weight: bold;}*/
 .loginformcont {text-align: center;}
 .loginformcont .loginform {width: 250px; display: inline-block;}
 .registernew {text-align: left;}
@@ -1170,31 +1176,37 @@ a.forgot_password {color: #00305e;}
 	border-bottom-right-radius: 5px;
 }
 
-.manage-biz-listing-search-cont {overflow: scroll;}
+/*.manage-biz-listing-search-cont {overflow: scroll;}*/
+.manage-biz-listing-search-cont select {padding: 6px 5px;}
 tr#caption_section {
     /*background: #ccc;*/
 }
 table, table tbody {width: 100%; /*float: left;*/}
 th {line-height: 40px; background: #fdb03e; color: #fff; min-width: /*130px;*/ 160px;}
-table#bizlist th {min-width: /*205*/ 225px;}
+table#bizlist th {/*min-width: 105px; width: 105px;*/ min-width: 60px; width: 60px;}
 table#bizlist td {padding: 0 10px;}
 .bizlist-add input[type="checkbox"] {float: left; margin: 12px 5px 0 0;}
 select[name="action"] {width: 65%;}
 a[title="Select All"], a[title="Unselect All"] {border-radius: 4px;}
 
 .asc {
-    background: #e18c0d url(../images/icon_open.png) no-repeat 90% 60%;
+    background: #e18c0d url(../images/icon_open.png) no-repeat /*90% 60%*/ 50% 110%;
     /*padding: 0 40px;*/
 }
 .desc {
-    background: #e18c0d url(../images/icon_arrow_up.png) no-repeat 90% 60%;
+    background: #e18c0d url(../images/icon_arrow_up.png) no-repeat /*90% 60%*/ 50% 110%;
     /*padding: 0 40px;*/
 }
-
+.actionth {
+    min-width: 130px !important;
+}
+.headline {
+    min-width: 70px !important;
+}
 .refresh {background: url(../images/refresh.png) no-repeat 18% center; text-indent: 10px; transition: all 0.5s ease-in 0s;}
 .refresh:hover {background: #00305e url(../images/refresh-hover.png) no-repeat 18% center; transition: all 0.5s ease-in 0s;}
 
-.filter {background: #00305e url(../images/filter-normal.png) no-repeat 18% center; text-indent: 10px; transition: all 0.5s ease-in 0s;}
+.filter {background: #00305e url(../images/filter-normal.png) no-repeat 18% center; text-indent: 10px; transition: all 0.5s ease-in 0s; padding: 9px 22px;}
 .filter:hover {background: #00305e url(../images/filter.png) no-repeat 18% center; transition: all 0.5s ease-in 0s;}
 
 .viewicon {background: #00305e url(../images/view-icon.png) no-repeat 18% center; text-indent: 10px; transition: all 0.5s ease-in 0s;}
@@ -1202,6 +1214,17 @@ a[title="Select All"], a[title="Unselect All"] {border-radius: 4px;}
 
 th a {background: #fdb03e; float: left; color: #fff; width: 100%;}
 th a:hover {background: #e18c0d;}
+
+tr#oddeven:nth-of-type(2n+1) {
+    background: #c2cfd7 none repeat scroll 0 0;
+}
+tr#oddeven:nth-of-type(2n) {
+    background: #e5eaee none repeat scroll 0 0;
+}
+tr#oddeven {
+    border-collapse: collapse;
+}
+tr#oddeven:nth-of-type(2n+1) td, tr#oddeven:nth-of-type(2n) td {padding: 15px 10px;}
 
 button {background-color: #00305e; color: #fff; padding: 7px 22px; border: none; cursor: pointer; transition : all 0.5s ease-in 0s; margin: 0 0px 0 0 0;}
 button:hover {color: #fcaf3d; transition : all 0.5s ease-in 0s;}
@@ -1220,4 +1243,10 @@ a.editrevert0, a.ion-edit, a.editrevert1 {
 #biz_listing_edit_form p{line-height: 25px;}
 #biz_listing_edit_form input[type="checkbox"], input[type="radio"] {float: right;}
 
-.broker-not-found h4 {background: #dbffd7; border: 1px solid #13be01; font-size: 18px; line-height: 40px; text-indent: 15px; text-transform: capitalize;}
+.broker-not-found h4 {/*background: #dbffd7; border: 1px solid #13be01; font-size: 18px; line-height: 40px; text-indent: 15px; text-transform: capitalize;*/ 	background: #fec7c7 url("../images/error.png") no-repeat scroll 10px 8px;
+    color: #b40d0c;
+    font-size: 12px;
+    padding: 10px 35px;
+	width: 90%;
+	}
+#user_add_form strong {text-transform: capitalize;}
