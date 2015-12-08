@@ -316,6 +316,7 @@ class User_admin extends MX_Controller {
         else {
             $POSTDATA['password'] = md5( $POSTDATA['password'] );
 			$POSTDATA['disable'] = 1;
+			$POSTDATA['parent_id'] = $POSTDATA['parent_id'] ? $POSTDATA['parent_id'] : 1; //If user is registered by self then parent id is 1
 			$POSTDATA['activation_key'] = md5( time() );
             $insertedrows = $this->userm->insertInto($POSTDATA);
             if ($insertedrows) {

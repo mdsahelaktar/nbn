@@ -84,7 +84,7 @@ class Biz_listing extends MX_Controller {
         $data["top"] = $this->template->frontend_view("all_step_top", $data_top, true, "biz_listing");
         $data["footer"] = $this->template->frontend_view("all_step_footer", $data, true, "biz_listing");
         $data["login_html"] = Modules::run("login/login_admin/login_snippet");
-		$data["register_link"] = "package?ct=2&rl=1";
+		$data["register_link"] = "package?ct=2&rl=2";
         $data["content"] = $this->template->frontend_view("biz_listing", $data, true, "biz_listing");
         $this->template->build_frontend_output($data);
     }
@@ -269,8 +269,22 @@ class Biz_listing extends MX_Controller {
             case "therdstepdata" :
                 $row_id = $this->input->post('row_id');
                 $updaterows = doAction('bizlig', 'update', $row_id, false, $this->input->post());
-                if ($updaterows == true)
+                if ($updaterows == true){
+					################## NeedBizNow send admin notification for new biz approval ##########################################
+                    $this->load->library('email');                    
+                    $this->email->initialize( array("mailtype" => "html") );
+                    $to_email = "anil@xoomnet.com";
+                    $name1 = 'NeedBizNow';
+                    $email1 = 'noreply@needbiznow.com';
+                    $this->email->from($email1, $name1);
+                    $this->email->to($to_email);
+					$this->email->bcc("sahel@webzstore.com");
+                    $this->email->subject( _e('new_biz_listed') );
+                    $this->email->message("New biz listed in your website, please verify and take necessary actions.");
+                    $send_chk = $this->email->send();
+                    ################## NeedBizNow send admin notification for new biz approval ##########################################
                     echo json_encode(array("event" => "success", "msg" => _e('biz_listing_final_step_completed')));
+				}
                 else
                     echo json_encode(array("event" => "error", "msg" => _e('biz_listing_update_fail')));
                 break;

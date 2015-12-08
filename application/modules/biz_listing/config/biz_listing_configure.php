@@ -666,10 +666,10 @@ $config['biz_listing_configure']['possible_update'] = array(
  */
 $config['biz_listing_configure']['sector'] = array(
     'add' => 1,
-    'view_all' => 2,
-    'view_child' => 0,
-    'edit_all' => 3,
-    'edit_child' => 0
+    'view_all' => 0,
+    'view_child' => 2,
+    'edit_all' => 0,
+    'edit_child' => 3
 );
 
 /* End of file biz_listing_configure.php */ 

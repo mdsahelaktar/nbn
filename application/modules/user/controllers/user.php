@@ -39,7 +39,7 @@ class User extends MX_Controller {
     );
 	
 	private $current_user = false;	
-	private $allowed_register_categories_roles = array( 2 => array( 1 ), 4 => array( 3 ) );
+	private $allowed_register_categories_roles = array( 2 => array( 2 ), 4 => array( 3 ) );
 	private $current_packages = array( 1, 2, 3, 4 );
     /**
      * 	Constructor
@@ -72,10 +72,10 @@ class User extends MX_Controller {
 		if( !in_array( $package_id, $this->current_packages ) )
 			$data["response"] = array( "event" => "error", "msg" => "Please choose package to register" );
 		
-		$data["user_category_id"] = !in_array( $user_category, $this->allowed_register_categories_roles ) ? 2 : $user_category ;
-		$data["user_role_id"] = !in_array( $user_role, $this->allowed_register_categories_roles[$user_category] ) ? 1 : $user_role;				
+		$data["user_category_id"] = !array_key_exists( $user_category, $this->allowed_register_categories_roles ) ? 2 : $user_category ;
+		$data["user_role_id"] = !in_array( $user_role, $this->allowed_register_categories_roles[$data["user_category_id"]] ) ? $this->allowed_register_categories_roles[$data["user_category_id"]][0] : $user_role;				
 		
-		if( $data["user_category_id"] == 2 && $data["user_role_id"] == 1 ){
+		if( $data["user_category_id"] == 2 && $data["user_role_id"] == 2 ){
 			$data["registration_title"] = _e('seller_registration');
 		} else {
 			$data["registration_title"] = _e('broker_registration');

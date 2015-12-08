@@ -30,7 +30,7 @@ function addProvincesToSelectBox(province_selector, data)
 {
 	var selecter = $(province_selector);
 	var db = selecter.val();
-	var provinceHtml = '<option value=""><?php echo _e('Choose province');?></option>';
+	var provinceHtml = '<option value=""><?php echo _e('choose_province');?></option>';
 	$.each(data,function(province_id, province){
 		provinceHtml += '<option value="'+province_id+'">'+province+'</option>';
 	});

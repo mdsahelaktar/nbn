@@ -4,7 +4,7 @@
                 <div class="width60 bg-grey padding-bottom15 padding-left15 padding-right10 padding-top15 margin-top15 float-left">
                 	<h2 class="helvetica float-left"><?php echo $registration_title?></h2>
                     <div class="form_three-forth">                    
-					<?php if( $response["event"]["error"] ): ?>
+					<?php if( $response["event"] == "error" ): ?>
 					<?php echo renderResposeMessage('user', $response) ?>
 					<?php else:?>
 					<div msg="user"></div>
@@ -44,7 +44,7 @@
                 <p> &nbsp; &nbsp; &nbsp; &nbsp;</p>
 
                <div class="width320 float-right "> <?php
-                if ($user_category_id == 2 && $user_role_id== 1) {
+                if ($user_category_id == 2 && $user_role_id== 2) {
                     ?>
 					
 					<div class="width320 float-right">
@@ -72,7 +72,7 @@
                         <p class="bg-blue padding-bottom10 padding-left10 padding-right10 padding-top10 font16 white"><?php echo 'Business Seller: Get Listed Now'; ?></p>
                         <div class="bg-lightbrown padding-bottom10 padding-left10 padding-right10 padding-top10 float-left ">
                             <p><strong><?php echo 'Reach millions of prospective buyers and sellers. ' ?>.</strong> <?php echo 'Post your business for sale listings. Seller memberships start at only $00.00 a month. ' ?>. </p>
-                            <a href="<?php echo base_url()?>package?<?php echo implode( "&", setRegisterParam(2, 1) )?>" target="_self" class="global4 font14 float-left margin-top20 padding-bottom5 padding-top5 padding-left20 padding-right20 margin-left45 margin-bottom10"><?php echo 'Become a Seller Member' ?></a>
+                            <a href="<?php echo base_url()?>package?<?php echo implode( "&", setRegisterParam(2, 2) )?>" target="_self" class="global4 font14 float-left margin-top20 padding-bottom5 padding-top5 padding-left20 padding-right20 margin-left45 margin-bottom10"><?php echo 'Become a Seller Member' ?></a>
                         </div>
                         <p> &nbsp; &nbsp; &nbsp; &nbsp;</p>
                         <p> &nbsp; &nbsp; &nbsp; &nbsp;</p>

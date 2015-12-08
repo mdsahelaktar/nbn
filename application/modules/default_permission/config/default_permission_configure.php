@@ -39,7 +39,7 @@ $config['default_permission_configure']['dependent_on']		= array(
 																						)
 																				),
 														'permission_group' 	=> array(
-																			'on' 	=> 'permission_group.ai_permission_group_id = permission.group_id',
+																			'on' 	=> 'permission_group.ai_permission_group_id = group_id',
 																			'type' 	=> 'left',
 																			'where' => array(
 																						array('permission_group.is_trashed', 0),

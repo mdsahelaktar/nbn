@@ -21,7 +21,7 @@ $current_user = isLoggedIn();
                   <li><?php echo anchor('user/edit_profile', _e('edit_profile')) ?></li>
                   <li><?php echo anchor('user/change_password', _e('change_password')) ?></li>
                   <li><?php echo anchor('biz_listing/manage', _e('manage_listing')) ?></li>
-				  <?php if( $current_user["category_id"] == 2 ): //for broker?>
+				  <?php if( $current_user["category_id"] == 4 ): //for broker?>
                       <li><?php echo anchor('broker/profileinfo', _e('broker_profile')) ?></li>                      
                   <?php endif;?>
                 </ul>
@@ -36,7 +36,7 @@ $current_user = isLoggedIn();
         <?php $this->template->frontend_view('quick_search', '', FALSE, "biz_listing"); ?>
         <ul>
         <?php if ( !$current_user ) : ?>	
-          <li> <?php echo anchor('user', _e('sign_up'), array('title' => _e('sign_up'))) ?> </li>
+          <li> <?php echo anchor('package?ct=2&rl=1', _e('sign_up'), array('title' => _e('sign_up'))) ?> </li>
         <?php endif;?>  
           <li> <?php echo anchor('broker', _e('find_a_broker'), array('title' => _e('find_a_broker'))) ?> </li>
           <li> <?php echo anchor('biz_listing', _e('sell_a_business'), array('title' => _e('sell_a_business'))) ?></li>
@@ -55,7 +55,9 @@ $current_user = isLoggedIn();
             <li> <?php echo anchor('franchise', _e('buy_a_franchise'), array('title' => _e('buy_a_franchise'))) ?> </li>
             <li> <?php echo anchor('biz_listing', _e('sell_a_business'), array('title' => _e('sell_a_business'))) ?> </li>
             <li> <?php echo anchor('broker', _e('find_a_broker'), array('title' => _e('find_a_broker'))) ?></li>
-            <li> <?php echo anchor('user', _e('sign_up'), array('title' => _e('sign_up'))) ?></li>
+            <?php if ( !$current_user ) : ?>	
+              <li> <?php echo anchor('package?ct=2&rl=1', _e('sign_up'), array('title' => _e('sign_up'))) ?> </li>
+            <?php endif;?>
           </ul>
         </div>
       </div>

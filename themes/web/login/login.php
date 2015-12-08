@@ -19,7 +19,7 @@
 		$this->template->embed_asset_code('frontend', 'js', 'login_js_function', $js_function);
 		### If No Error End ###
 ?>
-          <p class="registernew">Don't have an account? <span class="registerbtn"><?php echo anchor( $register_link, _e( 'Register' ), array( 'title' => _e( 'Register' ) ) )?></span> </p></div>
+          <p class="registernew"><?php echo _e('no_ac')?> <span class="registerbtn"><?php echo anchor( $register_link, _e( 'Register' ), array( 'title' => _e( 'Register' ) ) )?></span> </p></div>
       </div>
       <div class="width320 float-right"> </div>
     </div>

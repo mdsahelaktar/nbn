@@ -37,3 +37,9 @@ Sell a business second step:
 
 Sell a business third step:
 1. Tested. It doesn't redirect after save the third and final step.
+
+
+Asked by anil
+-------------
+1. Add manage listing menu in user friendly way.
+2. delete icon not coming for manage page

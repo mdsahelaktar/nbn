@@ -35,7 +35,7 @@ class Package extends MX_Controller {
             'form'
         )
     );
-	
+	private $current_user = false;
 	private $user_category_context = array( 2 => 1, 4 => 2 );
     /**
      * Constructor
@@ -44,6 +44,7 @@ class Package extends MX_Controller {
         parent::__construct();
         $this->load->model('package_model', 'pmodel');
 		$this->load->module('common/common_admin');
+		$this->current_user = isLoggedIn();
     }
 
     /**
@@ -55,6 +56,8 @@ class Package extends MX_Controller {
      * @return	*****
      */
     function index() {
+		if( $this->current_user )
+			redirect( site_url('user/edit_profile') );
         $data = array();
         $data["title"] = _e("Pcakages");
 		## Load config and store ##
