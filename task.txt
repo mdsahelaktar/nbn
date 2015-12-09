@@ -42,4 +42,9 @@ Sell a business third step:
 Asked by anil
 -------------
 1. Add manage listing menu in user friendly way.
-2. delete icon not coming for manage page
+2. delete icon not coming for manage page.
+3. Make menu last divider(|) hide.
+4. Change toogle header text "Browse" to ||| icon.
+5. Change manage listing layout to look nice.
+6. Check each success and error message. Start from login, register and all. First try as negative user to get error message.
+7. Login as broker once and go to the left menu. You will see a

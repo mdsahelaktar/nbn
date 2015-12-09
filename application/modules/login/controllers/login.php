@@ -56,7 +56,7 @@ class Login extends MX_Controller
 			redirect( site_url('user/edit_profile') );
 		$data["title"] = _e('Login');
 		$data["register_link"] = "package?ct=2&rl=2";
-		$data["next"] = $_GET["next"] ? $_GET["next"] : "user/edit_profile";				
+		$data["next"] = $_GET["next"];				
 		$data["content"] = $this->template->frontend_view("login", $data, true, "login");
 		$this->template->build_frontend_output($data);	
 	}	

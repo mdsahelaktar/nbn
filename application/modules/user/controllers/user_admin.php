@@ -21,7 +21,7 @@ class User_admin extends MX_Controller {
      */
     public $autoload = array(
         'language' => array(
-            'user', 'common/common'
+            'user',
         ),
         'config' => array(
             'user_configure',

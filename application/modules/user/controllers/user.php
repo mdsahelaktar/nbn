@@ -21,7 +21,7 @@ class User extends MX_Controller {
      */
     public $autoload = array(
         'language' => array(
-            'user', 'common/common'
+            'user',
         ),
         'config' => array(
             'user_configure',
@@ -46,8 +46,9 @@ class User extends MX_Controller {
      */
     public function __construct() {
         parent::__construct();
+		$this->load->module('common/common_admin');
         $this->load->model('user_model', 'usermodel');	
-		$this->load->module('user/user_admin');		
+		$this->load->module('user/user_admin');				
 		$this->current_user = isLoggedIn();
     }
 
@@ -117,8 +118,8 @@ class User extends MX_Controller {
 		$data["user_details"] = $user_details[0];
 		//var_dump($data);
 		$data["current_slug"] = "edit_profile";
-		$data["current_profile_section_html"] = $this->template->frontend_view("edit_profile", $data, true, "user");
-		$data["content"] = $this->template->frontend_view("account", $data, true, "user");
+		$data["content"] = $this->template->frontend_view("edit_profile", $data, true, "user");
+		$this->template->set_frontend_layout( "my-account" );
 		$this->template->build_frontend_output( $data );
 	}
 	
@@ -128,8 +129,8 @@ class User extends MX_Controller {
 		
 		$data["title"] = _e('change_password');
 		$data["current_slug"] = "change_password";
-		$data["current_profile_section_html"] = $this->template->frontend_view("change_password", $data, true, "user");
-		$data["content"] = $this->template->frontend_view("account", $data, true, "user");
+		$data["content"] = $this->template->frontend_view("change_password", $data, true, "user");
+		$this->template->set_frontend_layout( "my-account" );
 		$this->template->build_frontend_output( $data );
 	}
 	

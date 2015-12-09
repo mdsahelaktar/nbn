@@ -262,7 +262,7 @@ if (!function_exists('afterLoginAdmin')) {
 if (!function_exists('afterLoginFront')) {
 
     function afterLoginFront() {
-        return site_url();
+        return site_url('user/edit_profile');
     }
 
 }

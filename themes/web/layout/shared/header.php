@@ -14,20 +14,6 @@ $current_user = isLoggedIn();
       <div class="righthead">
         <div class="top">
           <?php if ( $current_user ) : ?>
-          <div id="top-menu">
-            <ul>
-              <li id="dropDown"><?php echo anchor('user/edit_profile', _e('my_account'), array( 'class' => 'myaccount' )) ?>
-                <ul>
-                  <li><?php echo anchor('user/edit_profile', _e('edit_profile')) ?></li>
-                  <li><?php echo anchor('user/change_password', _e('change_password')) ?></li>
-                  <li><?php echo anchor('biz_listing/manage', _e('manage_listing')) ?></li>
-				  <?php if( $current_user["category_id"] == 4 ): //for broker?>
-                      <li><?php echo anchor('broker/profileinfo', _e('broker_profile')) ?></li>                      
-                  <?php endif;?>
-                </ul>
-              </li>
-            </ul>
-          </div>
           <div id="loggedin_cont" class="login"><a href="#" onclick="logOut(afterLogOut)" target="_self"?><?php echo _e('logout') ?></a></div>
           <?php else : ?>
           <div id="loggedin_cont" class="login"><?php echo anchor('login/', _e('login')) ?></div>
@@ -35,13 +21,16 @@ $current_user = isLoggedIn();
         </div>
         <?php $this->template->frontend_view('quick_search', '', FALSE, "biz_listing"); ?>
         <ul>
-        <?php if ( !$current_user ) : ?>	
-          <li> <?php echo anchor('package?ct=2&rl=1', _e('sign_up'), array('title' => _e('sign_up'))) ?> </li>
-        <?php endif;?>  
+          <?php if ( !$current_user ) : ?>
+          <li> <?php echo anchor('package?ct=2&rl=2', _e('sign_up'), array('title' => _e('sign_up'))) ?> </li>
+          <?php endif;?>
           <li> <?php echo anchor('broker', _e('find_a_broker'), array('title' => _e('find_a_broker'))) ?> </li>
           <li> <?php echo anchor('biz_listing', _e('sell_a_business'), array('title' => _e('sell_a_business'))) ?></li>
           <li> <?php echo anchor('franchise', _e('buy_a_franchise'), array('title' => _e('buy_a_franchise'))) ?></li>
           <li> <?php echo anchor('biz_listing/search', _e('buy_a_business'), array('title' => _e('buy_a_business'))) ?> </li>
+          <?php if ( $current_user ) : ?>
+          <li> <?php echo anchor('user/edit_profile', _e('my_account'), array( 'title' => _e('my_account') )) ?> </li>
+          <?php endif;?>
         </ul>
       </div>
       <!--big header right head end--> 
@@ -51,12 +40,15 @@ $current_user = isLoggedIn();
         <div class="slide-menu">
           <p><a href="#" target="_self"><?php echo _e('browse'); ?></a></p>
           <ul>
+            <?php if ( $current_user ) : ?>
+            <li> <?php echo anchor('user/edit_profile', _e('my_account'), array( 'title' => _e('my_account') )) ?> </li>
+            <?php endif;?>
             <li> <?php echo anchor('biz_listing', _e('buy_a_business'), array('title' => _e('buy_a_business'))) ?> </li>
             <li> <?php echo anchor('franchise', _e('buy_a_franchise'), array('title' => _e('buy_a_franchise'))) ?> </li>
             <li> <?php echo anchor('biz_listing', _e('sell_a_business'), array('title' => _e('sell_a_business'))) ?> </li>
             <li> <?php echo anchor('broker', _e('find_a_broker'), array('title' => _e('find_a_broker'))) ?></li>
-            <?php if ( !$current_user ) : ?>	
-              <li> <?php echo anchor('package?ct=2&rl=1', _e('sign_up'), array('title' => _e('sign_up'))) ?> </li>
+            <?php if ( !$current_user ) : ?>
+            <li> <?php echo anchor('package?ct=2&rl=2', _e('sign_up'), array('title' => _e('sign_up'))) ?> </li>
             <?php endif;?>
           </ul>
         </div>

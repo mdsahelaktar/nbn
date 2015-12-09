@@ -712,7 +712,9 @@ class Biz_listing extends MX_Controller {
 		if( !$this->current_user )
 			loginRedirect( "login" );		
 		$data = $this->biz_listing_admin->list_records();
+		$data["current_slug"] = "manage_biz_listing";
 		$data["content"] = $this->template->frontend_view("manage", $data, true, "biz_listing");
+		$this->template->set_frontend_layout( "my-account" );
         $this->template->build_frontend_output($data);
 	}
     /**

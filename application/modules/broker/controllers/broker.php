@@ -179,6 +179,7 @@ class Broker extends MX_Controller {
     function profileinfo() {
         $data = array();
         $data["title"] = _e("Profile Information");
+		$data["current_slug"] = "edit_broker_profile";
         $CFG = $this->config->item('broker_configure');
         $login_info = isLoggedIn();
         $data['user_id'] = $login_info["user_id"];
@@ -204,6 +205,7 @@ class Broker extends MX_Controller {
 			$data["zipcodes_dd"] = array('' => _e("choose_zipcodes"));	
 		
         $data["content"] = $this->template->frontend_view("broker_profile_info", $data, true, "broker");
+		$this->template->set_frontend_layout( "my-account" );
         $this->template->build_frontend_output($data);
     }
 

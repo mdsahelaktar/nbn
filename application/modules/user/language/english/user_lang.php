@@ -1,6 +1,5 @@
 <?php
 $lang['user_regisrer_notice'] = 'Thank you for register in needbiznow. Please check your inbox to activate your account.';
-$lang['account_profile'] = 'Account Profile ';
 $lang['edit_profile'] = 'Edit Profile';
 $lang['change_password'] = 'Change Password';
 $lang['old_password'] = 'Old Password';

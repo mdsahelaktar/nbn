@@ -67,20 +67,20 @@ class Login_admin extends MX_Controller
 		$this->load->module('user/user_admin');
 		$user_details = $this->user_admin->getUserDetailsByLogin( $args );
 		if( ! $user_details )
-			return array( "event" => "error", "msg" => 'wrong credential' );
+			return array( "event" => "error", "msg" => _e('wrong_credential') );
 		else
 		{
 			if( $user_details[0]->disable ){
 				if( $user_details[0]->activation_key )
-					return array( "event" => "error", "msg" => 'user not activated' ); 
+					return array( "event" => "error", "msg" => _e('user_not_activated') ); 
 				else
-					return array( "event" => "error", "msg" => 'user disabled' ); 
+					return array( "event" => "error", "msg" => _e('user_disabled') ); 
 			}
 			else
 			{
 				## Check if parent is enable begin ##
 				if( !$this->user_admin->checkUserEnable( $user_details[0]->parent_id ) )					
-					return array( "event" => "error", "msg" => 'user parent disabled' );
+					return array( "event" => "error", "msg" => _e('user_parent_disabled') );
 				## Check if parent is enable end ##
 				
 				## Load user map module ##
@@ -88,7 +88,7 @@ class Login_admin extends MX_Controller
 				
 				$first_user_map = $this->user_map_admin->getUserMapByUserId( $user_details[0]->ai_user_id, false );
 				if( ! $first_user_map )
-					return array( "event" => "error", "msg" => 'user disabled' );
+					return array( "event" => "error", "msg" => _e('user_disabled') );
 				else
 				{
 					$this->load->module('default_permission/default_permission_admin');
@@ -114,8 +114,8 @@ class Login_admin extends MX_Controller
 					
 					## check if next url exist or not ##
 					$next = $args['next'];
-					$next = $next ? $next : ( isAdminArea() ? afterLoginAdmin() : afterLoginFront() );
-					return array("event" => "success", "msg" => _e('login success'), 'redirect' => $next);
+					$next = $next ? $next : ( ( isAdminArea() or !$details["parent"] ) ? afterLoginAdmin() : afterLoginFront() );
+					return array("event" => "success", "msg" => _e('login_success'), 'redirect' => $next);
 				}								
 			}
 		}

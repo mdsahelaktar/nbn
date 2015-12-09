@@ -1,15 +1,7 @@
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <?php $var = $this->config->item('var'); ?>
 <?php 
 ### If No Error Begin ###
-if(!$response["event"]["error"]):?>
-<div id="body">
-  <div class="wrapper">
+if($response["event"] != "error"):?>
     <h2><?php echo _e( 'broker_pro_info' ); ?></h2>
     <div msg="brokermsg"></div>
     <?php echo form_open( '', array( 'name' => 'brokerinfo_add_form', 'id' => 'brokerinfo_add_form', 'class' => 'width100 float-left margin-bottom30 margin-top10' ) )?>
@@ -45,13 +37,10 @@ if(!$response["event"]["error"]):?>
     <fieldset class="clonefieldset">
       <span class="otherbutton"></span>
       <legend align="center" margin="auto"> <h2 class="helvetica">Certified Image</h2></legend>
-      <div class="fullwidthform">
         	<ul>
       <li><?php echo form_label( '<p>'._e( 'Images' ).'</p>', 'images' )?> <?php echo form_upload( array( 'name' => 'images[]', 'placeholder' => 'add images') );?>		</li>	</ul>
-      <div class="fullwidthform">
     </fieldset>
-    <?php echo form_hidden('user_id', $user_id); ?> <?php echo form_hidden('method', 'profileinfo'); ?> <?php echo form_submit( array( 'name' => 'brokerinfo_add_form', 'id' => 'brokerinfo_add_form', 'class' => 'margin-top10' ), _e( 'Add' ) );?> <?php echo form_close()?> </div>
-</div>
+    <?php echo form_hidden('user_id', $user_id); ?> <?php echo form_hidden('method', 'profileinfo'); ?> <?php echo form_submit( array( 'name' => 'brokerinfo_add_form', 'id' => 'brokerinfo_add_form', 'class' => 'margin-top10' ), _e( 'Add' ) );?> <?php echo form_close()?> 
 <?php
 $broker_js = $this->template->frontend_view( 'broker_js', '', true, "broker");
 $this->template->embed_asset_code('frontend', 'js', 'broker-js', $broker_js);
