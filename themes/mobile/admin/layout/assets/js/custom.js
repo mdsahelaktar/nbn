@@ -18,13 +18,13 @@ $(document).ready(function(){
 			return false;					
 	});
 	<!--Jquery ui Tooltip-->
-	if (typeof jQuery.ui != 'undefined') 
- 		$( document ).tooltip();
+	//if (typeof jQuery.ui != 'undefined') 
+ 		//$( document ).tooltip();
 
 });
 
 function ajaxAction(allvar, callback, rtn)
-{	
+{		
 	$.ajax({
 		type : allvar[0],
 		url : allvar[1],
@@ -128,9 +128,9 @@ function showMsg(parentElm, msgclass, msg, fade, focusthere)
 {
 	var vice_versa = {'success':'error', 'error':'success'};
 	$(parentElm).find('.'+vice_versa[msgclass]).hide();
-	focusthere = isNaN( focusthere ) ? 0 : focusthere;
+	focusthere = isNaN( focusthere ) ? $(parentElm).offset().top : ( $(parentElm).offset().top - focusthere );
 	if(focusthere)
-		$('html, body').animate({ scrollTop: ( $(parentElm).offset().top + focusthere ) }, 'slow');
+		$('html, body').animate({ scrollTop: ( focusthere ) }, 'slow');
 	if($(parentElm).find('.'+msgclass).length > 0)
 		$(parentElm).find('.'+msgclass).show().html(msg);
 	else
@@ -217,7 +217,53 @@ function removeThisChild(elm)
 }
 
 ////////////////////// for coocke select country in header/////////////////////
-$(document).ready(function(e)
+
+////////////////////// for coocke select province,county,city and zip for broker /////////////////////
+/*$(document).ready(function(e)
+{
+ 
+var allprovince = new Array("POST", $(location).attr('href')+"admin/province/json", "method=getAllProvincesForBroker", "json", false);
+ajaxAction(allprovince, getAllProvincesForBroker);	
+
+var allcounty = new Array("POST", $(location).attr('href')+"admin/county/json", "method=getAllCountyForBroker", "json", false);
+ajaxAction(allcounty, getAllCountyForBroker);	
+
+var allzip = new Array("POST", $(location).attr('href')+"location/getzip", "json", false);
+ajaxAction(allzip, getAllZipForBroker);
+
+var allcity = new Array("POST", $(location).attr('href')+"location/getcitysuggt", "json", false);
+ajaxAction(allcity, getAllCityForBroker);
+});
+
+function getAllProvincesForBroker(data)    
+{
+ var cookieValPro = "province_coockie_bank="+JSON.stringify(data);
+ document.cookie = cookieValPro ;
+}
+
+function getAllCountyForBroker(data)
+{
+ var cookieValcou = "county_coockie_bank="+JSON.stringify(data);
+ document.cookie = cookieValcou ;
+}
+
+function getAllZipForBroker(data)
+{
+ var cookieValzip = "zip_coockie_bank="+JSON.stringify(data);
+ document.cookie = cookieValzip ;
+}
+
+function getAllCityForBroker(data)
+{
+ var cookieValcity = "city_coockie_bank="+JSON.stringify(data);
+ document.cookie = cookieValcity ;
+}*/
+////////////////////// for coocke select province,county,city and zip for broker /////////////////////
+
+
+
+
+$(document).load(function(e)
 {
 	var name = "country=";
 	var ca = document.cookie.split(';');

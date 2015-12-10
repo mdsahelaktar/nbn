@@ -42,7 +42,8 @@ $(document).ready(function(){
             valid_base64: '<?php echo _e('valid_base64')?>',
             valid_credit_card: '<?php echo _e('valid_credit_card')?>',
             is_file_type: '<?php echo _e('is_file_type')?>',
-            valid_url: '<?php echo _e('valid_url')?>'
+            valid_url: '<?php echo _e('valid_url')?>',
+			strict_password : '<?php echo _e('strict_password')?>'
         },
         callback: function(errors) {
 
@@ -66,7 +67,8 @@ $(document).ready(function(){
         ipRegex = /^((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){3}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})$/i,
         base64Regex = /[^a-zA-Z0-9\/\+=]/i,
         numericDashRegex = /^[\d\-\s]+$/,
-        urlRegex = /^((http|https):\/\/(\w+:{0,1}\w*@)?(\S+)|)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?$/;
+        urlRegex = /^((http|https):\/\/(\w+:{0,1}\w*@)?(\S+)|)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?$/,
+		strictPasswordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/;
 
     /*
      * The exposed public object to validate a form:
@@ -83,6 +85,7 @@ $(document).ready(function(){
      */
 
     var FormValidator = function(formNameOrNode, fields, callback) {
+		console.log(formNameOrNode);
         this.callback = callback || defaults.callback;
         this.errors = [];
         this.fields = {};
@@ -503,6 +506,9 @@ $(document).ready(function(){
             }
 
             return inArray;
+        },
+        strict_password: function(field) {
+            return (strictPasswordRegex.test(field.value));
         }
     };
 

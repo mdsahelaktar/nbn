@@ -1,6 +1,6 @@
 <div class="security-lock width100 float-left padding-left50 padding-bottom15 margin-top50">
-  <p class="margin-top5"><strong>We Respect Your Privacy -</strong> We do not sell, rent or share your personal information with third parties for marketing purposes.</p>
-  <p>Our site is secure. Your information is sent to us via a secure, encrypted connection to ensure your private information is kept safe.</p>
+  <p class="margin-top5"><strong><?php echo _e( 'privacy' ); ?> -</strong><?php echo _e( 'privacy2' ); ?>.</p>
+  <p><?php echo _e( 'privacy3' ); ?>.</p>
 </div>
 </div>
 </div>

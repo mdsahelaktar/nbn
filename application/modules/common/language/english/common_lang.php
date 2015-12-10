@@ -1,4 +1,5 @@
 <?php
+$lang['site_title'] = 'Need Biz Now';
 $lang['login'] = 'Log In';
 $lang['logout'] = 'Log Out';
 $lang['sign_up'] = 'Sign Up';

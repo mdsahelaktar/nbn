@@ -4,7 +4,7 @@
 <?php 
 ### If No Error Begin ###
 if(!$response["event"]["error"]):?>
-<?php echo form_open( '', array( 'name' => 'user_map_add_form', 'id' => 'user_map_add_form', 'class' => 'width100 float-left margin-bottom30 margin-top10' ) )?> 
+<div class="formcont-small"><?php echo form_open( '', array( 'name' => 'user_map_add_form', 'id' => 'user_map_add_form', 'class' => 'width100 float-left margin-bottom30 margin-top10' ) )?> 
 
 <?php echo form_label( '<p>'._e( 'User Name' ).'</p>', 'user_name' )?> <?php echo form_input(array('name' => 'user_name', 'id' => 'user_name' ));
 ?>
@@ -16,7 +16,7 @@ if(!$response["event"]["error"]):?>
 
 <?php echo form_label( '<p>'._e( 'User Role' ).'</p>', 'user_role_id' )?>  <?php echo form_dropdown('user_role_id', $var['roles_dd'], '', 'id="user_role_id" disabled="disabled" class="validate" data-display="'._e( 'User Role' ).'" data-rules="required"'); ?>
 <div class="clear"></div>
-<?php echo form_submit( array( 'name' => 'user_map_add', 'id' => 'user_map_add', 'class' => 'margin-top10' ), _e( 'Add' ) );?> <?php echo form_close()?>
+<?php echo form_submit( array( 'name' => 'user_map_add', 'id' => 'user_map_add', 'class' => 'margin-top10' ), _e( 'Add' ) );?> <?php echo form_close()?></div>
 <?php
 $this->template->add_remove_admin_css(array('jquery-ui.css'), 'add');
 $this->template->add_remove_admin_js(array('jquery-ui.js'), 'add');

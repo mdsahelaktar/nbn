@@ -1,10 +1,10 @@
 <h2><?php echo $title ?></h2>
 <div class="clear"></div>
-<?php echo form_label( '<p>'._e( 'User Name [Auto Suggest]' ).'</p>', 'user_name' )?> <?php echo form_input(array('name' => 'user_name', 'id' => 'user_name' ));
+<div class="formcont-small"><?php echo form_label( '<p>'._e( 'User Name [Auto Suggest]' ).'</p>', 'user_name' )?> <?php echo form_input(array('name' => 'user_name', 'id' => 'user_name' ));
 ?>
 <div class="clear"></div>
 <div id="userallrolesplacer"></div>
-<?php echo form_close()?>
+<?php echo form_close()?></div>
 <?php
 $this->template->add_remove_admin_css(array('jquery-ui.css'), 'add');
 $this->template->add_remove_admin_js(array('jquery-ui.js'), 'add');

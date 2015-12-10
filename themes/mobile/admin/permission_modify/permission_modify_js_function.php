@@ -20,6 +20,7 @@ function permissionModifyAfter(data)
 {
 	showMsg('div[msg="permission_modify"]', data.event, data.msg, '', true);
 }
+
 function showPermissionPopBox(elm)
 {
 	var user_map_id = $(elm).data('user_map_id');
@@ -58,7 +59,6 @@ function showPermissionPopBox(elm)
          }
        }
 	});
-	
 }
 //update the permission
 </script>

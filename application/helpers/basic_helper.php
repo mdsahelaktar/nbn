@@ -226,9 +226,11 @@ if (!function_exists('renderResposeMessage')) {
 
     function renderResposeMessage($msg_element, $pmsg = "") {
         $ci = & get_instance();
+		$event = $ci->session->flashdata('event') ? $ci->session->flashdata('event') : $pmsg["event"];
+		$msg = $ci->session->flashdata('msg') ? $ci->session->flashdata('msg') : $pmsg["msg"];
         ob_start();
         ?><div msg="<?php echo $msg_element; ?>">
-            <div class="<?php echo $ci->session->flashdata('event') ? $ci->session->flashdata('event') : $pmsg["event"]; ?>"><?php echo $ci->session->flashdata('msg') ? $ci->session->flashdata('msg') : $pmsg["msg"]; ?></div>
+            <div class="<?php echo $event; ?>"><?php echo $msg; ?></div>
         </div><?php
         return ob_get_clean();
     }
@@ -674,7 +676,7 @@ if (!function_exists('doAction')) {
             if (!$return) {
                 $affected = $ci->$model->dbUpdate($action, $row_id, $DATAVAR);
 				$affected = $DATAVAR["affected_from_outside"] ? true : $affected;
-                $return = array("event" => ($affected ? 'success' : 'error'), "msg" => ($affected ? _e($action . 'successmsg') : _e($action . 'errormsg')));
+                $return = array("event" => ($affected ? 'success' : 'error'), "msg" => _e( $model.($affected ? $action . 'successmsg' : $action . 'errormsg') ) );
             }
 
             ## incase of page reloading ##

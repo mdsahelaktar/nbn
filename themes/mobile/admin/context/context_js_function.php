@@ -25,9 +25,7 @@ function getRelationByContext(Elm)
 			var method = new Array("POST", "<?php echo site_url("broker/json") ?>", "method=relation&context_id=" + cantxId, "json", false);
 			ajaxAction(method, brokerrelationShow);	
 		}
-
 	}
-
 }
 
 function relationShow(data)

@@ -1,4 +1,4 @@
-<div class="width320 float-right bg-grey padding-top15 padding-bottom15 padding-left15 padding-right15"> <strong class="margin-bottom5">About Headlines</strong>
+<div class="width320 float-right bg-grey padding-top15 padding-bottom15 padding-left15 padding-right15"> <strong class="margin-bottom5"><?php echo _e( 'about_headlines' ); ?></strong>
   <p class="margin-bottom10">Your headline highlights your business's best features in the search results. Keep it short and simple, but be sure mention the type of business and one or two good qualities</p>
   <p class="margin-bottom10">Coffee Shop/Restaurant in busy downtown area. Great cash flow!</p>
   <strong class="margin-bottom5">About Descriptions</strong>

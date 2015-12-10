@@ -5,7 +5,6 @@
 ### If No Error Begin ###
 if(!$response["event"]["error"]):?>
         
-        
         <?php echo form_open( '', array( 'name' => 'login_form', 'id' => 'login_form' ) )?>
         <ul>
           <li> <?php echo form_label( '<p>'._e( 'User Name/Email Address' ).'</p>', 'user_name' )?> <?php echo form_input( array( 'name' => 'user_name', 'id' => 'user_name', 'placeholder' => 'user or user@email.com', 'autofocus' => 'autofocus', 'class' => 'validate', 'data-display' =>  _e( 'User Name/Email Address' ), 'data-rules' => 'required') );?> </li>

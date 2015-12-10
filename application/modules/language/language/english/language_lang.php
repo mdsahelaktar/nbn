@@ -29,7 +29,7 @@ $lang['contact_biz_seller'] = 'Contact Business Seller';
 $lang['name'] = 'Name';
 $lang['ph'] = 'Phone';
 $lang['msg'] = 'Message';
-$lang['like_buy'] = 'Yes, I would like to receive the BizQuest Buyer'.'s Newsletter';
+$lang['like_buy'] = 'Yes, I would like to receive the Need Biz Now Buyer'.'s Newsletter';
 $lang['learn_to'] = 'Learn to use your IRA/401K to buy a business: Guidant Financial (min. $50K needed in IRA/401K)';
 /*
 |--------------------------------------------------------------------------
@@ -47,7 +47,7 @@ $lang['view'] = 'View';
 $lang['contact_seller'] = 'Contact Seller';
 $lang['hit_count'] = 'This listing has been viewed';
 $lang['times'] = 'times';
-$lang['info'] = 'The information on this listing has been provided by either the seller or a business user_category representing the seller. BizQuest has no interest or stake in the sale of this business and has not verified any of the information and assumes no responsibility for its accuracy, veracity, or completeness.Please review our full Terms & Conditions here.';
+$lang['info'] = 'The information on this listing has been provided by either the seller or a business user_category representing the seller. Need Biz Now has no interest or stake in the sale of this business and has not verified any of the information and assumes no responsibility for its accuracy, veracity, or completeness.Please review our full Terms & Conditions here.';
 $lang['florida_auto'] = 'Search Florida Auto Dealers Sold or Off-Market Business';
 $lang['florida_auto_off'] = 'Florida Auto Dealers Off-Market Businesses';
 /*

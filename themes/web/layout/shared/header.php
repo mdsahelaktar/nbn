@@ -7,7 +7,7 @@ $current_user = isLoggedIn();
   <div class="cbp-af-inner">
     <div id="header-wrap">
       <div class="logo">
-        <h1><a href="<?php echo site_url() ?>" title="<?php echo _e('Need Biz Now') ?>"><?php echo _e('Need Biz Now') ?></a></h1>
+        <h1><a href="<?php echo site_url() ?>" title="<?php echo _e('site_title') ?>"><?php echo _e('site_title') ?></a></h1>
         <!-- This title will dynamic --> 
       </div>
       <!--big header right head start-->

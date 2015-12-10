@@ -1,261 +1,173 @@
 <script type="application/javascript">
-function searchFunction(param)
-{
+var val = ["sortbycreation_time=desc", "sortbycreation_time=asc", "sortbyasking_price=asc", "sortbyasking_price=desc","sortbycash_flow=asc", "sortbycash_flow=desc","sortbyprovince_id=asc", "sortbyprovince_id=desc","sortbycounty_id=asc", "sortbycounty_id=desc","sortbycity=asc", "sortbycity=desc"];
+
+function searchBiz(param){	
 	var method = new Array("POST", "<?php  echo site_url("biz_listing/ajax") ?>", "method=innersearch&" + param, "json", false);
 	ajaxAction(method, bizlistingAfterInner);
-	return false;			
+	return false;
+}
+
+function searchBizForm(elm){	
+	var param = $(elm).serialize();
+	unsetAnchorSorting();
+	unsetDropDownSorting();
+	return searchBiz(param);
+}
+
+function sortBiz(sortId)
+{	
+	var $form = $("#srpform");
+	var param = $form.serialize()+ '&' +val[sortId];
+	searchBiz(param);
+}
+
+function sortBizChange(elm){
+	unsetAnchorSorting();
+	var sortId = $(elm).val();
+	if( sortId != ""){
+		$('[sort-active="true"]').attr('sort-active', false);
+		$(elm).attr('sort-active', true);
+	}
+	sortBiz(sortId);
+	return false;
+}
+function sortBizToggle(elm)
+{
+	unsetDropDownSorting();
+	unsetAnchorSorting(elm);
+	var sortId = $(elm).data('sort-val');		
+	if( sortId != ""){
+		$('[sort-active="true"]').attr('sort-active', false);
+		$(elm).attr('sort-active', true);
+	}
+	var viceversa = $(elm).data('sort-viceversa-'+sortId);		
+	$(elm).data('sort-val', viceversa);
+	sortBiz(sortId);
+	return false;
+}
+
+function unsetAnchorSorting(current_elm){
+	$("#ident a").each(function(){
+		if(current_elm && current_elm.id == this.id)
+			return;
+			var default_sort = $(this).data('sort-default');
+			$(this).data('sort-val', default_sort);
+	});	
+}
+
+function unsetDropDownSorting(){
+	$("#sortbyopt").val('');	
 }
 
 function bizlistingAfterInner(data)
 {
-	if(data.event == "success")
-	{
-		 $("#stop").show();
-		 $("#showsearch").html(data.html);
-		 $("#remv").text(data.total);
-		 $("#change").text(data.string);
-		 $("#upperstring").text(data.bizforsale);
-	}
-	else
-	{
-		 $("#stop").hide();
-		 $("#remv").text(data.total);
-		 $("#showsearch").html(data.html);
-		 $("#change").text(data.string);
-		 $("#upperstring").text(data.bizforsale);
-	}
+	if(data.event == "success")	
+		$("#stop").show();
+	else	
+		$("#stop").hide();		 
+	$("#remv").text(data.total);
+	$("#showsearch").html(data.html);
+	$("#change").text(data.string);
+	$("#upperstring").text(data.bizforsale);
 }	
 
 $( document ).ready(function()
  {
-
-	 var param = '';
-	 <?php if($_POST["biz_domain_id"] != '') ?>
-	 			param += "biz_domain_id=<?php echo $_POST["biz_domain_id"]?>&";
-	 
-	 <?php if($_POST["biz_type_id"] != '' || $_GET["ai_biz_type_id"] != '')
-	 		 {?>
-		  <?php if($_POST["biz_type_id"] != '')
-				 {?>
-					param += "biz_type_id=<?php echo $_POST["biz_type_id"]?>&";
-				 <?php
-				 } 
-			    else 
-				 {?>	
-					param += "biz_type_id=<?php echo $_GET["ai_biz_type_id"]?>&";			
-			 		<?php 
-			 	 } 
-	 		}
-			?>
-			
-		 <?php if($_POST["province_id"] != '' || $_GET["province_id"] != '')
-	 		 {?>
-		  <?php if($_POST["province_id"] != '')
-				 {?>
-					param += "province_id=<?php echo $_POST["province_id"]?>&";
-				 <?php
-				 } 
-			    else 
-				 {?>	
-					param += "province_id=<?php echo $_GET["province_id"]?>&";			
-			 		<?php 
-			 	 } 
-	 		}
-			?>	
-
-	 <?php if($_COOKIE["country"] != '') 
-	 {?>
-	 			param += "country_id=<?php echo $_POST["country_id"]?>&";
-	 <?php
-	 }
-		 else
-	 { ?>			
-	 			param += "country_id=<?php echo $_COOKIE["country_ip"]?>&";	
-	 <?php
-	 }
-	 ?>
-				
-				
-				
-	 <?php if($_POST["cklsearch"] != '') ?>
-	 			param += "cklsearch=<?php echo $_POST["cklsearch"]?>&";
-							
-	 <?php if($_GET["city"] != '') ?>
-	 			param += "city=<?php echo $_GET["city"]?>&";
-	
-	<?php if($_GET["county_id"] != '') ?>
-	 			param += "county_id=<?php echo $_GET["county_id"]?>";							
+	var param = '';
+	<?php   if($_REQUEST["biz_domain_id"]){ ?>
+			param += "biz_domain_id=<?php echo $_REQUEST["biz_domain_id"]?>&";
+	<?php } if($_REQUEST["biz_type_id"] ){ ?>		  
+			param += "biz_type_id=<?php echo $_REQUEST["biz_type_id"]?>&";				 
+	<?php } if( $_REQUEST["province_id"] ){ ?>		  
+			param += "province_id=<?php echo $_REQUEST["province_id"]?>&";			
+	<?php } if($_REQUEST["cklsearch"] ){ ?>
+	 			param += "cklsearch=<?php echo $_REQUEST["cklsearch"]?>&";
+				$(".slidediv").slideToggle();
+	<?php } if($_REQUEST["city"] ){ ?>
+	 			param += "city=<?php echo $_REQUEST["city"]?>&";	
+	<?php } if($_REQUEST["county_id"] ) { ?>
+	 			param += "county_id=<?php echo $_REQUEST["county_id"]?>";
+				$("#county_id").attr("disabled", false);
+	<?php } if($_REQUEST["country_id"] ) { ?>
+	 			param += "country_id=<?php echo $_REQUEST["country_id"]?>";		
+				getProvinceByCountry('#country_selector #country_id');		
+	<?php } ?>
 								
-	searchFunction(param);
-	return false;		
-});
+	searchBiz(param);	
 
-function submitFunction()
-{
-	var $form = $("#srpform");
-	var param = $form.serialize();
-	searchFunction(param);
-	return false;
-}
-
-var val = ["sortbycreation_time=desc", "sortbycreation_time=asc", "sortbyasking_price=asc", "sortbyasking_price=desc","sortbycash_flow=asc", "sortbycash_flow=desc","sortbyprovince_id=asc", "sortbyprovince_id=desc","sortbycounty_id=asc", "sortbycounty_id=desc","sortbycity=asc", "sortbycity=desc"];
-
-$(document).on('click','#ident ul li:nth-child(1) a',function()
-{
-	var get_sort = $(this).attr("sort");
-	$("#cashf").attr("sort_cf","");
-	$("#loc").attr("sort_l","");
-    $("#sortbyopt").val("");
-    if (get_sort == ''|| get_sort == 3)
+	$('.showhide').click(function() {		
+		$(".slidediv").slideToggle();
+		return false;
+	});
+	
+	$("body").on('click','.pagination ul li a',function(ev)
 	{
-		sortResult(2);
-		$(this).attr("sort", "2");
-	}
-    else
-	{
-		sortResult(3);
-		$(this).attr("sort", "3");
-	}
-});
+		ev.preventDefault();
+		page = $(this).attr('href');
+		pageind = page.indexOf('page=');
+		pageno = page.substring((pageind+5));
 
-$(document).on('click','#ident ul li:nth-child(3) a',function()
-{
-	var get_sortcf = $(this).attr("sort_cf");
-	 $("#askp").attr("sort","");
-	 $("#loc").attr("sort_l","");
-	 $("#sortbyopt").val("");
-    if (get_sortcf == ''|| get_sortcf == 5)
-	{
-		sortResult(4);
-		$(this).attr("sort_cf", "4");
-	}
-    else
-	{
-		sortResult(5);
-		$(this).attr("sort_cf", "5");
-	}
-});
-
-$(document).on('click','#ident ul li:nth-child(5) a',function()
-{
-	var get_sortl = $(this).attr("sort_l");
-	 $("#askp").attr("sort","");
-	 $("#cashf").attr("sort_cf","");
-	 $("#sortbyopt").val("");
-    if (get_sortl == ''|| get_sortl == 11)
-	{
-		sortResult(10);
-		$(this).attr("sort_l", "10");
-	}
-    else
-	{
-		sortResult(11);
-		$(this).attr("sort_l", "11");
-	}
-});
-
-function sortResult(str)
-{
-	$("#askp").attr("sort","");
-	$("#loc").attr("sort_l","");
-	$("#cashf").attr("sort_cf","");
-
-	var $form = $("#srpform");
-	var param = $form.serialize()+ '&' +val[str];
-	searchFunction(param);
-}
-
-$("body").on('click','.pagination ul li a',function(ev)
-{
-	  ev.preventDefault();
-	  page = $(this).attr('href');
-	  pageind = page.indexOf('page=');
-	  pageno = page.substring((pageind+5));
-	  var sortchk = '';
-	  var valuesshort = $('select[name=sortbyopt]').val();
-	  if(valuesshort != '')
-	  	sortchk = val[valuesshort];
-	  
-	  var ask = document.getElementById("askp").getAttribute("sort");
-	  if(ask != '')
-	  	sortchk = val[ask];
-	  
-	  var cash = document.getElementById("cashf").getAttribute("sort_cf");
-	  if(cash != '')
-	 	 sortchk = val[cash];
-	  
-	  var loc = document.getElementById("loc").getAttribute("sort_l");
-	  if(loc != '')
-	  	sortchk = val[loc];
-	  
-	  var param = $('#srpform').serialize()+"&page=" +pageno+ '&' +sortchk;
-	  searchFunction(param);
- });
- 
-var $min= $("#asking_price_min");
-var $max = $("#asking_price_max");
-$min.add($max).change(function () 
-{
-    var minVal = parseInt($min.val(),10);
-    var maxVal = parseInt($max.val(),10)
-    var bothHaveValues = !isNaN(minVal) && !isNaN(maxVal);
-    if(bothHaveValues)
-	{
-		if(minVal > maxVal)
-		{
-			alert ('Minimum price cannot be greater than the maximum');
-			$('#asking_price_max').val(0);
+		var sortId, sort_active = $('[sort-active="true"]');
+		if( sort_active.is("select") )
+			sortId = sort_active.val();
+		else{
+			var current_sortId = sort_active.data('sort-val');			
+			sortId = sort_active.data('sort-viceversa-'+current_sortId);
 		}
-		else if(maxVal < minVal)
-		{
-			alert ('Minimum price cannot be greater than the maximum');
-			$('#asking_price_min').val(0);
-		}
-    }
-});
-
-var $mingr= $("#grl");
-var $maxgr = $("#grh");
-$mingr.add($maxgr).change(function () 
-{
-    var minVal = parseInt($mingr.val(),10);
-    var maxVal = parseInt($maxgr.val(),10)
-    var bothHaveValues = !isNaN(minVal) && !isNaN(maxVal);
-    if(bothHaveValues)
+		var sort_param = sortId ? '&' + val[sortId] : '';
+		var param = $('#srpform').serialize()+"&page=" +pageno+ '' +sort_param;
+		searchBiz(param);	
+	});
+	
+	var $min= $("#asking_price_min");
+	var $max = $("#asking_price_max");
+	$min.add($max).change(function () 
 	{
-		if(minVal > maxVal)
+		var minVal = parseInt($min.val(),10);
+		var maxVal = parseInt($max.val(),10)
+		var bothHaveValues = !isNaN(minVal) && !isNaN(maxVal);
+		if(bothHaveValues)
 		{
-			alert ('Minimum Gross Revenue cannot be greater than the maximum');
-			$('#grl').val('');
+			if(minVal > maxVal)
+			{
+				alert('<?php echo _e('min_asking_price_is_not_minimum')?>');
+				$('#asking_price_max').val(0);
+			}		
 		}
-		else if(maxVal < minVal)
-		{
-			alert ('Minimum Gross Revenue cannot be greater than the maximum');
-			$('#grh').val('');
-		}
-    }
-});
+	});
 
-var $mincf= $("#cfl");
-var $maxcf = $("#cfh");
-$mincf.add($maxcf).change(function () 
-{
-    var minVal = parseInt($mincf.val(),10);
-    var maxVal = parseInt($maxcf.val(),10)
-    var bothHaveValues = !isNaN(minVal) && !isNaN(maxVal);
-    if(bothHaveValues)
+	var $mingr= $("#grl");
+	var $maxgr = $("#grh");
+	$mingr.add($maxgr).change(function () 
 	{
-		if(minVal > maxVal)
+		var minVal = parseInt($mingr.val(),10);
+		var maxVal = parseInt($maxgr.val(),10)
+		var bothHaveValues = !isNaN(minVal) && !isNaN(maxVal);
+		if(bothHaveValues)
 		{
-			alert ('Minimum Cash Flow cannot be greater than the maximum');
-			$('#cfl').val('');
+			if(minVal > maxVal)
+			{
+				alert('<?php echo _e('min_gross_revenue_is_not_minimum')?>');
+				$('#grl').val('');
+			}		
 		}
-		else if(maxVal < minVal)
-		{
-			alert ('Minimum Cash Flow cannot be greater than the maximum');
-			$('#cfh').val('');
-		}
-    }
-});
+	});
 
+	var $mincf= $("#cfl");
+	var $maxcf = $("#cfh");
+	$mincf.add($maxcf).change(function () 
+	{
+		var minVal = parseInt($mincf.val(),10);
+		var maxVal = parseInt($maxcf.val(),10)
+		var bothHaveValues = !isNaN(minVal) && !isNaN(maxVal);
+		if(bothHaveValues)
+		{
+			if(minVal > maxVal)
+			{
+				alert('<?php echo _e('min_cash_flow_is_not_minimum')?>');
+				$('#cfl').val('');
+			}		
+		}
+	});
+});
 </script>

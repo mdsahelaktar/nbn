@@ -4,12 +4,12 @@
       <div class="width100 float-left margin-bottom20 margin-top140 padding-bottom25">
         <div class="width60 float-left">
         	
-             <div class="float-left margin-top30 margin-left5"><a href="#" target="_self"><img src="<?php echo $this->template->get_frontend_image()?>bizlisting/constr.gif" /></a>
+             <div class="float-left margin-top30 margin-left5"><a href="#" target="_self"><img src="<?php echo $this->template->get_frontend_image()?>bizlisting/constr.gif"  width="124%"/></a>
              </div>
         </div>
         <div class="width320 float-right">
-    <br /><br /><br /><br /><br /><br /><br /><br />
-    <div class="float-left margin-top30 margin-left5"><a href="javascript:history.back()" class="btn-type1 margin-right10 margin-top10 float-left"><span class="ion-android-system-back"></span>Please Go Back</a> </div>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <div class="float-left margin-top30 margin-left5"><a href="javascript:history.back()" class="btn-type1 margin-right10 margin-top10 float-left"><span class="ion-android-system-back"></span><strong>Please Go Back</strong></a> </div>
     
         </div>
       </div>

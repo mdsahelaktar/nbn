@@ -12,7 +12,7 @@ function afterValidCheck($this, errors, event)
 
 function bizlistingAfterAddsecond(data)
 {
-	showMsg('div[msg="biz_listing_third"]', data.event, data.msg, '', true);
+	showMsg('div[msg="biz_listing_third"]', data.event, data.msg, '', 125);
 }	
 $form.validate( afterValidCheck ); 
 

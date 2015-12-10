@@ -1,67 +1,73 @@
-    <div class="bg-banner width100 padding-top25 padding-bottom25 float-left">
-      <div class="midalign">
-        <div id="banner-wrap">
-         <?php echo form_open( 'biz_listing/search', array( 'name' => 'search_form', 'id' => 'search_form', 'method' => 'post') )?>
-            <h2 class="helvetica18 text-center white margin-bottom20">Mobile Search businesses for sale or new franchise opportunities.</h2>
-            <div class="customeselect blue">
-              <select class="blue">
-                <option selected="selected">Business For Sale</option>
-                <option>Short Option</option>
-                <option>This Is A Longer Option</option>
-              </select>
+<?php
+$var = $this->config->item('var');
+?>
+<div id="maindiv"> 
+  <!--banner start-->
+  <div id="banner" class="main">
+    <div class="wrapper">
+      <div id="banner-wrap">
+        <h3 class="white text-center bold"><?php echo _e('home_slider_caption'); ?></h3>
+        <div id="usual2">
+          <div class="mainmenu">
+            <ul>
+              <li> <a class="first selected" href="#tabs1"><?php echo _e('businesses_for_sale'); ?></a></li>
+              <li> <a href="#tabs2"><?php echo _e('franchise_opportunities'); ?></a></li>
+              <li> <a href="#tabs3"><?php echo _e('business_concepts_for_sale'); ?></a></li>
+              <li> <a class="last" href="#tabs4"><?php echo _e('find_a_broker'); ?></a></li>
+            </ul>
+          </div>
+          <div class="searchbar">
+            <div class="width100 float-left" id="tabs1">
+              <?php $this->template->frontend_view('home_page_search', '', '', 'biz_listing')?>
+              <?php echo $get_top_search; ?> </div>
+            <div class="width100 float-left" id="tabs2">
+              <form>
+                <?php echo _e('franchise_coming_soon'); ?>
+              </form>
             </div>
-            <div class="customeselect">
-                 <?php echo form_dropdown('biz_domain_id', $var['biz_domain_dd'], $this->input->get('biz_domain_id'), 'id="biz_domain_id" class="validate" data-display="'._e( 'Type of Business' ).'" onchange="getBizTypeByBizDomain(this)"'); ?>
-                  </div>
-            <div class="customeselect">
-              <?php echo form_dropdown('biz_type_id', $var['biz_types_dd'],'', 'id="biz_type_id" disabled="disabled" class="validate" data-display="'._e( 'Type of Business' ).'" data-rules="required"');?>
+            <div class="width100 float-left" id="tabs3">
+              <form>
+                <?php echo _e('biz_concept_coming_soon'); ?>
+              </form>
             </div>
-             <?php if(empty($chk_cookie))
-			  {
-			?>
-            <div class="customeselect">
-                <?php echo form_dropdown('province_id', $var['provinces_dd'], $province_id, 'id="province_id" data-display="'._e( 'Province' ).'" data-rules="required"'); ?>
+            <div class="width100 float-left" id="tabs4">
+              <?php $this->template->frontend_view('home_broker_search', '', '', 'broker')?>
             </div>
-             <?php
-			  }
-			  else
-			  {
-			   ?>
-               <div class="customeselect">
-               <?php echo form_dropdown('country_id', $var['country_dd'], $_COOKIE["country"], 'id="country_id_for_home" data-display="'._e( 'Location' ).'"'); ?>
-            </div>
-             <?php
-			  }
-			  ?>
-              </div>
-            <p class="float-left"><a href="#" target="_self" class="global white underline margin-top10 float-left font14">Advance Search</a></p>
-            <p class="float-right">
-              <?php //echo form_submit( array( 'name' => 'search', 'class' => 'submitquery' ), _e( 'Search' ) );?>
-              <input type="submit" value="" name="submit" class="submitquery">
-            </p>
-          <?php echo form_close()?>
+          </div>
         </div>
       </div>
     </div>
-    <div class="float-left width100">
-    	<div class="midalign margin-top10">
-        	<div class="float-left bg-grey padding-top10 padding-bottom10 width98 padding-left10 radius4">
-            	<p class="float-left font16 theme-blue">Find a Local Business Broker</p>
-                <form action="#" method="post" class="search float-left margin-top10 width100">
-                  <input id="search" name="seaech" placeholder="Enter Your Zip" type="text" class="zip" />
-                  <input class="search" name="submit" type="submit" value="" />
-        		</form>
-                <p class="float-left brdr-top padding-top10 width98 margin-top15"><a href="#" target="_self" class="global">Brokers, get listed today!</a></p>
-                </div>
+  </div>
+  <!--banner end--> 
+  
+  <!--body start-->
+  <div id="body">
+    <div class="wrapper"> 
+      <!--3 block section start-->
+      <div class="threesec">
+        <div class="box1">
+          <?php $this->template->frontend_view('home_broker_widget', '', '', 'broker')?>
         </div>
+        <div class="box2"> <img alt="Investers" src="<?php echo $this->template->get_frontend_image() ?>investers.jpg" /> <strong><?php echo _e('investors') ?></strong>
+          <ul>
+            <li> Average project R0I 9.8%</li>
+            <li> 500MWp investment</li>
+          </ul>
+        </div>
+        <div class="box2"> <img alt="<?php echo _e('have_an_urgent_problem')?>" src="<?php echo $this->template->get_frontend_image() ?>urgent-problame.jpg" /> <strong><?php echo _e('have_an_urgent_problem')?></strong>
+          <div class="find-lawyer"> <a href="#"><?php echo _e('find_a_lawyer')?></a></div>
+        </div>
+      </div>
+      <!--3 block section end-->
+      <div class="containor">
+        <div class="leftpanel"> <?php echo $get_popular_industry; ?> <?php echo $get_popular_province; ?> <?php echo $get_popular_city; ?> <?php echo $get_popular; ?> <?php echo $get_popular_restaurant; ?> </div>
+        <div class="rightpanel"> <?php echo $get_popular_side; ?> </div>
+      </div>
     </div>
-    <?php 
-	 $biz_type_js = $this->load->view("web/admin/biz_type/biz_type_js_function.php", '', true);
-	 $this->template->embed_asset_code('frontend', 'js', 'biz-type-js-function', $biz_type_js);
-	 
-	 $province_js_function = $this->load->view("web/admin/province/province_js_function.php", '', true);
-	 $this->template->embed_asset_code('frontend', 'js', 'province_js_function', $province_js_function);
-	 
-	 $county_js_function = $this->load->view("web/admin/county/county_js_function.php", '', true);
-	 $this->template->embed_asset_code('frontend', 'js', 'county_js_function', $county_js_function);
+  </div>
+  <!--body end--> 
+</div>
+<?php
+$this->template->add_remove_frontend_css(array('jquery-ui.css'), 'add');
+$this->template->add_remove_frontend_js(array('jquery-ui.js'), 'add');
 ?>

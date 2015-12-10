@@ -3,17 +3,50 @@
     <div class="wrapper">
       <div class="width100 float-left margin-bottom20 margin-top140 padding-bottom25">
         <div class="width60 float-left">
-        	<h2 class="helvetica float-left">Business Brokers Near <?php echo $postalcode; ?></h2>
+        <?php if($postalcode)
+				$print_name = $postalcode;
+			  elseif($p_name)
+				$print_name = $p_name;
+			  else
+				$print_name = '';
+		?>
+        	<h2 class="helvetica float-left">Business Brokers Near <?php echo $print_name; ?></h2>
        		
-              <p><b> No results found that match your search criteria. </b></p>
-            
-            <p class="float-left margin-top40"><strong>Disclaimer:</strong> BizQuest provides this Business Broker Directory as a service to you, but that we do not make any claims or representations about any of these business user_categorys. <a href="#" target="_self" class="global">Read the full Disclaimer.</a></p>
+            <?php if($null)
+			{
+				?>
+              <p><b> <?php echo $null ?>. </b></p>
+              <?php } else {?>
+        <div class="width100 float-left">
+        <table style="width:100%" >
+            <tr id="button_section" bgcolor="#CCCCCC">
+            <th>Broker Details</th>
+            <th>Location </th>
+            <th>Distance </th>
+            </tr>
+        <?php 
+        foreach($results as $list):   
+        ?>
+            <tr id="caption_section">
+            <td align="center"> <a href="<?php echo base_url()?>broker/brokerdetails?broker=<?php echo $list->ai_broker_id; ?>" class="global" target="_blank"><?php echo ucfirst($list->salutation).' '.ucfirst($list->first_name).' '.ucfirst($list->middle_name).' '. ucfirst($list->last_name)?>,  <?php echo ucfirst($list->service_area)?> </a></td>
+            <td align="center"> <?php echo $list->city; ?> </td>
+            <td align="center"> <?php echo distance($lat, $long, $list->latitude, $list->longitude, "K") ?> </td>
+            </tr>
+        <?php
+        endforeach; 
+        ?>  
+        </table> 
+        </div>
+        <?php } ?>
+
+            <p class="float-left margin-top40"><strong>Disclaimer:</strong> <?php echo _e('broker_disclaimer')?></p>
             
         </div>
         <div class="width320 float-right">
          	<p class="bg-blue padding-bottom10 padding-left10 padding-right10 padding-top10 font16 white">Business Brokers: Get Listed Now</p>
             <div class="bg-lightbrown padding-bottom10 padding-left10 padding-right10 padding-top10 float-left ">
             	<p><strong>Reach millions of prospective buyers and sellers.</strong> Post your business for sale listings. Broker memberships start at only $49.95 a month. </p>
+                <a href="<?php echo base_url()?>package?<?php echo implode( "&", setRegisterParam(4, 3) )?>" target="_self" class="global4 font14 float-left margin-top20 padding-bottom5 padding-top5 padding-left20 padding-right20 margin-left45 margin-bottom10">Become a Broker Member</a>
             </div>
         </div>
       </div>

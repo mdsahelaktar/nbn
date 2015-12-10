@@ -17,4 +17,7 @@ function bizlistingAfterAction(data)
 }
 
 $form.validate( afterValidCheck );
+$(document).ready(function(){
+	getProvinceByCountry(':input[province_country_section="manage"]');
+});
 </script>

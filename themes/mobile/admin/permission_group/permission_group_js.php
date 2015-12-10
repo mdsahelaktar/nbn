@@ -1,5 +1,4 @@
 <script type="application/javascript">
-
 var $form =  $( "#<?php echo isset($edit_id) ? 'permission_group_edit_form' : 'permission_group_add_form'?>" );
 function afterValidCheck($this, errors, event)
 {

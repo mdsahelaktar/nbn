@@ -42,7 +42,7 @@ $lang['contact_biz_seller'] = 'Contact Business Seller';
 $lang['name'] = 'Name';
 $lang['ph'] = 'Phone';
 $lang['msg'] = 'Message';
-$lang['like_buy'] = 'Yes, I would like to receive the BizQuest Buyer'.'s Newsletter';
+$lang['like_buy'] = 'Yes, I would like to receive the Need Biz Now Buyer'.'s Newsletter';
 $lang['learn_to'] = 'Learn to use your IRA/401K to buy a business: Guidant Financial (min. $50K needed in IRA/401K)';
 $lang['add_headline'] = 'add headline here';
 $lang['add_tagline'] = 'add tagline here';
@@ -104,7 +104,7 @@ $lang['view'] = 'View';
 $lang['contact_seller'] = 'Contact Seller';
 $lang['hit_count'] = 'This listing has been viewed';
 $lang['times'] = 'times';
-$lang['info'] = 'The information on this listing has been provided by either the seller or a business user_category representing the seller. BizQuest has no interest or stake in the sale of this business and has not verified any of the information and assumes no responsibility for its accuracy, veracity, or completeness.Please review our full Terms & Conditions here.';
+$lang['info'] = 'The information on this listing has been provided by either the seller or a business user_category representing the seller. Need Biz Now has no interest or stake in the sale of this business and has not verified any of the information and assumes no responsibility for its accuracy, veracity, or completeness.Please review our full Terms & Conditions here.';
 $lang['florida_auto'] = 'Search Florida Auto Dealers Sold or Off-Market Business';
 $lang['florida_auto_off'] = 'Florida Auto Dealers Off-Market Businesses';
 /*
@@ -180,4 +180,13 @@ $lang['search_by_headline'] = 'Search by headline';
 $lang['biz_image_not_available'] = 'Image for this Biz is not available';
 $lang['confirm_del_biz_listing'] = 'Do you really want to delete biz listing?';
 $lang['confirm_p_del_biz_listing'] = 'Do you really want to delete biz listing permanently?';
+
+$lang['blistdeletesuccessmsg'] = 'Biz listing deleted successfully';
+$lang['blistdeleteerrormsg'] = 'Error in biz listing delete!';
+$lang['blistrevertsuccessmsg'] = 'Biz listing restored successfully';
+$lang['blistreverterrormsg'] = 'Error in biz listing restore!';
+$lang['blistpermanent_deletesuccessmsg'] = 'Biz listing deleted permanently';
+$lang['blistpermanent_deleteerrormsg'] = 'Error in biz listing delete!';
+$lang['blistupdatesuccessmsg'] = 'Biz listing updated successfully';
+$lang['blistupdateerrormsg'] = 'No data changed during biz listing update!';
 ?>
