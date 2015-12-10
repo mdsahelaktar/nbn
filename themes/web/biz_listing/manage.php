@@ -91,15 +91,15 @@ if ($response["event"] != "error"):
 <?php ### Edit Section End ####  ?>
 <?php else: ?>
 <?php ### List Section Begin ###  ?>
-<div class="manage-biz-listing-search-cont"><?php echo form_open('', array('name' => 'biz_listing_search_form', 'id' => 'biz_listing_search_form', 'class' => 'width100 float-left margin-bottom30 margin-top10', 'method' => 'get')) ?>
+<div class="manage-biz-listing-search-cont"><?php echo form_open('', array('name' => 'biz_listing_search_form', 'id' => 'biz_listing_search_form', 'class' => 'width100 float-left margin-bottom30', 'method' => 'get')) ?>
   <table id="bizlist">
     <tr id="caption_section">
       <th class="headline"><a href="<?php echo sortBy($var['CFG'], 'sortbyheadline') ?>" class="<?php echo sortClass($var['CFG'], 'sortbyheadline') ?>"><?php echo _e('headline') ?></a></th>
-      <th><a href="<?php echo sortBy($var['CFG'], 'sortbytagline') ?>" class="<?php echo sortClass($var['CFG'], 'sortbytagline') ?>"><?php echo _e('tagline') ?></a></th>
-      <th><?php echo _e('image') ?></a></th>
-      <th><a href="<?php echo sortBy($var['CFG'], 'sortbytime') ?>"  class="<?php echo sortClass($var['CFG'], 'sortbytime') ?>"><?php echo _e('time_created') ?></a></th>
+      <th class="tagline"><a href="<?php echo sortBy($var['CFG'], 'sortbytagline') ?>" class="<?php echo sortClass($var['CFG'], 'sortbytagline') ?>"><?php echo _e('tagline') ?></a></th>
+      <th class="imagecont"><?php echo _e('image') ?></a></th>
+      <th class="time-created"><a href="<?php echo sortBy($var['CFG'], 'sortbytime') ?>"  class="<?php echo sortClass($var['CFG'], 'sortbytime') ?>"><?php echo _e('time_created') ?></a></th>
       <th class="approve"><?php echo _e('biz_approve_status') ?></th>
-      <th><a href="<?php echo sortBy($var['CFG'], 'sortbyactive') ?>"  class="<?php echo sortClass($var['CFG'], 'sortbyactive') ?>"><?php echo _e('status') ?></a></th>
+      <th class="status"><a href="<?php echo sortBy($var['CFG'], 'sortbyactive') ?>"  class="<?php echo sortClass($var['CFG'], 'sortbyactive') ?>"><?php echo _e('status') ?></a></th>
       <th class="actionth"><?php echo _e('action') ?></th>
     </tr>
     <tr id="blanktr">
@@ -112,7 +112,7 @@ if ($response["event"] != "error"):
       <td></td>
       <td></td>
       <td><?php echo form_dropdown('is_trashed', $var['filter_status_dd'], $this->input->get('is_trashed') != '' ? $this->input->get('is_trashed') : '' );?></td>
-      <td><?php echo anchor('biz_listing/manage', _e('reset'), array('title' => _e('reset'), 'class' => 'refresh btn-type1 margin-right10 margin-left10 float-left')) ?> <?php echo form_button(array('name' => 'search', 'id' => 'search', 'class' => 'filter', 'onclick' => 'return goFilter(this)'), _e('filter')); ?></td>
+      <td><div class="tooltip-cont"> <div class="tooltip">Reset</div> <a class="refresh-blue" title="Reset" href="<?php echo site_url('biz_listing/manage')?>">&nbsp;</a> </div> <div class="tooltip-cont"> <div class="tooltip">Filter</div> <?php echo form_button(array('name' => 'search', 'id' => 'search', 'class' => 'filter-blue', 'onclick' => 'return goFilter(this)'), _e('filter')); ?></div></td>
     </tr>
     <tr id="blanktr">
       <td colspan="7">&nbsp;</td>

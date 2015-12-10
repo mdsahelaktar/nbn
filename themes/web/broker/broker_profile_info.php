@@ -2,9 +2,9 @@
 <?php 
 ### If No Error Begin ###
 if($response["event"] != "error"):?>
-    <h2><?php echo _e( 'broker_pro_info' ); ?></h2>
+<div class="broker-add-from">    <h2 class="helvetica bg-seperator padding-bottom20 float-left"><?php echo _e( 'broker_pro_info' ); ?></h2>
     <div msg="brokermsg"></div>
-    <?php echo form_open( '', array( 'name' => 'brokerinfo_add_form', 'id' => 'brokerinfo_add_form', 'class' => 'width100 float-left margin-bottom30 margin-top10' ) )?>
+    <?php echo form_open( '', array( 'name' => 'brokerinfo_add_form', 'id' => 'brokerinfo_add_form', 'class' => 'width100 float-left margin-bottom30' ) )?>
     <fieldset class="clonefieldset">
       <span class="otherbutton"></span>
       <legend align="center" margin="auto"> <h2 class="helvetica">Basic Information</h2></legend>
@@ -23,7 +23,7 @@ if($response["event"] != "error"):?>
       <span class="otherbutton"></span>
       <legend align="center" margin="auto"> <h2 class="helvetica">Location Information</h2></legend>
       <div class="clear"></div>
-      <div class="fullwidthform">
+      <div class="formwrap">
       	<ul>
 		 	 <?php $select = $_COOKIE["country_ip"]; ?>
              <li> <?php echo form_label( '<dfn>'._e( 'Country' ).'</dfn>', 'country_id_broker_profile' )?> <?php echo form_dropdown('country_id', $var['country_dd'], $country_id, 'id="country_id_broker_profile" onchange="getProvinceByCountry(this)" data-province-sel="#province_id_broker_profile" data-child-input-parent="label[for=\'province_id_broker_profile\'], label[for=\'county_id_broker_profile\'], label[for=\'city_id_broker_profile\'], label[for=\'zipcode_broker_profile\']" data-child-input=":input#province_id_broker_profile, :input#county_id_broker_profile, :input#city_id_broker_profile, :input#zipcode_broker_profile" data-display="'._e( 'Country' ).'" data-rules="required"'); ?></li>
@@ -34,13 +34,13 @@ if($response["event"] != "error"):?>
           </ul>
       </div>
     </fieldset>
-    <fieldset class="clonefieldset">
+    <fieldset class="clonefieldset cerifiedimage">
       <span class="otherbutton"></span>
       <legend align="center" margin="auto"> <h2 class="helvetica">Certified Image</h2></legend>
         	<ul>
       <li><?php echo form_label( '<p>'._e( 'Images' ).'</p>', 'images' )?> <?php echo form_upload( array( 'name' => 'images[]', 'placeholder' => 'add images') );?>		</li>	</ul>
     </fieldset>
-    <?php echo form_hidden('user_id', $user_id); ?> <?php echo form_hidden('method', 'profileinfo'); ?> <?php echo form_submit( array( 'name' => 'brokerinfo_add_form', 'id' => 'brokerinfo_add_form', 'class' => 'margin-top10' ), _e( 'Add' ) );?> <?php echo form_close()?> 
+    <?php echo form_hidden('user_id', $user_id); ?> <?php echo form_hidden('method', 'profileinfo'); ?> <?php echo form_submit( array( 'name' => 'brokerinfo_add_form', 'id' => 'brokerinfo_add_form', 'class' => 'margin-top10' ), _e( 'Add' ) );?> <?php echo form_close()?> </div>
 <?php
 $broker_js = $this->template->frontend_view( 'broker_js', '', true, "broker");
 $this->template->embed_asset_code('frontend', 'js', 'broker-js', $broker_js);

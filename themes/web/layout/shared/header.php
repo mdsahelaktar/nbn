@@ -38,7 +38,8 @@ $current_user = isLoggedIn();
       <!--small header right head start-->
       <div class="slide-menu_outer">
         <div class="slide-menu">
-          <p><a href="#" target="_self"><?php echo _e('browse'); ?></a></p>
+         <?php /*?> <p><a href="#" target="_self"><?php echo _e('browse'); ?></a></p><?php */?>
+         <p><a href="#" target="_self"></a></p>
           <ul>
             <?php if ( $current_user ) : ?>
             <li> <?php echo anchor('user/edit_profile', _e('my_account'), array( 'title' => _e('my_account') )) ?> </li>

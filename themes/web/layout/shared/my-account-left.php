@@ -13,7 +13,7 @@
   <h3 class="profilehead">Need Assistance?</h3>
   <div class="float-left bg-grey width100">
     <p class="padding-left10 margin-top10">Email: <a href="mailto:service@neenbiznow.com">service@neenbiznow.com</a></p>
-    <p class="padding-left10 margin-top5">Monday	 - 	Friday</p>
+    <p class="padding-left10 margin-top5">Monday - Friday</p>
     <p class="padding-left10 margin-top5 padding-bottom10 brdr-bot-bold">9am to 5pm, PST</p>
   </div>
 </div>
