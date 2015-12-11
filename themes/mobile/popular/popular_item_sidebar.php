@@ -15,7 +15,7 @@
     foreach($item as $biz):  
 	 $pro = $biz->province.'('.$biz->abbre.')';
 	 ?>
-  <div class="business"> <img src="<?php echo $this->template->get_frontend_image(isset($biz->image_information)? showImage($biz->image_information, '1', '1','bizlisting/business4sale.png') : 'bizlisting/business4sale.png') ?>" >
+  <div class="business"> <img src="<?php echo $this->template->get_frontend_image(isset($biz->image_information)? showImage($biz->image_information, '1', 'bizlisting/business4sale.png') : 'bizlisting/business4sale.png') ?>" >
     <p> <a href="biz_listing/details?dtls=<?php echo $biz->ai_biz_listing_id;?>" class="global" target="_self"><?php echo $biz->headline; ?></a></p>
     <ul>
       <li> <a href="#" class="global" target="_self"><?php echo isset($biz->province)?$pro : _e('na'); ?></a></li>

@@ -163,7 +163,7 @@
      echo anchor( 'biz_listing/brokerlisting?uid='.$broker_cimage[0]->user_id.'',_e( 'View All of My Listings' ), array( 'class'=>"global",'title' => _e( 'View All of My Listings' ) ) );
 				}?>
         <h2 class="helvetica14 brdr-bot-dot light-black padding-bottom5"><?php echo _e( 'membership' ); ?></h2>
-        <img src="<?php echo $this->template->get_frontend_image(showImage($broker_cimage[0]->image_information, '1', '3', 'bizlisting/no.jpg'));?>" alt="certified image not available"  width="20%" height="20%"/>
+        <img src="<?php echo $this->template->get_frontend_image(showImage($broker_cimage[0]->image_information, '1', 'bizlisting/no.jpg'));?>" alt="certified image not available"  width="20%" height="20%"/>
         <h2 class="helvetica14 brdr-bot-dot light-black padding-bottom5"><?php echo _e( 'list_tool' ); ?></h2>
         <ul class="tools" id="frm">
           <li class="print"><a href="#" class="colr999"><?php echo _e( 'print' ); ?></a></li>
@@ -171,7 +171,7 @@
           <li class="save"><a href="#" class="colr999"><?php echo _e( 'save' ); ?></a></li>
         </ul>
       </div>
-      <img src="<?php echo $this->template->get_frontend_image(isset($results[0]->image_information)?showImage($results[0]->image_information, '1', '1','bizlisting/business4sale.png') : 'bizlisting/business4sale.png')?>" alt="<?php echo _e( 'no_image' ); ?>" class="float-right brokerpic" /> </div>
+      <img src="<?php echo $this->template->get_frontend_image(isset($results[0]->image_information)?showImage($results[0]->image_information, '1', 'bizlisting/business4sale.png') : 'bizlisting/business4sale.png')?>" alt="<?php echo _e( 'no_image' ); ?>" class="float-right brokerpic" /> </div>
   </div>
   <div class="width95 bg-brown padding-bottom10 padding-left20 padding-right20 padding-top10 float-left margin-top20 contactseller">
     <div msg="sent_respons"></div>

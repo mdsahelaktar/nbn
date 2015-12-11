@@ -134,7 +134,7 @@ if ($response["event"] != "error"):
     <tr id="oddeven">
       <td><label><?php echo form_checkbox('row_id[]', $value->ai_biz_listing_id); ?><?php echo $value->headline ?></label></td>
       <td align="center"><?php echo $value->tagline ?></td>
-      <td align="center"><img src="<?php echo $this->template->get_frontend_image(showImage($value->image_information, '1', '1', 'bizlisting/no.jpg'));?>" alt="<?php echo _e('biz_image_not_available') ?>"  width="30%" height="30%"/></td>
+      <td align="center"><img src="<?php echo $this->template->get_frontend_image(showImage($value->image_information, '1', 'bizlisting/no.jpg'));?>" alt="<?php echo _e('biz_image_not_available') ?>"  width="30%" height="30%"/></td>
       <td align="center"><?php echo $value->creation_time ?></td>
       <td align="center"><?php echo $value->active ? _e("approved") : _e("suspended") ?></td>
       <td align="center"><?php echo $value->is_trashed ? _e("inactive") : _e("active") ?></td>

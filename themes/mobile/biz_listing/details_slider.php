@@ -18,7 +18,7 @@ else
     foreach($data as $details): 
 ?>
 	 <li> 
-      <img alt="Business" src="<?php echo $this->template->get_frontend_image(isset($details->image_information)? showImage($details->image_information, '1', '1','bizlisting/business4sale.png') : 'bizlisting/business4sale.png') ?>" width="160px" height="100px"/>
+      <img alt="Business" src="<?php echo $this->template->get_frontend_image(isset($details->image_information)? showImage($details->image_information, '1', 'bizlisting/business4sale.png') : 'bizlisting/business4sale.png') ?>" width="160px" height="100px"/>
       <p class="theme-blue"><?php echo $details->headline ?></p>
       <p class="theme-blue margin-top15"><?php echo $details->province ?></p>
       <p><strong><?php echo _e( 'price' ); ?>:</strong> $<?php echo $details->asking_price ?></p>

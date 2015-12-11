@@ -36,6 +36,7 @@ $lang['unselect_all'] = 'Unselect All';
 $lang['go'] = 'Go';
 $lang['access_denied'] = 'Access Denied';
 $lang['na'] = 'N/A';
+$lang['update'] = 'Update';
 $lang['my_account'] = 'My Account';
 $lang['edit_profile'] = 'Edit Profile';
 $lang['change_password'] = 'Change Password';

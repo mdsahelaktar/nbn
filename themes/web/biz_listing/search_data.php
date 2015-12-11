@@ -8,7 +8,7 @@ foreach($data['records'] as $record):
 <div class="float-left width100 margin-top20 srp-details-cont">
   <div class="srp-details">
  <div class="srp-details-left">
- <img src="<?php echo $this->template->get_frontend_image(isset($record->image_information)? showImage($record->image_information, '1', '1','bizlisting/business4sale.png') : 'bizlisting/business4sale.png') ?>" alt="SRP dtaills" width="150px" height="100px">
+ <img src="<?php echo $this->template->get_frontend_image(isset($record->image_information)? showImage($record->image_information, '1', 'bizlisting/business4sale.png') : 'bizlisting/business4sale.png') ?>" alt="SRP dtaills" width="150px" height="100px">
  </div>
     <div class="srp-details-right"><h3><?php echo  $record->headline ?> </h3> <div class="biz-location"><span class="biz-city"><strong><?php echo _e('City') ?>:</strong> <?php echo  ucfirst($record->city) ?></span>&nbsp;&nbsp; <span class="biz-province"><strong><?php echo _e('Province')?>: </strong><?php echo  $record->province ?></span>&nbsp;&nbsp; <span class="biz-county"><strong><?php echo _e('County')?>: </strong><?php echo  $record->county ?></span>&nbsp;&nbsp; <span class="biz-country"><strong><?php echo _e('Country')?>: </strong><?php echo  $record->country ?></span>&nbsp;&nbsp; <span class="biz-revenue"><strong><?php echo _e('Gross Revenue')?>: </strong><?php echo  $record->gross_revenue ?></span></div>
       <div class="biz-description"><p><?php echo substr($record->description,0,75).'...' ?></p></div>

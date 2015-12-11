@@ -516,31 +516,30 @@ if (!function_exists('getCountryHelper')) {
  *
  * get image
  *
- * @param	image_data, con ; image_data = (image, is_trust, is_delete,is_main) , con = ( 1 = single image retrive 2 = multiple image retrive )  
+ * @param	image_data, con ; image_data = (image, is_trashed, is_delete,is_main) , con = ( 1 = single image retrive 2 = multiple image retrive )  
  * @return	image
  */
 if (!function_exists('showImage')) {
 
-    function showImage($img_data, $con, $type, $noimage) {
+    function showImage($img_data, $con, $noimage) {
         $ci = & get_instance();
+		$all_images = array();
         $image = explode('[@]', $img_data);
         foreach ($image as $data):
             $img = explode(',', $data);
-            if ($con == '1' && $img[1] == $type) {
-                if ($img[2] == 0 && $img[3] == 0 && $img[4] == 1)
-                    return $img[0];
-                else
-                    $imgdata = $noimage;
-            }
-            elseif ($con == '2' && $img[1] == $type) {
-                if ($img[2] == 0 && $img[3] == 0) // this section till now not use for multiple image
-                    $re_img[] = $img[0];
-                else
-                    $re_img[] = $noimage;
-                $imgdata = $re_img;
-            } else
-                $imgdata = $noimage;
+			if ( $img[2] == 0 && $img[3] == 0 )
+				$all_images[] = $img[0];            
+			if( $con == 2 )
+				break;	
         endforeach;
+		if( $con == 1 )
+			$imgdata = $all_images[0] ? $all_images[0] : $noimage;		
+		elseif( $con == 2 ){
+			if( is_array( $all_images ) )
+				$imgdata = $all_images;
+			else
+				$imgdata = array( $noimage );	
+		}			
         return $imgdata;
     }
 

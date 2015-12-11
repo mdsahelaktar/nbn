@@ -65,7 +65,7 @@ $config['biz_listing_configure']['groupby_select'] = array(
     'county.county',
     'country.country',
     'province.province',
-    "GROUP_CONCAT( image.image_url , ',',image.context_id , ',', image.is_trashed , ',', image.is_deleted , ',', image.is_main SEPARATOR '[@]' ) AS image_information"
+    "GROUP_CONCAT( image.image_url , ',',image.context_id , ',', image.is_trashed , ',', image.is_deleted , ',', image.is_main ORDER BY is_main, `order`, ai_image_id desc SEPARATOR '[@]' ) AS image_information"
 );
 
 /*

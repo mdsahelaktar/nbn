@@ -10,10 +10,10 @@
 <p class="margin-bottom5"><strong>Training/Support:</strong> <?php echo $results[0]->training_support ?> </p>
 <p class="margin-bottom5"><strong>Seller Financing:</strong><?php echo $results[0]->seller_fincng_info ?> </p>
 <h2 class="helvetica18 float-left margin-top20" ><?php echo _e( 'att_file' ); ?> <a href="#" class="global font13 fnt-ittalic"><?php echo _e( 'att_dis' ); ?></a></h2>
-<p class="float-left width100"> <img src="<?php echo $this->template->get_frontend_image()?>project.jpg" class="float-left" /><span class="float-left margin-left10 colr999 margin-top5 margin-right20"> needbiznow-seller.jpg</span> <a id="download_biz_listing_image" href="<?php echo base_url(); ?>biz_listing/download?file=<?php echo showImage($results[0]->image_information, 1,1,'bizlisting/business4sale.png')?>"  class="global font13 fnt-ittalic margin-top5 float-left margin-right20"><?php echo _e( 'download' ); ?></a>   
+<p class="float-left width100"> <img src="<?php echo $this->template->get_frontend_image()?>project.jpg" class="float-left" /><span class="float-left margin-left10 colr999 margin-top5 margin-right20"> needbiznow-seller.jpg</span> <a id="download_biz_listing_image" href="<?php echo base_url(); ?>biz_listing/download?file=<?php echo showImage($results[0]->image_information, 1, 'bizlisting/business4sale.png')?>"  class="global font13 fnt-ittalic margin-top5 float-left margin-right20"><?php echo _e( 'download' ); ?></a>   
 
 <?php 
-  $img = showImage($results[0]->image_information, 2, 1,'bizlisting/business4sale.png');
+  $img = showImage($results[0]->image_information, 2, 'bizlisting/business4sale.png');
   $i =0;
 foreach($img as $imgvalue)
 {

@@ -7,7 +7,7 @@
     <li class="<?php echo $current_slug == "change_password" ? 'active' : '' ;?>"><a href="<?php echo site_url("user/change_password") ?>"><?php echo _e('change_password')?></a></li>
     <li class="<?php echo $current_slug == "manage_biz_listing" ? 'active' : '' ;?>"><a href="<?php echo site_url("biz_listing/manage") ?>"><?php echo _e('manage_biz_listing')?></a></li>
     <?php if( $current_user["category_id"] == 4 ): //for broker?>
-    <li class="<?php echo $current_slug == "edit_broker_profile" ? 'active' : '' ;?>"><?php echo anchor('broker/profileinfo', _e('broker_profile')) ?></li>
+    <li class="<?php echo $current_slug == "edit_broker_profile" ? 'active' : '' ;?>"><?php echo anchor('broker/profileinfo', _e('edit_broker_profile')) ?></li>
     <?php endif;?>
   </ul>
   <h3 class="profilehead">Need Assistance?</h3>

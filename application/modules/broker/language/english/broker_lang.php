@@ -69,4 +69,8 @@ $lang['uuuuuuuu'] = 'uuuuuuuu';
 $lang['oooooooo'] = 'oooooooo';
 $lang['abhijikt'] = 'abhijikt';
 $lang['broker_pro_info'] = 'Broker Profile Info';
+$lang['certified_image_not_available'] = 'Broker certified image not available';
+$lang['broker_information_updated'] = 'Broker information updated';
+$lang['broker_information_no_update'] = 'No data changed during broker info update!';
+$lang['broker_information_updation_fail'] = 'Error in broker information update';
 ?>

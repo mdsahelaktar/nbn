@@ -59,12 +59,13 @@ if ($response["event"] != "error"):
     <li> <?php echo form_label('<dfn>' . _e('market_outlook_competition') . '</dfn>', 'mkt_outlook_cmp') ?> <?php echo form_textarea(array('name' => 'mkt_outlook_cmp', 'id' => 'mkt_outlook_cmp', 'value' => $results["records"][0]->mkt_outlook_cmp, 'placeholder' => _e('market_outlook_competition_plcholder'), 'rows' => 5)); ?></li>
     <li> <?php echo form_label('<dfn>' . _e('keywords') . '</dfn>', 'keywords') ?> <?php echo form_textarea(array('name' => 'keywords', 'id' => 'keywords', 'value' => $results["records"][0]->keywords, 'placeholder' => _e('keywords_plcholder'), 'rows' => 5)); ?></li>
     <li><?php echo form_label('<dfn>' . _e('image') . '</dfn>', 'images') ?>
+    	<img src="<?php echo $this->template->get_frontend_image( showImage( $results["records"][0]->image_information, '1', 'bizlisting/no.jpg' ) );?>" alt="<?php echo _e('biz_image_not_available') ?>"  width="30%" height="30%"/>
       <div id="imageUpload">
         <div class="imageplacer"><span class="otherbutton"></span><?php echo form_upload(array('name' => 'images[]', 'placeholder' => 'add images')); ?></div>
         <!--<a href="#" class="add_more_images" onclick="return addMoreElement('#imageUpload', '.otherbutton', '<div class=\'imageplacer\'>', '</div>', this)">Add more</a>                    --> 
       </div>
     </li>
-    <li> <?php echo form_hidden('method', 'edit'); ?> <?php echo form_submit(array('name' => 'biz_listing_update', 'id' => 'biz_listing_update', 'class' => 'margin-top10'), _e('Update')); ?></li>
+    <li> <?php echo form_hidden('status', '2'); ?> <?php echo form_hidden('method', 'edit'); ?> <?php echo form_submit(array('name' => 'biz_listing_update', 'id' => 'biz_listing_update', 'class' => 'margin-top10'), _e('Update')); ?></li>
     <?php echo form_close() ?>
   </ul>
 </div>
@@ -134,7 +135,7 @@ if ($response["event"] != "error"):
     <tr id="oddeven">
       <td><label><?php echo form_checkbox('row_id[]', $value->ai_biz_listing_id); ?><?php echo $value->headline ?></label></td>
       <td align="center"><?php echo $value->tagline ?></td>
-      <td align="center"><img src="<?php echo $this->template->get_frontend_image(showImage($value->image_information, '1', '1', 'bizlisting/no.jpg'));?>" alt="<?php echo _e('biz_image_not_available') ?>"  width="30%" height="30%"/></td>
+      <td align="center"><img src="<?php echo $this->template->get_frontend_image(showImage($value->image_information, '1', 'bizlisting/no.jpg'));?>" alt="<?php echo _e('biz_image_not_available') ?>"  width="30%" height="30%"/></td>
       <td align="center"><?php echo $value->creation_time ?></td>
       <td align="center"><?php echo $value->active ? _e("approved") : _e("suspended") ?></td>
       <td align="center"><?php echo $value->is_trashed ? _e("inactive") : _e("active") ?></td>

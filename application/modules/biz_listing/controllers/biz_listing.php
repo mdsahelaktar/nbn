@@ -592,7 +592,7 @@ class Biz_listing extends MX_Controller {
 		else{			
 			$this->load->module('user_map/user_map_admin');
 			$cat = $this->user_map_admin->chkUserBrokerOrNot($results[0]->user_id);
-			if ($cat == 32) {
+			if ($cat == 4) {
 				$this->load->module('user/user_admin');
 				$broker_name = $this->user_admin->getUsernameByid($results[0]->user_id);
 				$broker_fullname = $broker_name[0]->first_name . ' ' . $broker_name[0]->middle_name . ' ' . $broker_name[0]->last_name;

@@ -38,9 +38,10 @@ if($response["event"] != "error"):?>
       <span class="otherbutton"></span>
       <legend align="center" margin="auto"> <h2 class="helvetica">Certified Image</h2></legend>
         	<ul>
+            <li> <img src="<?php echo $this->template->get_frontend_image( showImage( $image_information, '1', 'bizlisting/no.jpg' ) );?>" alt="<?php echo _e('certified_image_not_available') ?>"  width="30%" height="30%"/> </li>
       <li><?php echo form_label( '<p>'._e( 'Images' ).'</p>', 'images' )?> <?php echo form_upload( array( 'name' => 'images[]', 'placeholder' => 'add images') );?>		</li>	</ul>
     </fieldset>
-    <?php echo form_hidden('user_id', $user_id); ?> <?php echo form_hidden('method', 'profileinfo'); ?> <?php echo form_submit( array( 'name' => 'brokerinfo_add_form', 'id' => 'brokerinfo_add_form', 'class' => 'margin-top10' ), _e( 'Add' ) );?> <?php echo form_close()?> </div>
+    <?php echo form_hidden('user_id', $user_id); ?> <?php echo form_hidden('method', 'profileinfo'); ?> <?php echo form_submit( array( 'name' => 'brokerinfo_add_form', 'id' => 'brokerinfo_add_form', 'class' => 'margin-top10' ), _e( 'update' ) );?> <?php echo form_close()?> </div>
 <?php
 $broker_js = $this->template->frontend_view( 'broker_js', '', true, "broker");
 $this->template->embed_asset_code('frontend', 'js', 'broker-js', $broker_js);

@@ -346,8 +346,7 @@ class Broker extends MX_Controller {
 						
 						if( !empty( $profile ) ){
 							$post_val["row_id"] = $profile[0]->ai_broker_id;
-							$this->brokermod->dbUpdate('update', '',$post_val);
-							$rows_updated = true;
+							$rows_updated = $this->brokermod->dbUpdate('update', '',$post_val);
 							$relation_id_for_image = $profile[0]->ai_broker_id;
 						}else{                        
                         	$insertedrows = $this->brokermod->insertInto($post_val);
@@ -359,15 +358,15 @@ class Broker extends MX_Controller {
 							$create_post = array("context_id" => "2", "relation_id" => $relation_id_for_image);
 							$this->load->module('image/image_admin');
 							$img_insert = $this->image_admin->multipleDataInsert($create_post, $image_value);
+							$rows_updated = true;
 						}
-
                         if ($insertedrows or $rows_updated)
-                            echo json_encode(array("event" => "success", "msg" => _e('broker information added')));
+                            echo json_encode(array("event" => "success", "msg" => _e('broker_information_updated')));
                         else
-                            echo json_encode(array("event" => "error", "msg" => _e('broker information add fail')));
+                            echo json_encode(array("event" => "error", "msg" => _e('broker_information_no_update')));
                     }
                     else {
-                        echo json_encode(array("event" => "error", "msg" => _e('broker information add fail')));
+                        echo json_encode(array("event" => "error", "msg" => _e('broker_information_updation_fail')));
                     }
                 }
                 break;
