@@ -5,7 +5,7 @@
 if ($response["event"] != "error"):
     ?>
 <?php if ($edit_id): ?>
-<?php echo anchor(getBackUrl('edit_id'), '<span class="ion-android-system-back"></span>' . _e('back'), array('title' => _e('back to List'), 'class' => 'btn-type1 margin-right10 margin-top10 float-left margin-bottom15')) ?>
+<?php echo anchor(getBackUrl('edit_id'), '<span class="ion-android-system-back"></span>' . _e('back'), array('title' => _e('back to List'), 'class' => 'btn-type1 margin-right10 margin-top10 float-left margin-bottom15 margin-left30')) ?>
 <?php
         ### If Valid Edit Id Begin ###
         if (isset($results["records"][0]->ai_biz_listing_id)):
@@ -112,7 +112,7 @@ if ($response["event"] != "error"):
       <td></td>
       <td></td>
       <td><?php echo form_dropdown('is_trashed', $var['filter_status_dd'], $this->input->get('is_trashed') != '' ? $this->input->get('is_trashed') : '' );?></td>
-      <td><div class="tooltip-cont"> <div class="tooltip">Reset</div> <a class="refresh-blue" title="Reset" href="<?php echo site_url('biz_listing/manage')?>">&nbsp;</a> </div> <div class="tooltip-cont"> <div class="tooltip">Filter</div> <?php echo form_button(array('name' => 'search', 'id' => 'search', 'class' => 'filter-blue', 'onclick' => 'return goFilter(this)'), _e('filter')); ?></div></td>
+      <td><div class="tooltip-cont margin-left30 float-left"> <div class="tooltip padding-right35">Reset</div> <a class="refresh-blue" title="" href="<?php echo site_url('biz_listing/manage')?>">&nbsp;</a> </div> <span class="line float-left"> &nbsp; | </span> <div class="tooltip-cont margin-left10 float-left"> <div class="tooltip padding-right30">Filter</div> <?php echo form_button(array('name' => 'search', 'id' => 'search', 'class' => 'filter-blue', 'onclick' => 'return goFilter(this)'), _e('filter')); ?></div></td>
     </tr>
     <tr id="blanktr">
       <td colspan="7">&nbsp;</td>

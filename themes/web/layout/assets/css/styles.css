@@ -71,8 +71,9 @@ h2.helvetica14 {width: 100%; font-size: 14px; font-weight: normal; margin: 14px 
 .error2 {min-width: 77%; padding: 10px 35px; background: url(../images/error2.png) no-repeat 10px 8px; background-color: #efe276; color: #7c4907; font-size: 13px; /*display: block;*/ display: inline-block; margin-top: 10px; margin-bottom: 10px;}
 .success {min-width: 77%; padding: 10px 35px; background: url(../images/correct.png) no-repeat 10px 8px; background-color: #b7ffb9; color: #0d7410; font-size: 13px; /*display: block;*/ display: inline-block; margin-top: 10px; margin-bottom: 10px;}
 .error_msg {float: left; color: #b40d0c; margin-top: 10px; margin-bottom: 10px;}
-#edit_profile_form .error_msg {position: absolute; top: 59px;}
+#edit_profile_form .error_msg {position: absolute; top: 50px;}
 #login_form .error_msg {font-size: 12px;}
+.loginform .success, .loginform .error {width: 89%; font-size: 12px; min-width: 0; text-align: left;}
 
 
 
@@ -272,6 +273,8 @@ input.checkbox {margin: 0px 5px 0 0;}
 .padding-right15 {padding-right: 15px;}
 .padding-right20 {padding-right: 20px;}
 .padding-right25 {padding-right: 25px;}
+.padding-right30 {padding-right: 30px !important;}
+.padding-right35 {padding-right: 35px !important;}
 
 .padding-right25small_percent {padding-right: 2.5%;}
 
@@ -486,7 +489,7 @@ ul.nested2 li ul li a:hover {color: #00305E;}
 .cbp-af-header.cbp-af-header-shrink .slide-menu p a:after {/*content: "▼";*/ font-size: 13px; padding: 0 0 0 10px; content: url(../images/menu-icon.png);}
 .cbp-af-header.cbp-af-header-shrink .slide-menu ul {display: none; transition : all 0.5s ease-in 0s;}
 .cbp-af-header.cbp-af-header-shrink .slide-menu:hover ul {display: block !important; transition : all 0.5s ease-in 0s;}
-.cbp-af-header.cbp-af-header-shrink .slide-menu ul {width: 180px; margin: -1px 0 0 0; background-color: #fff; float: left; box-shadow: 0 10px 10px 0 #666;}
+.cbp-af-header.cbp-af-header-shrink .slide-menu ul {width: 180px; margin: -1px 0 0 0; background-color: #fff; float: left; box-shadow: 0 2px 4px 0 #999;}
 .cbp-af-header.cbp-af-header-shrink .slide-menu ul li {width: 100%; float: left;}
 .cbp-af-header.cbp-af-header-shrink .slide-menu ul li a {width: 150px; padding: 8px 15px; color: #3e3f40; float: left; font-size: 13px;}
 .cbp-af-header.cbp-af-header-shrink .slide-menu ul li a:hover {color: #00305e;}
@@ -991,9 +994,9 @@ ul.profile-item li:last-child {border-bottom: 2px #00305e solid;}
 .fullwidthform ul li label {float: left; width: 90%;}
 .fullwidthform ul li input[type="text"], .fullwidthform ul li input[type="email"], .fullwidthform ul li input[type="password"], textarea {width: 96%;}
 
-.fullwidthform-new {width: 100%; float: left;}
+.fullwidthform-new {width: 710px; float: right;}
 .fullwidthform-new ul {width: 100%; float: left;}
-.fullwidthform-new ul li {width: /*31%*/ 30%; /*float: left;*/ display: inline-block; margin-right: 3%; /*min-height: 90px;*/ vertical-align: top; margin-bottom: 15px;}
+.fullwidthform-new ul li {width: /*31%*/ 29%; /*float: left;*/ display: inline-block; margin-right: 3%; /*min-height: 90px;*/ vertical-align: top; margin-bottom: 15px;}
 .fullwidthform-new ul li:nth-child(3n+0) {/*margin-right: 0;*/}
 .fullwidthform-new ul li label {float: left; width: 90%;}
 .fullwidthform-new ul li input[type="text"], .fullwidthform ul li input[type="email"], .fullwidthform ul li input[type="password"], textarea {width: 96%;}
@@ -1183,9 +1186,9 @@ tr#caption_section {
 table, table tbody {width: 100%; /*float: left;*/}
 th {line-height: 40px; background: #fdb03e; color: #fff; min-width: /*130px;*/ 160px;}
 table#bizlist th {/*min-width: 105px; width: 105px;*/ min-width: 60px; width: 60px;}
-table#bizlist td {padding: 0 10px;}
+/*table#bizlist td {padding: 0 10px;}*/
 .bizlist-add input[type="checkbox"] {float: left; margin: 12px 5px 0 0;}
-select[name="action"] {width: 65%;}
+select[name="action"] {width: 60%;}
 a[title="Select All"], a[title="Unselect All"] {border-radius: 4px;}
 
 .asc {
@@ -1197,10 +1200,10 @@ a[title="Select All"], a[title="Unselect All"] {border-radius: 4px;}
     /*padding: 0 40px;*/
 }
 .actionth {
-    min-width: 130px !important;
+    min-width: 100px !important;
 }
 .headline {
-    min-width: 70px !important;
+    min-width: 100px !important;
 }
 .refresh {background: url(../images/refresh.png) no-repeat 18% center; text-indent: 10px; transition: all 0.5s ease-in 0s;}
 .refresh:hover {background: #00305e url(../images/refresh-hover.png) no-repeat 18% center; transition: all 0.5s ease-in 0s;}
@@ -1227,11 +1230,11 @@ tr#oddeven:nth-of-type(2n) {
 tr#oddeven {
     border-collapse: collapse;
 }
-tr#oddeven:nth-of-type(2n+1) td, tr#oddeven:nth-of-type(2n) td {padding: 15px 10px;}
+tr#oddeven:nth-of-type(2n+1) td, tr#oddeven:nth-of-type(2n) td {padding: 5px 10px;}
 
 button {background-color: #00305e; color: #fff; padding: 7px 22px; border: none; cursor: pointer; transition : all 0.5s ease-in 0s; margin: 0 0px 0 0 0;}
 button:hover {color: #fcaf3d; transition : all 0.5s ease-in 0s;}
-button.go {padding: 7px 15px;}
+button.go {padding: 7px 5px;}
 table#list a.editrevert0, a.ion-edit, a.ion-settings {
     color: #00305e;
     float: none;
@@ -1242,6 +1245,19 @@ a.editrevert0, a.ion-edit, a.editrevert1 {
     color: #00305e;
     margin: 0 5px 0 0;
     transition: all 0.5s ease-in 0s;
+}
+.editrevert0::before {
+    content: "";
+}
+.editrevert0, .editrevert1 {
+    display: inline-block;
+    font-family: "Ionicons";
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    text-rendering: auto;
+    text-transform: none;
 }
 #biz_listing_edit_form p{line-height: 25px;}
 #biz_listing_edit_form input[type="checkbox"], input[type="radio"] {float: right;}
@@ -1262,8 +1278,9 @@ a.editrevert0, a.ion-edit, a.editrevert1 {
   cursor: help;
   position: relative;
   text-align: center;
-  float: left;
+  /*float: left;*/
   /*width: 200px;*/
+  /*display: inline-block;*/
   -webkit-transform: translateZ(0); /* webkit flicker fix */
   -webkit-font-smoothing: antialiased; /* webkit text rendering fix */
 }
@@ -1273,7 +1290,7 @@ a.editrevert0, a.ion-edit, a.editrevert1 {
   bottom: /*100%;*/ 180%;
   color: #fff;
   display: block;
-  left: -10px;
+  left: -25px;
   margin-bottom: 5px;
   opacity: 0;
   padding: 10px 20px;
@@ -1342,3 +1359,4 @@ a.editrevert0, a.ion-edit, a.editrevert1 {
   display: block;
 }
 /*------------------------------tooltip ends-----------------------------------*/
+.line.float-left {margin-top: -2px;}
