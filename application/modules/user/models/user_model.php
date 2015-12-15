@@ -81,9 +81,16 @@ class User_model extends MY_Model {
 		}
 		else{
 			$VAR['password'] = md5($VAR['password']);
-			$this->db->where(' ( ' . $this->_configure['table_name'] . '.' . $this->_configure['uname'] . ' = ' . $this->db->escape($VAR['user_name']) . ' OR ' . $this->_configure['table_name'] . '.' . $this->_configure['email'] . ' = ' . $this->db->escape($VAR['user_name']) . ' ) ', NULL, FALSE)
-                ->where($this->_configure['table_name'] . '.' . $this->_configure['permanent_delete'], 0)
+			
+			if( $VAR['login_by_email'] ) {
+				$this->db->where($this->_configure['table_name'] . '.' . $this->_configure['email'], $VAR['user_name'] )
+				->where($this->_configure['table_name'] . '.' . $this->_configure['permanent_delete'], 0)
                 ->where($this->_configure['table_name'] . '.' . $this->_configure['password'], $VAR['password']);
+			}else{
+				$this->db->where($this->_configure['table_name'] . '.' . $this->_configure['uname'], $VAR['user_name'] )
+				->where($this->_configure['table_name'] . '.' . $this->_configure['permanent_delete'], 0)
+                ->where($this->_configure['table_name'] . '.' . $this->_configure['password'], $VAR['password']);
+			}
 		}
         $query = $this->db->get();
         //echo $this->db->last_query();								

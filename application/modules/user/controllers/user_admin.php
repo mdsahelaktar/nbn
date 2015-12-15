@@ -377,7 +377,7 @@ class User_admin extends MX_Controller {
                 break;	
 			case 'change_password' :
 				$current_user = isLoggedIn();
-                if ( !$this->userm->getUserDetailsByLogin( array( "user_name" => $current_user["email"], "password" => $input) ) ) {
+                if ( !$this->userm->getUserDetailsByLogin( array( "login_by_email" => true, "user_name" => $current_user["email"], "password" => $input) ) ) {
                     $this->form_validation->set_message('check_unique', _e('please_enter_correct'));
                     return false;
                 }

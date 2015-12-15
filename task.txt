@@ -12,3 +12,5 @@ Asked by anil
 7. Login as broker once and go to the left menu. You will see a
 
 8. Go to the biz details page and click on contact seller without filling the form.
+9. Go to the manage listing edit, broker profile edit section. Place that image beautifuly.
+10. Frontend login page should look nice. Ask aamir to take guide if required.

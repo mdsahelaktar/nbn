@@ -65,6 +65,7 @@ class Login_admin extends MX_Controller
 	function logIn( $args ){
 		## Load user admin module ##
 		$this->load->module('user/user_admin');
+		$args["login_by_email"] = $this->form_validation->valid_email( $args["user_name"] );
 		$user_details = $this->user_admin->getUserDetailsByLogin( $args );
 		if( ! $user_details )
 			return array( "event" => "error", "msg" => _e('wrong_credential') );
