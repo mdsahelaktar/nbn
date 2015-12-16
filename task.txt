@@ -14,3 +14,6 @@ Asked by anil
 8. Go to the biz details page and click on contact seller without filling the form.
 9. Go to the manage listing edit, broker profile edit section. Place that image beautifuly.
 10. Frontend login page should look nice. Ask aamir to take guide if required.
+11. Write html for email template. How to test. In themes/web/layout you can find email-template.php. This page is for the html and design. 
+	In the application/modules/home/home.php you can find a text with "email->to". Change that email to your email. And open the url
+	needbiznow.com/home/test. You should get an email for every visit. Thats it.

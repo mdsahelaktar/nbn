@@ -280,7 +280,11 @@ class Biz_listing extends MX_Controller {
                     $this->email->to($to_email);
 					$this->email->bcc("sahel@webzstore.com");
                     $this->email->subject( _e('new_biz_listed') );
-                    $this->email->message("New biz listed in your website, please verify and take necessary actions.");
+					$data["content"] = "New biz listed in your website, please verify and take necessary actions.";
+					
+					$this->template->set_frontend_layout("email-template");					
+					$new_biz_listed_msg = $this->template->build_frontend_output($data, true);
+                    $this->email->message($new_biz_listed_msg);
                     $send_chk = $this->email->send();
                     ################## NeedBizNow send admin notification for new biz approval ##########################################
                     echo json_encode(array("event" => "success", "msg" => _e('biz_listing_final_step_completed')));
@@ -483,7 +487,11 @@ class Biz_listing extends MX_Controller {
                     $mail_data['drname'] = $name;
                     $mail_data['newsletter'] = $newsletter;
                     $mail_data['learnchk'] = $learnchk;
-                    $msg = $this->template->frontend_view("contact_seller_mail", $mail_data, true, "emailtemplate");
+                    $data["content"] = $this->template->frontend_view("contact_seller_mail", $mail_data, true, "emailtemplate");
+					
+					$this->template->set_frontend_layout("email-template");					
+					$msg = $this->template->build_frontend_output($data, true);
+					
                     $this->email->message($msg);
                     $send_chk = $this->email->send();
                     ################## NeedBizNow Contact Business Seller ##########################################

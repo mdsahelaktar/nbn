@@ -25,7 +25,8 @@ class Home extends MX_Controller
 		),
         	'libraries' => array(
                     'form_validation',
-                    'pagination'
+                    'pagination',
+					'email'
 		),
 		'helpers'   => array(
                     'form',
@@ -66,6 +67,21 @@ class Home extends MX_Controller
         $data["content"] = $this->template->frontend_view("home", $data, true, "home");	
         $this->template->build_frontend_output($data);
     }	
+	
+	function test(){
+		## User activation email send begin ##
+		$this->email->initialize(array("mailtype" => "html"));
+		$this->email->from('noreply@needbiznow.com', 'Needbiznow');
+		$this->email->to("sahel@webzstore.com"); 					
+		$this->email->subject('Activate your account');
+		$data["content"] = 'Hello email template test';
+		$this->template->set_frontend_layout("email-template");
+		$activation_msg = $this->template->build_frontend_output($data, true);
+		$this->email->message($activation_msg);	
+		$this->email->send();
+		## User activation email send end ##
+	}
+	
 }
 // END home Class
 

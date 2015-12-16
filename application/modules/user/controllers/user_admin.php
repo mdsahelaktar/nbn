@@ -186,7 +186,7 @@ class User_admin extends MX_Controller {
                 elseif( $response === -1 )
                     echo json_encode(array("event" => "error", "msg" => validation_errors()));
                 else
-                    echo json_encode(array("event" => "success", "msg" => _e('user_regisrer_notice')));               
+                    echo json_encode(array("event" => "success", "msg" => _e('user_register_notice')));               
                 break;
             case "edit" :
                 $this->form_validation->set_rules($this->config->item('update', 'user_validation'));
@@ -263,7 +263,11 @@ class User_admin extends MX_Controller {
 						$this->email->from('noreply@needbiznow.com', 'Needbiznow');
 						$this->email->to($results[0]->email); 					
 						$this->email->subject('Reset your password');
-						$activation_msg = 'Hello, Welcome to needbiznow, Please click the <a href="'.base_url().'user/reset_password?key='.$VAR['reset_key'].'">link</a> to reset your password';
+						$data["content"] = 'Hello, Welcome to needbiznow, Please click the <a href="'.base_url().'user/reset_password?key='.$VAR['reset_key'].'">link</a> to reset your password';
+						
+						$this->template->set_frontend_layout("email-template");
+						$activation_msg = $this->template->build_frontend_output($data, true);
+						
 						$this->email->message($activation_msg);	
 						$this->email->send();
 					}
@@ -316,6 +320,7 @@ class User_admin extends MX_Controller {
         else {
             $POSTDATA['password'] = md5( $POSTDATA['password'] );
 			$POSTDATA['disable'] = 1;
+			$POSTDATA['user_name'] = $this->generateUserName( $POSTDATA['email'] );
 			$POSTDATA['parent_id'] = $POSTDATA['parent_id'] ? $POSTDATA['parent_id'] : 1; //If user is registered by self then parent id is 1
 			$POSTDATA['activation_key'] = md5( time() );
             $insertedrows = $this->userm->insertInto($POSTDATA);
@@ -328,19 +333,31 @@ class User_admin extends MX_Controller {
                 if (!$this->user_map_admin->umap->ifExists($POSTDATA['user_role_id'], 'user_id', 'user_category_id', '', $POSTDATA)) {
                     $this->user_map_admin->umap->insertInto($POSTDATA);
 					
+					## User activation email send begin ##
 					$this->email->initialize(array("mailtype" => "html"));
 					$this->email->from('noreply@needbiznow.com', 'Needbiznow');
 					$this->email->to($POSTDATA['email']); 					
 					$this->email->subject('Activate your account');
-					$activation_msg = 'Hello, Welcome to needbiznow, Please click the <a href="'.base_url().'user/activation?key='.$POSTDATA['activation_key'].'">link</a> to activate your account';
+					$data["content"] = 'Hello, Welcome to needbiznow, Please click the <a href="'.base_url().'user/activation?key='.$POSTDATA['activation_key'].'">link</a> to activate your account';
+					$this->template->set_frontend_layout("email-template");
+					$activation_msg = $this->template->build_frontend_output($data, true);
 					$this->email->message($activation_msg);	
 					$this->email->send();
+					## User activation email send end ##
                 }
                 return $last_user_id;
             } else
                 return 0;
         }                
-    }    
+    }  
+	
+	function generateUserName( $email ){
+		$email_str = explode( "@", $email );
+		$user_name = $email_str[0];
+		if ( $this->userm->ifExists($user_name, "user_name") ) 
+			$user_name = $user_name.time();		
+		return $user_name;
+	}
     /**
      * check_unique
      *
