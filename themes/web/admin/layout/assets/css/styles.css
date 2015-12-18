@@ -492,7 +492,7 @@ a[title="Select All"], a[title="Unselect All"] {border-radius: 4px;}
 .current_them input {float:left; margin-top: 10px;}
 .current_them label {width: auto;}
 
-
+tr.not-approved {background: #fdd187; height: 30px;}
 
 
 

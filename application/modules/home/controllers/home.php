@@ -72,7 +72,7 @@ class Home extends MX_Controller
 		## User activation email send begin ##
 		$this->email->initialize(array("mailtype" => "html"));
 		$this->email->from('noreply@needbiznow.com', 'Needbiznow');
-		$this->email->to("sahel@webzstore.com"); 					
+		$this->email->to("ganga@webzstore.com"); 					
 		$this->email->subject('Activate your account');
 		$data["content"] = 'Hello email template test';
 		$this->template->set_frontend_layout("email-template");

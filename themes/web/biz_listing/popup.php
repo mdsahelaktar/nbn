@@ -184,10 +184,10 @@
     <p class="float-left margin-bottom10 width45" style="margin-top: -60px;">
       <label> <?php echo form_checkbox('newsletter', 1, '', 'id="newsletter"');?> <?php echo _e( 'like_buy' ); ?>.</label>
     </p>
-    <p class="float-left margin-bottom10 width45" >
+    <p class="float-left margin-bottom10 width45 margin-right30" >
       <label> <?php echo form_checkbox('learnchk', 1, '', 'id="learnchk"');?> <?php echo _e( 'learn_to' ); ?></label>
     </p>
-    <p class="width45 float-left margin-left35 margin-bottom10"> <?php echo form_submit( array( 'name' => 'details_frm', 'id' => 'details_frm', 'class' => 'margin-top10 float-right' ), _e( 'Contact Seller' ) );?> </p>
+    <p class="width50 float-left margin-bottom10"> <?php echo form_submit( array( 'name' => 'details_frm', 'id' => 'details_frm', 'class' => 'margin-top10 float-left' ), _e( 'Contact Seller' ) );?> </p>
     <?php echo form_close()?> </div>
 </div>
 <?php echo $foot ;?> <?php echo $body_end; ?> 

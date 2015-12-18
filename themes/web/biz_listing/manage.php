@@ -59,8 +59,8 @@ if ($response["event"] != "error"):
     <li> <?php echo form_label('<dfn>' . _e('market_outlook_competition') . '</dfn>', 'mkt_outlook_cmp') ?> <?php echo form_textarea(array('name' => 'mkt_outlook_cmp', 'id' => 'mkt_outlook_cmp', 'value' => $results["records"][0]->mkt_outlook_cmp, 'placeholder' => _e('market_outlook_competition_plcholder'), 'rows' => 5)); ?></li>
     <li> <?php echo form_label('<dfn>' . _e('keywords') . '</dfn>', 'keywords') ?> <?php echo form_textarea(array('name' => 'keywords', 'id' => 'keywords', 'value' => $results["records"][0]->keywords, 'placeholder' => _e('keywords_plcholder'), 'rows' => 5)); ?></li>
     <li><?php echo form_label('<dfn>' . _e('image') . '</dfn>', 'images') ?>
-    	<img src="<?php echo $this->template->get_frontend_image( showImage( $results["records"][0]->image_information, '1', 'bizlisting/no.jpg' ) );?>" alt="<?php echo _e('biz_image_not_available') ?>"  width="30%" height="30%"/>
-      <div id="imageUpload">
+    	<img src="<?php echo $this->template->get_frontend_image( showImage( $results["records"][0]->image_information, '1', 'bizlisting/no-small.png' ) );?>" alt="<?php echo _e('biz_image_not_available') ?>" class="bizimage"/>
+      <div id="imageUpload" class="imageUpload">
         <div class="imageplacer"><span class="otherbutton"></span><?php echo form_upload(array('name' => 'images[]', 'placeholder' => 'add images')); ?></div>
         <!--<a href="#" class="add_more_images" onclick="return addMoreElement('#imageUpload', '.otherbutton', '<div class=\'imageplacer\'>', '</div>', this)">Add more</a>                    --> 
       </div>
